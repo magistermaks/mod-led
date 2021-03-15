@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "led",
+  "version": "${version}",
+  "name": "Led",
+  "description": "LED - a semiconductor light source that emits light when current flows through it.",
+  "authors": [
+    "magistermaks"
+  ],
+  "contact": {
+    "website": "darktree.net"
+  },
+  "license": "MIT",
+  "icon": "assets/led/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "net.darktree.led.LED"
+    ]
+  },
+  "mixins": [
+    "led.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.11.3",
+    "fabric": "*",
+    "minecraft": "1.16.5"
+  }
+}
