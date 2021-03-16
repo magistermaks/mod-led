@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "id": "led",
   "version": "${version}",
-  "name": "Led",
-  "description": "LED - a semiconductor light source that emits light when current flows through it.",
+  "name": "LED",
+  "description": "A semiconductor light source that emits light when current flows through it.",
   "authors": [
     "magistermaks"
   ],
@@ -15,6 +15,12 @@
   "environment": "*",
   "entrypoints": {
     "main": [
+      "net.darktree.led.LED"
+    ],
+    "client": [
+      "net.darktree.led.LED"
+    ],
+    "server": [
       "net.darktree.led.LED"
     ]
   },

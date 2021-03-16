@@ -1,0 +1,7 @@
+{
+  "item.led.bulb": "Bulb",
+  "item.led.led": "LED",
+  "item.led.tube": "Fluorescent Tube",
+
+  "itemGroup.led.group": "Light Emitting Diode"
+}

@@ -4,6 +4,7 @@
   "package": "net.darktree.led.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+    "RecipeManagerMixin"
   ],
   "client": [
   ],
