@@ -1,6 +1,5 @@
 package net.darktree.led.util;
 
-import net.darktree.led.LED;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DyeColor;
@@ -41,7 +40,8 @@ public enum DiodeVariant {
         if( this == NORMAL ) {
             return (item, color) -> RecipeHelper.createShaped(
                     new ItemStack(item, 8), "AAA,ABA,AAA",
-                    RecipeHelper.getKeyBuilder().addItem('B', id("led")).addStainedGlass('A', color).get() );
+                    KeyBuilder.make().addItem('B', id("led")).addStainedGlass('A', color).get()
+            );
         }else{
             return (item, color) -> RecipeHelper.createShapeless(
                     new ItemStack(item),

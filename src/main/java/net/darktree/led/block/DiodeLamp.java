@@ -33,6 +33,15 @@ public class DiodeLamp extends Block {
     }
 
     @Override
+    public void onBlockAdded(BlockState state, World world, BlockPos pos, BlockState oldState, boolean notify) {
+        boolean power = world.isReceivingRedstonePower(pos);
+
+        if( power != state.get(LIT) ) {
+            world.setBlockState( pos, state.with(LIT, power) );
+        }
+    }
+
+    @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
         builder.add(LIT);
     }

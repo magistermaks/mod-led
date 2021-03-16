@@ -71,8 +71,4 @@ public class RecipeHelper {
         }
     }
 
-    public static KeyBuilder getKeyBuilder() {
-        return new KeyBuilder(new HashMap<>());
-    }
-
 }

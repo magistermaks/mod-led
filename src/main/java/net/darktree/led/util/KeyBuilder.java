@@ -10,8 +10,12 @@ public class KeyBuilder {
 
     private final HashMap<String, JsonObject> keys = new HashMap<>();
 
-    KeyBuilder(HashMap<String, JsonObject> keys) {
-        this.keys.putAll(keys);
+    public KeyBuilder() {
+
+    }
+
+    public static KeyBuilder make() {
+        return new KeyBuilder();
     }
 
     public KeyBuilder addStainedGlass(char key, DyeColor color) {
@@ -22,13 +26,6 @@ public class KeyBuilder {
     public KeyBuilder addItem(char key, String item) {
         JsonObject entry = new JsonObject();
         entry.addProperty("item", item);
-        keys.put(key + "", entry);
-        return this;
-    }
-
-    public KeyBuilder addTag(char key, String tag) {
-        JsonObject entry = new JsonObject();
-        entry.addProperty("tag", tag);
         keys.put(key + "", entry);
         return this;
     }
