@@ -26,8 +26,9 @@ shades = {
     "shaded_"
 }
 
-name = sys.argv[1]
+path = sys.argv[1]
+name = sys.argv[2]
 
 for shade in shades:
     for color in colors:
-        shutil.copy2("./input/" + name + ".json", "./output/" + shade + name + "_" + color + ".json")
+        shutil.copy2("./input/" + path + "/" + name + ".json", "./output/" + shade + name + "_" + color + ".json")

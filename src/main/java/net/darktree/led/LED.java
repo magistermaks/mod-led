@@ -1,6 +1,7 @@
 package net.darktree.led;
 
 import net.darktree.led.block.DiodeLamp;
+import net.darktree.led.block.SmallIndicatorBlock;
 import net.darktree.led.util.DiodeVariant;
 import net.darktree.led.util.RegistryHelper;
 import net.fabricmc.api.ClientModInitializer;
@@ -32,8 +33,15 @@ public class LED implements ModInitializer, ClientModInitializer, DedicatedServe
             // full block lamps
             RegistryHelper.registerForColors( variant.getName("clear_full"), () -> new DiodeLamp(
                     RegistryHelper.settings().emissiveLighting( DiodeLamp::emissive ),
-                    variant.getLightLevel(), VoxelShapes.fullCube(), variant == DiodeVariant.SHADED
+                    variant.getLightLevel(), variant == DiodeVariant.SHADED
             ), variant.getClearFullRecipe());
+
+            // small indicator lamp (small, flat, medium, large?)
+            RegistryHelper.registerForColors( variant.getName("small_fixture"), () -> new SmallIndicatorBlock(
+                    RegistryHelper.settings().emissiveLighting( DiodeLamp::emissive ),
+                    variant.getLightLevel(), variant == DiodeVariant.SHADED
+            ), variant.getClearSmallRecipe());
+
         }
     }
 

@@ -42,7 +42,6 @@ public class RegistryHelper {
     }
 
     public static void registerForColors(String name, Supplier<Block> supplier, DiodeVariant.RecipeDelegate recipe) {
-        char key = '!';
         for( DyeColor color : DyeColor.values() ) {
             Block block = supplier.get();
             Item item = new BlockItem(block, ITEM_SETTINGS);
@@ -62,11 +61,6 @@ public class RegistryHelper {
         }
     }
 
-    public static void registerPair( String name, Block block ) {
-        registerBlock( name, block );
-        registerItem( name, new BlockItem(block, ITEM_SETTINGS) );
-    }
-
     public static void registerItem( String name, Item item ) {
         Registry.register( Registry.ITEM, id(name), item );
     }
@@ -81,7 +75,7 @@ public class RegistryHelper {
         boolean jmx = true;
 
         if( !FabricLoader.getInstance().isModLoaded("json-model-extensions") ) {
-            LED.LOG.warn("[LED] Warning: JMX is missing, minor graphical issues WILL occur!");
+            LED.LOG.fatal("[LED] Warning: JMX is missing, minor graphical issues WILL occur!");
             jmx = false;
         }
 

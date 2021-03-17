@@ -1,13 +1,10 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "1"
-  ],
-  "key": {
-    "1": {
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
       "item": "minecraft:soul_sand"
     }
-  },
+  ],
   "result": {
     "item": "led:shade",
     "count": 4

@@ -38,14 +38,41 @@ public enum DiodeVariant {
 
     public RecipeDelegate getClearFullRecipe() {
         if( this == NORMAL ) {
-            return (item, color) -> RecipeHelper.createShapeless(
+            return (item, color) -> {
+                KeyBuilder keys = KeyBuilder.make()
+                        .addItem('A', id("led"))
+                        .addItem('B', "minecraft:" + color.getName() + "_stained_glass_pane");
+
+                RecipeHelper.createShaped(
                     new ItemStack(item),
-                    id("led"), "minecraft:" + color.getName() + "_stained_glass"
-            );
+                    "BBB,BAB,BBB", keys.get()
+                );
+            };
         }else{
             return (item, color) -> RecipeHelper.createShapeless(
                     new ItemStack(item),
                     id("shade"), id("clear_full_" + color.getName())
+            );
+        }
+    }
+
+    public RecipeDelegate getClearSmallRecipe() {
+        if( this == NORMAL ) {
+            return (item, color) -> {
+                KeyBuilder keys = KeyBuilder.make()
+                        .addItem('A', id("led"))
+                        .addItem('B', "minecraft:" + color.getName() + "_stained_glass_pane")
+                        .addItem('C', "minecraft:iron_nugget");
+
+                RecipeHelper.createShaped(
+                        new ItemStack(item),
+                        " B , A ,CCC", keys.get()
+                );
+            };
+        }else{
+            return (item, color) -> RecipeHelper.createShapeless(
+                    new ItemStack(item),
+                    id("shade"), id("small_fixture_" + color.getName())
             );
         }
     }
