@@ -32,7 +32,7 @@ public class LED implements ModInitializer, ClientModInitializer, DedicatedServe
             // full block lamps
             RegistryHelper.registerForColors( variant.getName("clear_full"), () -> new DiodeLamp(
                     RegistryHelper.settings().emissiveLighting( DiodeLamp::emissive ),
-                    variant.getLightLevel(), VoxelShapes.fullCube()
+                    variant.getLightLevel(), VoxelShapes.fullCube(), variant == DiodeVariant.SHADED
             ), variant.getClearFullRecipe());
         }
     }

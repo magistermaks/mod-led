@@ -38,9 +38,9 @@ public enum DiodeVariant {
 
     public RecipeDelegate getClearFullRecipe() {
         if( this == NORMAL ) {
-            return (item, color) -> RecipeHelper.createShaped(
-                    new ItemStack(item, 8), "AAA,ABA,AAA",
-                    KeyBuilder.make().addItem('B', id("led")).addStainedGlass('A', color).get()
+            return (item, color) -> RecipeHelper.createShapeless(
+                    new ItemStack(item),
+                    id("led"), "minecraft:" + color.getName() + "_stained_glass"
             );
         }else{
             return (item, color) -> RecipeHelper.createShapeless(
