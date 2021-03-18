@@ -29,8 +29,8 @@ public class LED implements ModInitializer, ClientModInitializer, DedicatedServe
         RegistryHelper.registerItem("tube", TUBE);
         RegistryHelper.registerItem("shade", SHADE);
 
-        VoxelShape[] diode_small_stance = Util.getRotatedVariantArray(4, 0, 4, 12, 1, 12);
-        VoxelShape[] diode_large_stance = Util.getRotatedVariantArray(3, 0, 3, 13, 1, 13);
+        VoxelShape[] smallDiodeStance = Util.getRotatedVariantArray(4, 0, 4, 12, 1, 12);
+        VoxelShape[] largeDiodeStance = Util.getRotatedVariantArray(3, 0, 3, 13, 1, 13);
 
         for( DiodeVariant variant : DiodeVariant.values() ) {
 
@@ -42,19 +42,19 @@ public class LED implements ModInitializer, ClientModInitializer, DedicatedServe
             // small indicator lamp
             RegistryHelper.registerForColors( variant.getName("small_fixture"), () -> new DirectionalDiodeLampBlock(
                     RegistryHelper.settings(), variant.getLightLevel(), variant.isShaded(),
-                    Util.combineVariantArray( Util.getRotatedVariantArray( 5, 0, 5, 11, 3, 11 ), diode_small_stance )
+                    Util.combineVariantArray( Util.getRotatedVariantArray( 5, 0, 5, 11, 3, 11 ), smallDiodeStance )
             ), variant.getClearSmallRecipe());
 
             // medium indicator lamp
             RegistryHelper.registerForColors( variant.getName("medium_fixture"), () -> new DirectionalDiodeLampBlock(
                     RegistryHelper.settings(), variant.getLightLevel(), variant.isShaded(),
-                    Util.combineVariantArray( Util.getRotatedVariantArray( 5, 0, 5, 11, 8, 11 ), diode_small_stance )
+                    Util.combineVariantArray( Util.getRotatedVariantArray( 5, 0, 5, 11, 8, 11 ), smallDiodeStance )
             ), variant.getClearMediumRecipe());
 
             // large indicator lamp
             RegistryHelper.registerForColors( variant.getName("large_fixture"), () -> new DirectionalDiodeLampBlock(
                     RegistryHelper.settings(), variant.getLightLevel(), variant.isShaded(),
-                    Util.combineVariantArray( Util.getRotatedVariantArray( 4, 0, 4, 12, 6, 12 ), diode_large_stance )
+                    Util.combineVariantArray( Util.getRotatedVariantArray( 4, 0, 4, 12, 6, 12 ), largeDiodeStance )
             ), variant.getClearLargeRecipe());
 
         }
