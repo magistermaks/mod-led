@@ -36,6 +36,10 @@ public enum DiodeVariant {
         return RegistryHelper.ID + ":" + name;
     }
 
+    public boolean isShaded() {
+        return this == SHADED;
+    }
+
     public RecipeDelegate getClearFullRecipe() {
         if( this == NORMAL ) {
             return (item, color) -> {

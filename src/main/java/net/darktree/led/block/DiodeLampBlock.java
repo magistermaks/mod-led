@@ -27,12 +27,12 @@ public class DiodeLampBlock extends Block implements LootHelper.DropsItself {
     public static final BooleanProperty LIT = BooleanProperty.of("lit");
     private final boolean shaded;
 
-    public static boolean emissive( BlockState state, BlockView world, BlockPos pos ) {
-        return state.get(LIT);
-    }
-
     public DiodeLampBlock(Settings settings, int light, boolean shaded ) {
-        super( settings.luminance( (state) -> state.get(LIT) ? light : 0 ) );
+        super( settings
+                .luminance( (state) -> state.get(LIT) ? light : 0 )
+                .emissiveLighting( (state, world, pos) -> state.get(LIT) )
+        );
+
         this.shaded = shaded;
         setDefaultState( getDefaultState().with(LIT, false) );
     }
