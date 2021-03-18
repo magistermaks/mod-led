@@ -3,17 +3,12 @@
 	"textures": {
 		"0": "led:block/fixture_on",
 		"1": "led:block/glow",
-		"particle": "#0"
+        "2": "led:block/base",
+		"particle": "led:block/particle"
 	},
     "jmx": {
         "materials": {
-            "glow": {
-                "layers": [
-                    { 
-                        "layer": "translucent" 
-                    }       
-                ]
-            }
+            "glow": { "layers": [ { "layer": "translucent" } ] }
         }
     },
 	"elements": [
@@ -21,12 +16,12 @@
 			"from": [4, 0, 4],
 			"to": [12, 1, 12],
 			"faces": {
-				"north": {"uv": [0, 15, 8, 16], "texture": "#0"},
-				"east": {"uv": [0, 12, 8, 13], "texture": "#0"},
-				"south": {"uv": [0, 14, 8, 15], "texture": "#0"},
-				"west": {"uv": [0, 13, 8, 14], "texture": "#0"},
-				"up": {"uv": [8, 8, 16, 16], "texture": "#0"},
-				"down": {"uv": [8, 8, 16, 16], "texture": "#0"}
+				"north": {"uv": [0, 15, 8, 16], "texture": "#2"},
+				"east": {"uv": [0, 12, 8, 13], "texture": "#2"},
+				"south": {"uv": [0, 14, 8, 15], "texture": "#2"},
+				"west": {"uv": [0, 13, 8, 14], "texture": "#2"},
+				"up": {"uv": [8, 8, 16, 16], "texture": "#2"},
+				"down": {"uv": [8, 8, 16, 16], "texture": "#2"}
 			}
 		},
 		{
@@ -34,12 +29,12 @@
 			"to": [11, 3, 11],
 			"rotation": {"angle": 0, "axis": "y", "origin": [13, 9, 13]},
 			"faces": {
-				"north": {"uv": [10, 0, 16, 2], "texture": "#0", "tintindex": 0},
-				"east": {"uv": [10, 6, 16, 8], "texture": "#0", "tintindex": 0},
-				"south": {"uv": [10, 2, 16, 4], "texture": "#0", "tintindex": 0},
-				"west": {"uv": [10, 4, 16, 6], "texture": "#0", "tintindex": 0},
-				"up": {"uv": [0, 0, 6, 6], "texture": "#0", "tintindex": 0},
-				"down": {"uv": [0, 0, 6, 6], "texture": "#0", "tintindex": 0}
+				"north": {"uv": [10, 14, 16, 16], "texture": "#0", "tintindex": 0},
+				"east": {"uv": [10, 14, 16, 16], "texture": "#0", "tintindex": 0},
+				"south": {"uv": [10, 14, 16, 16], "texture": "#0", "tintindex": 0},
+				"west": {"uv": [10, 14, 16, 16], "texture": "#0", "tintindex": 0},
+				"up": {"uv": [10, 8, 16, 14], "texture": "#0", "tintindex": 0},
+				"down": {"uv": [10, 8, 16, 14], "texture": "#0", "tintindex": 0}
 			}
 		},
 		{

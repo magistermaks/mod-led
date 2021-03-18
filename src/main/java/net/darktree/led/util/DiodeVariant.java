@@ -77,4 +77,46 @@ public enum DiodeVariant {
         }
     }
 
+    public RecipeDelegate getClearMediumRecipe() {
+        if( this == NORMAL ) {
+            return (item, color) -> {
+                KeyBuilder keys = KeyBuilder.make()
+                        .addItem('A', id("led"))
+                        .addItem('B', "minecraft:" + color.getName() + "_stained_glass_pane")
+                        .addItem('C', "minecraft:iron_nugget");
+
+                RecipeHelper.createShaped(
+                        new ItemStack(item),
+                        " B ,BAB,CCC", keys.get()
+                );
+            };
+        }else{
+            return (item, color) -> RecipeHelper.createShapeless(
+                    new ItemStack(item),
+                    id("shade"), id("medium_fixture_" + color.getName())
+            );
+        }
+    }
+
+    public RecipeDelegate getClearLargeRecipe() {
+        if( this == NORMAL ) {
+            return (item, color) -> {
+                KeyBuilder keys = KeyBuilder.make()
+                        .addItem('A', id("led"))
+                        .addItem('B', "minecraft:" + color.getName() + "_stained_glass_pane")
+                        .addItem('C', "minecraft:iron_nugget");
+
+                RecipeHelper.createShaped(
+                        new ItemStack(item),
+                        "BBB,BAB,CCC", keys.get()
+                );
+            };
+        }else{
+            return (item, color) -> RecipeHelper.createShapeless(
+                    new ItemStack(item),
+                    id("shade"), id("large_fixture_" + color.getName())
+            );
+        }
+    }
+
 }

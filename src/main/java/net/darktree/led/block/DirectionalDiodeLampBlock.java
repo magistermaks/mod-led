@@ -12,14 +12,13 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
-import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 
-public class DirectionalDiodeLamp extends DiodeLamp {
+public class DirectionalDiodeLampBlock extends DiodeLampBlock {
 
     protected static final DirectionProperty FACING = Properties.FACING;
 
-    public DirectionalDiodeLamp(Settings settings, int light, boolean shaded) {
+    public DirectionalDiodeLampBlock(Settings settings, int light, boolean shaded) {
         super(settings, light, shaded);
         setDefaultState( getDefaultState().with(FACING, Direction.NORTH) );
     }

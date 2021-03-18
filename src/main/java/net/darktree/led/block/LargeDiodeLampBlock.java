@@ -7,18 +7,18 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 
-public class SmallIndicatorBlock extends DirectionalDiodeLamp {
+public class LargeDiodeLampBlock extends DirectionalDiodeLampBlock {
 
     private static final VoxelShape[] SHAPES = {
-            Util.box(4, 0, 4, 12, 1, 12),
-            Util.box(4, 16, 4, 12, 15, 12),
-            Util.box(4, 4, 0, 12, 12, 1),
-            Util.box(4, 4, 16, 12, 12, 15),
-            Util.box(0, 4, 4, 1, 12, 12),
-            Util.box(16, 4, 4, 15, 12, 12)
+            Util.box(3, 0, 3, 13, 1, 13),
+            Util.box(3, 16, 3, 13, 15, 13),
+            Util.box(3, 3, 0, 13, 13, 1),
+            Util.box(3, 3, 16, 13, 13, 15),
+            Util.box(0, 3, 3, 1, 13, 13),
+            Util.box(16, 3, 3, 15, 13, 13)
     };
 
-    public SmallIndicatorBlock(Settings settings, int light, boolean shaded) {
+    public LargeDiodeLampBlock(Settings settings, int light, boolean shaded) {
         super(settings, light, shaded);
     }
 

@@ -25,7 +25,7 @@ import net.minecraft.world.WorldAccess;
 import java.util.List;
 import java.util.Random;
 
-public class DiodeLamp extends Block implements LootHelper.DropsItself {
+public class DiodeLampBlock extends Block implements LootHelper.DropsItself {
 
     public static final BooleanProperty LIT = BooleanProperty.of("lit");
     private final boolean shaded;
@@ -34,7 +34,7 @@ public class DiodeLamp extends Block implements LootHelper.DropsItself {
         return state.get(LIT);
     }
 
-    public DiodeLamp( Settings settings, int light, boolean shaded ) {
+    public DiodeLampBlock(Settings settings, int light, boolean shaded ) {
         super( settings.luminance( (state) -> state.get(LIT) ? light : 0 ) );
         this.shaded = shaded;
         setDefaultState( getDefaultState().with(LIT, false) );
