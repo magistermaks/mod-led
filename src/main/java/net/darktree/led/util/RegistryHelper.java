@@ -1,6 +1,5 @@
 package net.darktree.led.util;
 
-import com.google.gson.JsonObject;
 import net.darktree.led.LED;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;

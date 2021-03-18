@@ -17,9 +17,11 @@ import net.minecraft.world.WorldAccess;
 public class DirectionalDiodeLampBlock extends DiodeLampBlock {
 
     protected static final DirectionProperty FACING = Properties.FACING;
+    private final VoxelShape[] shapes;
 
-    public DirectionalDiodeLampBlock(Settings settings, int light, boolean shaded) {
+    public DirectionalDiodeLampBlock(Settings settings, int light, boolean shaded, VoxelShape[] shapes) {
         super(settings, light, shaded);
+        this.shapes = shapes;
         setDefaultState( getDefaultState().with(FACING, Direction.NORTH) );
     }
 
@@ -54,14 +56,8 @@ public class DirectionalDiodeLampBlock extends DiodeLampBlock {
 
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        return super.getOutlineShape(state, world, pos, context);
+        return shapes[ state.get(FACING).getId() ];
     }
-
-//    @Override
-//    protected boolean hasPower(BlockState state, World world, BlockPos pos) {
-//        Direction direction = state.get(FACING);
-//        return world.getEmittedRedstonePower(pos.offset(direction), direction) > 0;
-//    }
 
     private boolean isDirectionValid( Direction direction, WorldAccess world, BlockPos pos ) {
         return world.getBlockState(pos.offset(direction)).isSideSolidFullSquare( world, pos, direction.getOpposite() );

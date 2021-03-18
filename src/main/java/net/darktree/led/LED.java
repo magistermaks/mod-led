@@ -1,10 +1,10 @@
 package net.darktree.led;
 
 import net.darktree.led.block.DiodeLampBlock;
-import net.darktree.led.block.LargeDiodeLampBlock;
-import net.darktree.led.block.SmallDiodeLampBlock;
+import net.darktree.led.block.DirectionalDiodeLampBlock;
 import net.darktree.led.util.DiodeVariant;
 import net.darktree.led.util.RegistryHelper;
+import net.darktree.led.util.Util;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.DedicatedServerModInitializer;
 import net.fabricmc.api.ModInitializer;
@@ -37,21 +37,24 @@ public class LED implements ModInitializer, ClientModInitializer, DedicatedServe
             ), variant.getClearFullRecipe());
 
             // small indicator lamp
-            RegistryHelper.registerForColors( variant.getName("small_fixture"), () -> new SmallDiodeLampBlock(
+            RegistryHelper.registerForColors( variant.getName("small_fixture"), () -> new DirectionalDiodeLampBlock(
                     RegistryHelper.settings().emissiveLighting( DiodeLampBlock::emissive ),
-                    variant.getLightLevel(), variant == DiodeVariant.SHADED
+                    variant.getLightLevel(), variant == DiodeVariant.SHADED,
+                    Util.getRotatedVariantArray( 4, 0, 4, 12, 1, 12 )
             ), variant.getClearSmallRecipe());
 
             // medium indicator lamp
-            RegistryHelper.registerForColors( variant.getName("medium_fixture"), () -> new SmallDiodeLampBlock(
+            RegistryHelper.registerForColors( variant.getName("medium_fixture"), () -> new DirectionalDiodeLampBlock(
                     RegistryHelper.settings().emissiveLighting( DiodeLampBlock::emissive ),
-                    variant.getLightLevel(), variant == DiodeVariant.SHADED
+                    variant.getLightLevel(), variant == DiodeVariant.SHADED,
+                    Util.getRotatedVariantArray( 4, 0, 4, 12, 1, 12 )
             ), variant.getClearMediumRecipe());
 
             // large indicator lamp
-            RegistryHelper.registerForColors( variant.getName("large_fixture"), () -> new LargeDiodeLampBlock(
+            RegistryHelper.registerForColors( variant.getName("large_fixture"), () -> new DirectionalDiodeLampBlock(
                     RegistryHelper.settings().emissiveLighting( DiodeLampBlock::emissive ),
-                    variant.getLightLevel(), variant == DiodeVariant.SHADED
+                    variant.getLightLevel(), variant == DiodeVariant.SHADED,
+                    Util.getRotatedVariantArray( 3, 0, 3, 13, 1, 13 )
             ), variant.getClearLargeRecipe());
 
         }
