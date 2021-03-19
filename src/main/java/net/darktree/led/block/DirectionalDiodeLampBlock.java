@@ -1,5 +1,6 @@
 package net.darktree.led.block;
 
+import net.darktree.led.util.DiodeVariant;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -19,8 +20,8 @@ public class DirectionalDiodeLampBlock extends DiodeLampBlock {
     protected static final DirectionProperty FACING = Properties.FACING;
     private final VoxelShape[] shapes;
 
-    public DirectionalDiodeLampBlock(Settings settings, int light, boolean shaded, VoxelShape[] shapes) {
-        super(settings, light, shaded);
+    public DirectionalDiodeLampBlock(DiodeVariant variant, VoxelShape[] shapes) {
+        super(variant);
         this.shapes = shapes;
         setDefaultState( getDefaultState().with(FACING, Direction.NORTH) );
     }

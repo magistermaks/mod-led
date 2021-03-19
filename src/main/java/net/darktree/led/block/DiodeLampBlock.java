@@ -1,5 +1,6 @@
 package net.darktree.led.block;
 
+import net.darktree.led.util.DiodeVariant;
 import net.darktree.led.util.LootHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -25,22 +26,33 @@ import java.util.Random;
 public class DiodeLampBlock extends Block implements LootHelper.DropsItself {
 
     public static final BooleanProperty LIT = BooleanProperty.of("lit");
-    private final boolean shaded;
+    private final DiodeVariant variant;
 
-    public DiodeLampBlock(Settings settings, int light, boolean shaded ) {
-        super( settings
-                .luminance( (state) -> state.get(LIT) ? light : 0 )
+    public DiodeLampBlock(DiodeVariant variant) {
+        super( variant.settings()
+                .luminance( (state) -> state.get(LIT) ? variant.getLightLevel() : 0 )
                 .emissiveLighting( (state, world, pos) -> state.get(LIT) )
         );
 
-        this.shaded = shaded;
+        this.variant = variant;
         setDefaultState( getDefaultState().with(LIT, false) );
     }
 
     @Override
     public void appendTooltip(ItemStack stack, BlockView world, List<Text> tooltip, TooltipContext options) {
-        if( shaded ) {
+        boolean shaded = variant.isShaded();
+        boolean reinforced = variant.isReinforced();
+
+        if( shaded && !reinforced ) {
             tooltip.add(new TranslatableText("tooltip.led.shaded").formatted(Formatting.GRAY));
+        }
+
+        if( !shaded && reinforced ) {
+            tooltip.add(new TranslatableText("tooltip.led.reinforced").formatted(Formatting.GRAY));
+        }
+
+        if( shaded && reinforced ) {
+            tooltip.add(new TranslatableText("tooltip.led.shaded_and_reinforced").formatted(Formatting.GRAY));
         }
     }
 

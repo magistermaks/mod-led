@@ -4,17 +4,11 @@
 	"textures": {
 		"0": "led:block/clear_full_on",
 		"1": "led:block/glow",
-		"particle": "#0"
+		"particle": "led:block/particle"
 	},
     "jmx": {
         "materials": {
-            "glow": {
-                "layers": [
-                    { 
-                        "layer": "translucent" 
-                    }       
-                ]
-            }
+            "glow": { "layers": [ { "layer": "translucent" } ] }
         }
     },
 	"elements": [

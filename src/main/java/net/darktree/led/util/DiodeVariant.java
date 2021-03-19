@@ -1,12 +1,15 @@
 package net.darktree.led.util;
 
+import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DyeColor;
 
 public enum DiodeVariant {
     NORMAL("", 15),
-    SHADED("shaded_", 3);
+    NORMAL_REINFORCED("reinforced_", 14),
+    SHADED("shaded_", 3),
+    SHADED_REINFORCED("shaded_reinforced_", 3);
 
     public interface RecipeDelegate {
         void register( Item item, DyeColor color );
@@ -20,47 +23,31 @@ public enum DiodeVariant {
         this.light = light;
     }
 
-    protected String getPrefix() {
-        return prefix;
+    public FabricBlockSettings settings() {
+        return RegistryHelper.settings().strength( isReinforced() ? 0.8f : 0.4f );
     }
 
     public int getLightLevel() {
         return light;
     }
 
+    public boolean isShaded() {
+        return this == SHADED || this == SHADED_REINFORCED;
+    }
+
+    public boolean isReinforced() {
+        return this == NORMAL_REINFORCED || this == SHADED_REINFORCED;
+    }
+
     public String getName( String name ) {
-        return getPrefix() + name;
+        return prefix + name;
     }
 
     private static String id( String name ) {
         return RegistryHelper.ID + ":" + name;
     }
 
-    public boolean isShaded() {
-        return this == SHADED;
-    }
-
-    public RecipeDelegate getClearFullRecipe() {
-        if( this == NORMAL ) {
-            return (item, color) -> {
-                KeyBuilder keys = KeyBuilder.make()
-                        .addItem('A', id("led"))
-                        .addItem('B', "minecraft:" + color.getName() + "_stained_glass_pane");
-
-                RecipeHelper.createShaped(
-                    new ItemStack(item),
-                    "BBB,BAB,BBB", keys.get()
-                );
-            };
-        }else{
-            return (item, color) -> RecipeHelper.createShapeless(
-                    new ItemStack(item),
-                    id("shade"), id("clear_full_" + color.getName())
-            );
-        }
-    }
-
-    public RecipeDelegate getClearSmallRecipe() {
+    public RecipeDelegate getRecipe( String pattern, String name ) {
         if( this == NORMAL ) {
             return (item, color) -> {
                 KeyBuilder keys = KeyBuilder.make()
@@ -68,59 +55,33 @@ public enum DiodeVariant {
                         .addItem('B', "minecraft:" + color.getName() + "_stained_glass_pane")
                         .addItem('C', "minecraft:iron_nugget");
 
-                RecipeHelper.createShaped(
-                        new ItemStack(item),
-                        " B , A ,CCC", keys.get()
-                );
+                RecipeHelper.createShaped( new ItemStack(item), pattern, keys.get() );
             };
-        }else{
+        }
+
+        if( this == NORMAL_REINFORCED ) {
             return (item, color) -> RecipeHelper.createShapeless(
                     new ItemStack(item),
-                    id("shade"), id("small_fixture_" + color.getName())
+                    "minecraft:iron_bars", id(name + "_" + color.getName())
             );
         }
-    }
 
-    public RecipeDelegate getClearMediumRecipe() {
-        if( this == NORMAL ) {
-            return (item, color) -> {
-                KeyBuilder keys = KeyBuilder.make()
-                        .addItem('A', id("led"))
-                        .addItem('B', "minecraft:" + color.getName() + "_stained_glass_pane")
-                        .addItem('C', "minecraft:iron_nugget");
-
-                RecipeHelper.createShaped(
-                        new ItemStack(item),
-                        " B ,BAB,CCC", keys.get()
-                );
-            };
-        }else{
+        if( this == SHADED ) {
             return (item, color) -> RecipeHelper.createShapeless(
                     new ItemStack(item),
-                    id("shade"), id("medium_fixture_" + color.getName())
+                    id("shade"), id(name + "_" + color.getName())
             );
         }
-    }
 
-    public RecipeDelegate getClearLargeRecipe() {
-        if( this == NORMAL ) {
-            return (item, color) -> {
-                KeyBuilder keys = KeyBuilder.make()
-                        .addItem('A', id("led"))
-                        .addItem('B', "minecraft:" + color.getName() + "_stained_glass_pane")
-                        .addItem('C', "minecraft:iron_nugget");
-
-                RecipeHelper.createShaped(
-                        new ItemStack(item),
-                        "BBB,BAB,CCC", keys.get()
-                );
-            };
-        }else{
+        if( this == SHADED_REINFORCED ) {
             return (item, color) -> RecipeHelper.createShapeless(
                     new ItemStack(item),
-                    id("shade"), id("large_fixture_" + color.getName())
+                    id("shade"), "minecraft:iron_bars", id(name + "_" + color.getName())
             );
         }
+
+        return null;
     }
+
 
 }

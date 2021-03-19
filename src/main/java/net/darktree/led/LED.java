@@ -29,33 +29,34 @@ public class LED implements ModInitializer, ClientModInitializer, DedicatedServe
         RegistryHelper.registerItem("tube", TUBE);
         RegistryHelper.registerItem("shade", SHADE);
 
-        VoxelShape[] smallDiodeStance = Util.getRotatedVariantArray(4, 0, 4, 12, 1, 12);
-        VoxelShape[] largeDiodeStance = Util.getRotatedVariantArray(3, 0, 3, 13, 1, 13);
+        VoxelShape[] smallDiodeStance = Util.getVariants(4, 0, 4, 12, 1, 12);
+        VoxelShape[] largeDiodeStance = Util.getVariants(3, 0, 3, 13, 1, 13);
 
         for( DiodeVariant variant : DiodeVariant.values() ) {
 
-            // full block lamps
+            // full block lamp
             RegistryHelper.registerForColors( variant.getName("clear_full"), () -> new DiodeLampBlock(
-                    RegistryHelper.settings(), variant.getLightLevel(), variant.isShaded()
-            ), variant.getClearFullRecipe());
+                    variant),
+                    variant.getRecipe("BBB,BAB,BCB", "clear_full")
+            );
 
             // small indicator lamp
             RegistryHelper.registerForColors( variant.getName("small_fixture"), () -> new DirectionalDiodeLampBlock(
-                    RegistryHelper.settings(), variant.getLightLevel(), variant.isShaded(),
-                    Util.combineVariantArray( Util.getRotatedVariantArray( 5, 0, 5, 11, 3, 11 ), smallDiodeStance )
-            ), variant.getClearSmallRecipe());
+                    variant, Util.combineVariants( Util.getVariants( 5, 0, 5, 11, 3, 11 ), smallDiodeStance ) ),
+                    variant.getRecipe(" B , A ,CCC", "small_fixture")
+            );
 
             // medium indicator lamp
             RegistryHelper.registerForColors( variant.getName("medium_fixture"), () -> new DirectionalDiodeLampBlock(
-                    RegistryHelper.settings(), variant.getLightLevel(), variant.isShaded(),
-                    Util.combineVariantArray( Util.getRotatedVariantArray( 5, 0, 5, 11, 8, 11 ), smallDiodeStance )
-            ), variant.getClearMediumRecipe());
+                    variant, Util.combineVariants( Util.getVariants( 5, 0, 5, 11, 8, 11 ), smallDiodeStance ) ),
+                    variant.getRecipe(" B ,BAB,CCC", "medium_fixture")
+            );
 
             // large indicator lamp
             RegistryHelper.registerForColors( variant.getName("large_fixture"), () -> new DirectionalDiodeLampBlock(
-                    RegistryHelper.settings(), variant.getLightLevel(), variant.isShaded(),
-                    Util.combineVariantArray( Util.getRotatedVariantArray( 4, 0, 4, 12, 6, 12 ), largeDiodeStance )
-            ), variant.getClearLargeRecipe());
+                    variant, Util.combineVariants( Util.getVariants( 4, 0, 4, 12, 6, 12 ), largeDiodeStance ) ),
+                    variant.getRecipe("BBB,BAB,CCC", "large_fixture")
+            );
 
         }
     }
