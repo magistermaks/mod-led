@@ -54,7 +54,7 @@ public enum DiodeVariant {
     public RecipeDelegate getRecipe( String pattern, String name ) {
         if( this == NORMAL ) {
             return (item, color) -> {
-                KeyBuilder keys = KeyBuilder.make()
+                KeyBuilder keys = new KeyBuilder()
                         .addItem('A', id("led"))
                         .addItem('B', "minecraft:" + color.getName() + "_stained_glass_pane")
                         .addItem('C', "minecraft:iron_nugget");
@@ -87,11 +87,11 @@ public enum DiodeVariant {
         return null;
     }
 
-    public RecipeDelegate getButtonRecipe( boolean button ) {
+    public static RecipeDelegate getButtonRecipe( boolean button ) {
         if( button ) {
             return (item, color) -> RecipeHelper.createShapeless(
                     new ItemStack(item, 4),
-                    id(prefix + "clear_full_" + color.getName())
+                    id("clear_full_" + color.getName())
             );
         }else{
             return (item, color) -> RecipeHelper.createShapeless(

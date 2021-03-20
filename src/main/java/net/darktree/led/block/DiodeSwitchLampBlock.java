@@ -14,8 +14,8 @@ import java.util.Random;
 
 public class DiodeSwitchLampBlock extends DiodeButtonLampBlock {
 
-    public DiodeSwitchLampBlock(DiodeVariant variant) {
-        super(variant);
+    public DiodeSwitchLampBlock() {
+        super();
     }
 
     public void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {

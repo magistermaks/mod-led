@@ -11,8 +11,8 @@ import java.util.List;
 
 public class DiodeButtonLampBlock extends StoneButtonBlock implements LootHelper.DropsItself {
 
-    public DiodeButtonLampBlock(DiodeVariant variant) {
-        super( variant.settings()
+    public DiodeButtonLampBlock() {
+        super( DiodeVariant.NORMAL.settings()
                 .luminance( (state) -> state.get(POWERED) ? 3 : 0 )
                 .emissiveLighting( (state, world, pos) -> state.get(POWERED) )
         );

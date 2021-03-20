@@ -34,19 +34,9 @@ public class LED implements ModInitializer, ClientModInitializer, DedicatedServe
         VoxelShape[] smallDiodeStance = Util.getVariants(4, 0, 4, 12, 1, 12);
         VoxelShape[] largeDiodeStance = Util.getVariants(3, 0, 3, 13, 1, 13);
 
-        {
-            DiodeVariant variant = DiodeVariant.NORMAL;
-
-            // button lamp
-            RegistryHelper.registerForColors( variant.getName("button"), () -> new DiodeButtonLampBlock(
-                    variant), variant.getButtonRecipe(true)
-            );
-
-            // switch lamp
-            RegistryHelper.registerForColors( variant.getName("switch"), () -> new DiodeSwitchLampBlock(
-                    variant), variant.getButtonRecipe(false)
-            );
-        }
+        // buttons and switches
+        RegistryHelper.registerForColors("button", DiodeButtonLampBlock::new, DiodeVariant.getButtonRecipe(true));
+        RegistryHelper.registerForColors("switch", DiodeSwitchLampBlock::new, DiodeVariant.getButtonRecipe(false));
 
         for( DiodeVariant variant : DiodeVariant.values() ) {
 

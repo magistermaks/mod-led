@@ -74,7 +74,7 @@ public class RegistryHelper {
         boolean jmx = true;
 
         if( !FabricLoader.getInstance().isModLoaded("json-model-extensions") ) {
-            LED.LOG.fatal("[LED] Warning: JMX is missing, minor graphical issues WILL occur!");
+            LED.LOG.fatal("[LED] Warning: JMX is missing, graphical issues WILL occur!");
             jmx = false;
         }
 
