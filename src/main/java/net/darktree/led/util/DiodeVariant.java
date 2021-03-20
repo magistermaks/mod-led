@@ -27,6 +27,10 @@ public enum DiodeVariant {
         return RegistryHelper.settings().strength( isReinforced() ? 0.8f : 0.4f );
     }
 
+    public static DiodeVariant[] getShadeVariants() {
+        return new DiodeVariant[] { SHADED, SHADED_REINFORCED };
+    }
+
     public int getLightLevel() {
         return light;
     }
@@ -81,6 +85,20 @@ public enum DiodeVariant {
         }
 
         return null;
+    }
+
+    public RecipeDelegate getButtonRecipe( boolean button ) {
+        if( button ) {
+            return (item, color) -> RecipeHelper.createShapeless(
+                    new ItemStack(item, 4),
+                    id(prefix + "clear_full_" + color.getName())
+            );
+        }else{
+            return (item, color) -> RecipeHelper.createShapeless(
+                    new ItemStack(item),
+                    "minecraft:lever", id("button_" + color.getName())
+            );
+        }
     }
 
 

@@ -1,6 +1,8 @@
 package net.darktree.led;
 
+import net.darktree.led.block.DiodeButtonLampBlock;
 import net.darktree.led.block.DiodeLampBlock;
+import net.darktree.led.block.DiodeSwitchLampBlock;
 import net.darktree.led.block.DirectionalDiodeLampBlock;
 import net.darktree.led.util.DiodeVariant;
 import net.darktree.led.util.RegistryHelper;
@@ -31,6 +33,20 @@ public class LED implements ModInitializer, ClientModInitializer, DedicatedServe
 
         VoxelShape[] smallDiodeStance = Util.getVariants(4, 0, 4, 12, 1, 12);
         VoxelShape[] largeDiodeStance = Util.getVariants(3, 0, 3, 13, 1, 13);
+
+        {
+            DiodeVariant variant = DiodeVariant.NORMAL;
+
+            // button lamp
+            RegistryHelper.registerForColors( variant.getName("button"), () -> new DiodeButtonLampBlock(
+                    variant), variant.getButtonRecipe(true)
+            );
+
+            // switch lamp
+            RegistryHelper.registerForColors( variant.getName("switch"), () -> new DiodeSwitchLampBlock(
+                    variant), variant.getButtonRecipe(false)
+            );
+        }
 
         for( DiodeVariant variant : DiodeVariant.values() ) {
 
