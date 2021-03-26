@@ -27,10 +27,6 @@ public enum DiodeVariant {
         return RegistryHelper.settings().strength( isReinforced() ? 0.8f : 0.4f );
     }
 
-    public static DiodeVariant[] getShadeVariants() {
-        return new DiodeVariant[] { SHADED, SHADED_REINFORCED };
-    }
-
     public int getLightLevel() {
         return light;
     }
