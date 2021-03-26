@@ -2,9 +2,12 @@
     "item.led.bulb": "Bulb",
     "item.led.led": "LED",
     "item.led.shade": "Dark Dust",
+
     "tooltip.led.shaded": "This lamp is shaded and doesn't emit light.",
     "tooltip.led.reinforced": "This lamp is reinforced.",
     "tooltip.led.shaded_and_reinforced": "This lamp is reinforced, and doesn't emit light.",
+
+    "itemGroup.led.group": "Light Emitting Diode",
 
     "block.led.flat_fixture_white": "Flat White Lamp",
     "block.led.flat_fixture_orange": "Flat Orange Lamp",
@@ -378,7 +381,5 @@
     "block.led.shaded_reinforced_large_fixture_brown": "Shaded Reinforced Large Brown Lamp",
     "block.led.shaded_reinforced_large_fixture_green": "Shaded Reinforced Large Green Lamp",
     "block.led.shaded_reinforced_large_fixture_red": "Shaded Reinforced Large Red Lamp",
-    "block.led.shaded_reinforced_large_fixture_black": "Shaded Reinforced Large Black Lamp",
-
-    "itemGroup.led.group": "Light Emitting Diode"
+    "block.led.shaded_reinforced_large_fixture_black": "Shaded Reinforced Large Black Lamp"
 }

@@ -6,7 +6,6 @@ import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
-import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.block.Block;
 import net.minecraft.block.Material;
 import net.minecraft.item.BlockItem;
@@ -49,7 +48,6 @@ public class RegistryHelper {
             ClientDelegate delegate = new ClientDelegate(color);
             delegate.setBlock(block);
             delegate.setItem(item);
-            delegate.useTranslucentFallback();
 
             registerItem( name + suffix, item );
             registerBlock( name + suffix, block );
@@ -71,15 +69,8 @@ public class RegistryHelper {
     @Environment(EnvType.CLIENT)
     public static void applyDelegates() {
 
-        boolean jmx = true;
-
-        if( !FabricLoader.getInstance().isModLoaded("json-model-extensions") ) {
-            LED.LOG.fatal("[LED] Warning: JMX is missing, graphical issues WILL occur!");
-            jmx = false;
-        }
-
         for( ClientDelegate delegate : delegates ) {
-            delegate.register(jmx);
+            delegate.register();
         }
 
         LED.LOG.info("[LED] Applied " + delegates.size() + " client delegates.");
@@ -88,6 +79,7 @@ public class RegistryHelper {
 
     @Environment(EnvType.SERVER)
     public static void discardDelegates() {
+        LED.LOG.info("[LED] Discarded " + delegates.size() + " client delegates.");
         delegates.clear();
     }
 

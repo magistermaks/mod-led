@@ -27,9 +27,8 @@ dependencies {
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
     // JMX
-    modImplementation ("grondag:jmx-${project.mc_tag}:${project.jmx_version}.+") {
-        transitive = false
-    }
+    modImplementation ("grondag:jmx-${project.mc_tag}:${project.jmx_version}.+") { transitive = false }
+    include "grondag:jmx-${project.mc_tag}:${project.jmx_version}.+"
 }
 
 processResources {
