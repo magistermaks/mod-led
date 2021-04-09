@@ -47,6 +47,10 @@ public enum DiodeVariant {
         return RegistryHelper.ID + ":" + name;
     }
 
+    private String group( String name ) {
+        return "led_" + prefix + name;
+    }
+
     public RecipeDelegate getRecipe( String pattern, String name ) {
         if( this == NORMAL ) {
             return (item, color) -> {
@@ -55,27 +59,27 @@ public enum DiodeVariant {
                         .addItem('B', "minecraft:" + color.getName() + "_stained_glass_pane")
                         .addItem('C', "minecraft:iron_nugget");
 
-                RecipeHelper.createShaped( new ItemStack(item), pattern, keys.get() );
+                RecipeHelper.createShaped( new ItemStack(item), pattern, keys.get(), group(name) );
             };
         }
 
         if( this == NORMAL_REINFORCED ) {
             return (item, color) -> RecipeHelper.createShapeless(
-                    new ItemStack(item),
+                    new ItemStack(item), group(name),
                     "minecraft:iron_bars", id(name + "_" + color.getName())
             );
         }
 
         if( this == SHADED ) {
             return (item, color) -> RecipeHelper.createShapeless(
-                    new ItemStack(item),
+                    new ItemStack(item), group(name),
                     id("shade"), id(name + "_" + color.getName())
             );
         }
 
         if( this == SHADED_REINFORCED ) {
             return (item, color) -> RecipeHelper.createShapeless(
-                    new ItemStack(item),
+                    new ItemStack(item), group(name),
                     id("shade"), "minecraft:iron_bars", id(name + "_" + color.getName())
             );
         }
@@ -86,12 +90,12 @@ public enum DiodeVariant {
     public static RecipeDelegate getButtonRecipe( boolean button ) {
         if( button ) {
             return (item, color) -> RecipeHelper.createShapeless(
-                    new ItemStack(item, 4),
+                    new ItemStack(item, 4), "led_button",
                     id("clear_full_" + color.getName())
             );
         }else{
             return (item, color) -> RecipeHelper.createShapeless(
-                    new ItemStack(item),
+                    new ItemStack(item), "led_switch",
                     "minecraft:lever", id("button_" + color.getName())
             );
         }

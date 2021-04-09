@@ -15,20 +15,22 @@ public class RecipeHelper {
 
     private static final ArrayList<JsonObject> recipes = new ArrayList<>();
 
-    public static void createShaped( ItemStack stack, String pattern, JsonObject keys ) {
+    public static void createShaped( ItemStack stack, String pattern, JsonObject keys, String group ) {
         JsonObject json = new JsonObject();
         json.addProperty("type", "minecraft:crafting_shaped");
         json.add("result", getRecipeResult(stack));
         json.add("pattern", getPattern(pattern));
         json.add("key", keys);
+        addGroup( json, group );
 
         recipes.add(json);
     }
 
-    public static void createShapeless( ItemStack stack, String... items ) {
+    public static void createShapeless( ItemStack stack, String group, String... items ) {
         JsonObject json = new JsonObject();
         json.addProperty("type", "minecraft:crafting_shapeless");
         json.add("result", getRecipeResult(stack));
+        addGroup( json, group );
 
         JsonArray ingredients = new JsonArray();
         for( String item : items ) {
@@ -39,6 +41,12 @@ public class RecipeHelper {
 
         json.add("ingredients", ingredients);
         recipes.add(json);
+    }
+
+    private static void addGroup( JsonObject json, String group ) {
+        if( group != null ) {
+            json.addProperty( "group", group );
+        }
     }
 
     private static JsonObject getRecipeResult( ItemStack stack ) {
