@@ -7,7 +7,17 @@ import net.minecraft.util.shape.VoxelShapes;
 public class Util {
 
     public static VoxelShape box(int x1, int y1, int z1, int x2, int y2, int z2 ) {
-        return VoxelShapes.cuboid( x1 / 16d, y1 / 16d, z1 / 16d, x2 / 16d, y2 / 16d, z2 / 16d );
+
+        // make sure that the x1, y1, z1 given to VoxelShapes.cuboid are
+        // smaller than x2, y2, z2, required my minecraft >=1.17
+        return VoxelShapes.cuboid(
+                Math.min(x1, x2) / 16d,
+                Math.min(y1, y2) / 16d,
+                Math.min(z1, z2) / 16d,
+                Math.max(x1, x2) / 16d,
+                Math.max(y1, y2) / 16d,
+                Math.max(z1, z2) / 16d
+        );
     }
 
     public static VoxelShape combine( VoxelShape a, VoxelShape b ) {
