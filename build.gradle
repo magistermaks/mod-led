@@ -1,17 +1,16 @@
 plugins {
-    id 'fabric-loom' version '0.8-SNAPSHOT'
+    id 'fabric-loom' version '0.10-SNAPSHOT'
     id 'maven-publish'
 }
 
 repositories {
     maven {
-        name = "dblsaiko"
-        url = "https://maven.dblsaiko.net/"
+        url = "https://maven.vram.io"
     }
 }
 
-sourceCompatibility = JavaVersion.VERSION_16
-targetCompatibility = JavaVersion.VERSION_16
+sourceCompatibility = JavaVersion.VERSION_17
+targetCompatibility = JavaVersion.VERSION_17
 
 archivesBaseName = project.archives_base_name
 version = project.mod_version
@@ -26,9 +25,13 @@ dependencies {
     // Fabric API
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
+    // FREX
+    modImplementation "io.vram:frex-fabric-${project.mc_tag}:${project.frex_version}.+"
+    include "io.vram:frex-fabric-${project.mc_tag}:${project.frex_version}.+:fat"
+
     // JMX
-    modImplementation ("grondag:jmx-${project.mc_tag}:${project.jmx_version}.+") { transitive = false }
-    include "grondag:jmx-${project.mc_tag}:${project.jmx_version}.+"
+    modImplementation "io.vram:jmx-fabric-${project.mc_tag}:${project.jmx_version}.+"
+    include "io.vram:jmx-fabric-${project.mc_tag}:${project.jmx_version}.+"
 }
 
 processResources {
@@ -44,6 +47,7 @@ processResources {
 // see http://yodaconditions.net/blog/fix-for-java-file-encoding-problems-with-gradle.html
 tasks.withType(JavaCompile).configureEach {
     it.options.encoding = "UTF-8"
+    options.release = 17
 }
 // Loom will automatically attach sourcesJar to a RemapSourcesJar task and to the "build" task
 // if it is present.

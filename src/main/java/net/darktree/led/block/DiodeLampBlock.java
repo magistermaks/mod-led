@@ -82,7 +82,7 @@ public class DiodeLampBlock extends Block implements LootHelper.DropsItself {
 
             if( lit != hasPower(state, world, pos) ) {
                 if( lit ) {
-                    world.getBlockTickScheduler().schedule(pos, this, 4);
+                    world.createAndScheduleBlockTick(pos, this, 4);
                 }else{
                     world.setBlockState(pos, state.cycle(LIT), 2);
                 }
