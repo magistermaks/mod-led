@@ -13,19 +13,13 @@ import net.minecraft.world.BlockRenderView;
 
 public class ClientDelegate {
 
-    private Block block = null;
-    private Item item = null;
+    private final Block block;
+    private final Item item;
     private final DyeColor color;
 
-    public ClientDelegate( DyeColor color ) {
+    public ClientDelegate( DyeColor color, Block block, Item item ) {
         this.color = color;
-    }
-
-    public void setBlock(Block block) {
         this.block = block;
-    }
-
-    public void setItem(Item item) {
         this.item = item;
     }
 

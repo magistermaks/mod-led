@@ -66,7 +66,7 @@ public class LED implements ModInitializer, ClientModInitializer, DedicatedServe
 
             // flat indicator lamp
             RegistryHelper.registerForColors( variant.getName("flat_fixture"), () -> new DirectionalDiodeLampBlock(
-                            variant, Util.combineVariants( Util.getVariants( 1, 1, 1, 15, 3, 15 ), flatDiodeStance ) ),
+                    variant, Util.combineVariants( Util.getVariants( 1, 1, 1, 15, 3, 15 ), flatDiodeStance ) ),
                     variant.getRecipe("BBB, A ,CCC", "flat_fixture")
             );
 

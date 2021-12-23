@@ -28,6 +28,6 @@ public class DiodeSwitchLampBlock extends DiodeButtonLampBlock {
         playClickSound(player, world, pos, !power);
         world.updateNeighborsAlways(pos, this);
         world.updateNeighborsAlways(pos.offset(getDirection(state).getOpposite()), this);
-        return ActionResult.CONSUME;
+        return ActionResult.SUCCESS;
     }
 }

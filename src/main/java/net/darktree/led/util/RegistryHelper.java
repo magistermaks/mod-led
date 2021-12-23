@@ -45,10 +45,7 @@ public class RegistryHelper {
             Item item = new BlockItem(block, ITEM_SETTINGS);
             String suffix = "_" + color.getName();
 
-            ClientDelegate delegate = new ClientDelegate(color);
-            delegate.setBlock(block);
-            delegate.setItem(item);
-
+            ClientDelegate delegate = new ClientDelegate(color, block, item);
             registerItem( name + suffix, item );
             registerBlock( name + suffix, block );
 
