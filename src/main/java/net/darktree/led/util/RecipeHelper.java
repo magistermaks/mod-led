@@ -3,6 +3,7 @@ package net.darktree.led.util;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import net.darktree.interference.RecipeInjector;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
@@ -13,8 +14,6 @@ import java.util.Map;
 
 public class RecipeHelper {
 
-    private static final ArrayList<JsonObject> recipes = new ArrayList<>();
-
     public static void createShaped( ItemStack stack, String pattern, JsonObject keys, String group ) {
         JsonObject json = new JsonObject();
         json.addProperty("type", "minecraft:crafting_shaped");
@@ -23,7 +22,7 @@ public class RecipeHelper {
         json.add("key", keys);
         addGroup( json, group );
 
-        recipes.add(json);
+        inject(json);
     }
 
     public static void createShapeless( ItemStack stack, String group, String... items ) {
@@ -40,7 +39,7 @@ public class RecipeHelper {
         }
 
         json.add("ingredients", ingredients);
-        recipes.add(json);
+        inject(json);
     }
 
     private static void addGroup( JsonObject json, String group ) {
@@ -71,11 +70,9 @@ public class RecipeHelper {
         return Registry.ITEM.getId( item ).toString();
     }
 
-    public static void register( Map<Identifier, JsonElement> map ) {
-        for( JsonObject recipe : recipes ) {
-            Identifier id = new Identifier( recipe.getAsJsonObject("result").getAsJsonPrimitive("item").getAsString() );
-            map.put( id, recipe );
-        }
+    private static void inject(JsonObject recipe) {
+        Identifier id = new Identifier( recipe.getAsJsonObject("result").getAsJsonPrimitive("item").getAsString() );
+        RecipeInjector.inject(id, recipe);
     }
 
 }

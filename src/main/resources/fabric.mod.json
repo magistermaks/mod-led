@@ -27,7 +27,6 @@
     ]
   },
   "mixins": [
-    "led.mixins.json"
   ],
   "depends": {
     "fabricloader": "*",

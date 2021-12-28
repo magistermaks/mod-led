@@ -1,5 +1,6 @@
 package net.darktree.led;
 
+import net.darktree.interference.MessageInjector;
 import net.darktree.led.block.DiodeButtonLampBlock;
 import net.darktree.led.block.DiodeLampBlock;
 import net.darktree.led.block.DiodeSwitchLampBlock;
@@ -71,6 +72,10 @@ public class LED implements ModInitializer, ClientModInitializer, DedicatedServe
             );
 
         }
+
+        MessageInjector.supply("Q2hlY2sgb3V0IE11cmRlciBEcm9uZXMh");
+        MessageInjector.supply("Q2hlY2sgb3V0IFJlZCBCaXRzIQ==");
+        MessageInjector.supply("VGVuIGJpbGxpb24gcGVyY2VudCE=");
     }
 
     @Override

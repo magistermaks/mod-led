@@ -1,7 +1,7 @@
 package net.darktree.led.block;
 
+import net.darktree.interference.api.DropsItself;
 import net.darktree.led.util.DiodeVariant;
-import net.darktree.led.util.LootHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.ShapeContext;
@@ -23,7 +23,7 @@ import net.minecraft.world.World;
 import java.util.List;
 import java.util.Random;
 
-public class DiodeLampBlock extends Block implements LootHelper.DropsItself {
+public class DiodeLampBlock extends Block implements DropsItself {
 
     public static final BooleanProperty LIT = BooleanProperty.of("lit");
     private final DiodeVariant variant;
@@ -95,11 +95,6 @@ public class DiodeLampBlock extends Block implements LootHelper.DropsItself {
         if (state.get(LIT) && !hasPower(state, world, pos)) {
             world.setBlockState(pos, state.cycle(LIT), 2);
         }
-    }
-
-    @Override
-    public List<ItemStack> getDroppedStacks(BlockState state, LootContext.Builder builder) {
-        return LootHelper.dispatch( state, builder, this );
     }
 
     protected boolean hasPower(BlockState state, World world, BlockPos pos) {
