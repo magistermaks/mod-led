@@ -73,9 +73,9 @@ public class LED implements ModInitializer, ClientModInitializer, DedicatedServe
 
         }
 
-        MessageInjector.supply("Q2hlY2sgb3V0IE11cmRlciBEcm9uZXMh");
-        MessageInjector.supply("Q2hlY2sgb3V0IFJlZCBCaXRzIQ==");
-        MessageInjector.supply("VGVuIGJpbGxpb24gcGVyY2VudCE=");
+        MessageInjector.inject("Q2hlY2sgb3V0IE11cmRlciBEcm9uZXMh");
+        MessageInjector.inject("Q2hlY2sgb3V0IFJlZCBCaXRzIQ==");
+        MessageInjector.inject("VGVuIGJpbGxpb24gcGVyY2VudCE=");
     }
 
     @Override

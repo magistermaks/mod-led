@@ -32,6 +32,7 @@
     "fabricloader": "*",
     "fabric": "*",
     "json-model-extensions": "*",
+    "interference": "1.2.x",
     "minecraft": "1.18.x"
   }
 }
