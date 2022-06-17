@@ -31,10 +31,6 @@ public class RegistryHelper {
     public static final FabricItemSettings ITEM_SETTINGS = new FabricItemSettings()
             .group( GROUP );
 
-    public static FabricBlockSettings settings() {
-        return FabricBlockSettings.of(Material.METAL).breakByHand(true).strength(0.4f);
-    }
-
     public static Identifier id( String name ) {
         return new Identifier( ID, name );
     }

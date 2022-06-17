@@ -1,6 +1,7 @@
 package net.darktree.led.util;
 
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
+import net.minecraft.block.Material;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DyeColor;
@@ -24,7 +25,7 @@ public enum DiodeVariant {
     }
 
     public FabricBlockSettings settings() {
-        return RegistryHelper.settings().strength( isReinforced() ? 0.8f : 0.4f );
+        return FabricBlockSettings.of(Material.METAL).strength(isReinforced() ? 0.8f : 0.4f);
     }
 
     public int getLightLevel() {
