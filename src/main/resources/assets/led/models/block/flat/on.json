@@ -7,11 +7,7 @@
 		"3": "led:block/glow",
         "particle": "led:block/particle"
 	},
-    "jmx": {
-        "materials": {
-            "glow": { "layers": [ { "layer": "translucent" } ] }
-        }
-    },
+    "jmxl": true,
 	"elements": [
 		{
 			"from": [0, 0, 0],
@@ -41,13 +37,14 @@
 			"from": [0.5, 1, 0.5],
 			"to": [15.5, 3.5, 15.5],
 			"rotation": {"angle": 0, "axis": "y", "origin": [8, 9, 8]},
+			"jmxl_layer": "TRANSLUCENT",
 			"faces": {
-				"north": {"uv": [0, 0, 15, 2.5], "texture": "#3", "tintindex": 0, "jmx_material": "#glow"},
-				"east": {"uv": [0, 0, 15, 2.5], "texture": "#3", "tintindex": 0, "jmx_material": "#glow"},
-				"south": {"uv": [0, 0, 15, 2.5], "texture": "#3", "tintindex": 0, "jmx_material": "#glow"},
-				"west": {"uv": [0, 0, 15, 2.5], "texture": "#3", "tintindex": 0, "jmx_material": "#glow"},
-				"up": {"uv": [0, 0, 15, 15], "texture": "#3", "tintindex": 0, "jmx_material": "#glow"},
-				"down": {"uv": [0, 0, 15, 15], "texture": "#3", "tintindex": 0, "jmx_material": "#glow"}
+				"north": {"uv": [0, 0, 15, 2.5], "texture": "#3", "tintindex": 0},
+				"east": {"uv": [0, 0, 15, 2.5], "texture": "#3", "tintindex": 0},
+				"south": {"uv": [0, 0, 15, 2.5], "texture": "#3", "tintindex": 0},
+				"west": {"uv": [0, 0, 15, 2.5], "texture": "#3", "tintindex": 0},
+				"up": {"uv": [0, 0, 15, 15], "texture": "#3", "tintindex": 0},
+				"down": {"uv": [0, 0, 15, 15], "texture": "#3", "tintindex": 0}
 			}
 		}
 	]

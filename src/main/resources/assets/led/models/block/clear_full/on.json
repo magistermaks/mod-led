@@ -6,11 +6,7 @@
 		"1": "led:block/glow",
 		"particle": "led:block/particle"
 	},
-    "jmx": {
-        "materials": {
-            "glow": { "layers": [ { "layer": "translucent" } ] }
-        }
-    },
+    "jmxl": true,
 	"elements": [
 		{
 			"from": [0, 0, 0],
@@ -27,6 +23,7 @@
 		{
 			"from": [-0.5, -0.5, -0.5],
 			"to": [16.5, 16.5, 16.5],
+			"jmxl_layer": "TRANSLUCENT",
 			"faces": {
 				"north": {"uv": [0, 0, 16, 16], "jmx_material": "#glow", "texture": "#1", "tintindex": 0 },
 				"east": {"uv": [0, 0, 16, 16], "jmx_material": "#glow", "texture": "#1", "tintindex": 0 },

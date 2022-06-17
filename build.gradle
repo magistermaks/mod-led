@@ -5,11 +5,6 @@ plugins {
 
 repositories {
 
-    // JMX
-    maven {
-        url = "https://maven.vram.io"
-    }
-
     // interference
     maven {
         allowInsecureProtocol = true
@@ -34,17 +29,13 @@ dependencies {
     // Fabric API
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
-    // FREX
-    modImplementation "io.vram:frex-fabric-${project.mc_tag}:${project.frex_version}.+"
-    include "io.vram:frex-fabric-${project.mc_tag}:${project.frex_version}.+:fat"
-
-    // JMX
-    modImplementation "io.vram:jmx-fabric-${project.mc_tag}:${project.jmx_version}.+"
-    include "io.vram:jmx-fabric-${project.mc_tag}:${project.jmx_version}.+"
-
     // Interference API
     modImplementation "net.darktree:interference:${project.interference_version}"
     include "net.darktree:interference:${project.interference_version}"
+
+    // JMXL
+    modImplementation "net.darktree:JMXL:${project.jmxl_version}"
+    include "net.darktree:JMXL:${project.jmxl_version}"
 }
 
 processResources {
