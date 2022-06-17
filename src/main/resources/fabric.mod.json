@@ -32,8 +32,8 @@
   "depends": {
     "fabricloader": "*",
     "fabric": "*",
-    "jmxl": "1.x",
+    "jmxl": ">=1.1",
     "interference": "1.4.x",
-    "minecraft": "1.18.2"
+    "minecraft": "1.19.x"
   }
 }

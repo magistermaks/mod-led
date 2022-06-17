@@ -7,21 +7,19 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.ShapeContext;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.item.ItemStack;
-import net.minecraft.loot.context.LootContext;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.random.Random;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 
 import java.util.List;
-import java.util.Random;
 
 public class DiodeLampBlock extends Block implements DropsItself {
 
@@ -44,15 +42,15 @@ public class DiodeLampBlock extends Block implements DropsItself {
         boolean reinforced = variant.isReinforced();
 
         if( shaded && !reinforced ) {
-            tooltip.add(new TranslatableText("tooltip.led.shaded").formatted(Formatting.GRAY));
+            tooltip.add(Text.translatable("tooltip.led.shaded").formatted(Formatting.GRAY));
         }
 
         if( !shaded && reinforced ) {
-            tooltip.add(new TranslatableText("tooltip.led.reinforced").formatted(Formatting.GRAY));
+            tooltip.add(Text.translatable("tooltip.led.reinforced").formatted(Formatting.GRAY));
         }
 
         if( shaded && reinforced ) {
-            tooltip.add(new TranslatableText("tooltip.led.shaded_and_reinforced").formatted(Formatting.GRAY));
+            tooltip.add(Text.translatable("tooltip.led.shaded_and_reinforced").formatted(Formatting.GRAY));
         }
     }
 
