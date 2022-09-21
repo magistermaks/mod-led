@@ -29,7 +29,7 @@ public class DirectionalDiodeLampBlock extends DiodeLampBlock {
     @Override
     public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState newState, WorldAccess worldAccess, BlockPos pos, BlockPos posFrom) {
         Direction facing = state.get(FACING);
-        if( facing != direction || isDirectionValid(facing, worldAccess, pos) ) {
+        if (facing != direction || isDirectionValid(facing, worldAccess, pos)) {
             return state;
         }
 
@@ -38,12 +38,11 @@ public class DirectionalDiodeLampBlock extends DiodeLampBlock {
 
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
-
         Direction direction = ctx.getPlacementDirections()[0];
         WorldAccess worldAccess = ctx.getWorld();
 
-        if( isDirectionValid(direction, worldAccess, ctx.getBlockPos()) ) {
-            return getDefaultState().with( FACING, direction );
+        if (isDirectionValid(direction, worldAccess, ctx.getBlockPos())) {
+            return getDefaultState().with(FACING, direction);
         }
 
         return null;
@@ -57,7 +56,7 @@ public class DirectionalDiodeLampBlock extends DiodeLampBlock {
 
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        return shapes[ state.get(FACING).getId() ];
+        return shapes[state.get(FACING).getId()];
     }
 
     private boolean isDirectionValid( Direction direction, WorldAccess world, BlockPos pos ) {

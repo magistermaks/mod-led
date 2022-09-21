@@ -27,30 +27,21 @@ public class DiodeLampBlock extends Block implements DropsItself {
     private final DiodeVariant variant;
 
     public DiodeLampBlock(DiodeVariant variant) {
-        super( variant.settings()
-                .luminance( (state) -> state.get(LIT) ? variant.getLightLevel() : 0 )
-                .emissiveLighting( (state, world, pos) -> state.get(LIT) )
+        super(variant.settings()
+                .luminance((state) -> state.get(LIT) ? variant.getLightLevel() : 0)
+                .emissiveLighting((state, world, pos) -> state.get(LIT))
         );
 
         this.variant = variant;
-        setDefaultState( getDefaultState().with(LIT, false) );
+        setDefaultState(getDefaultState().with(LIT, false));
     }
 
     @Override
     public void appendTooltip(ItemStack stack, BlockView world, List<Text> tooltip, TooltipContext options) {
-        boolean shaded = variant.isShaded();
-        boolean reinforced = variant.isReinforced();
+        final String text = variant.getTooltip();
 
-        if( shaded && !reinforced ) {
-            tooltip.add(Text.translatable("tooltip.led.shaded").formatted(Formatting.GRAY));
-        }
-
-        if( !shaded && reinforced ) {
-            tooltip.add(Text.translatable("tooltip.led.reinforced").formatted(Formatting.GRAY));
-        }
-
-        if( shaded && reinforced ) {
-            tooltip.add(Text.translatable("tooltip.led.shaded_and_reinforced").formatted(Formatting.GRAY));
+        if (text != null) {
+            tooltip.add(Text.translatable(text).formatted(Formatting.GRAY));
         }
     }
 
@@ -61,10 +52,10 @@ public class DiodeLampBlock extends Block implements DropsItself {
 
     @Override
     public void onBlockAdded(BlockState state, World world, BlockPos pos, BlockState oldState, boolean notify) {
-        boolean power = world.isReceivingRedstonePower(pos);
+        boolean power = hasPower(world, pos);
 
-        if( power ) {
-            world.setBlockState( pos, state.with(LIT, true) );
+        if (power) {
+            world.setBlockState(pos, state.with(LIT, true));
         }
     }
 
@@ -78,10 +69,10 @@ public class DiodeLampBlock extends Block implements DropsItself {
         if (!world.isClient) {
             boolean lit = state.get(LIT);
 
-            if( lit != hasPower(state, world, pos) ) {
-                if( lit ) {
+            if (lit != hasPower(world, pos)) {
+                if (lit) {
                     world.createAndScheduleBlockTick(pos, this, 4);
-                }else{
+                } else {
                     world.setBlockState(pos, state.cycle(LIT), 2);
                 }
             }
@@ -90,12 +81,12 @@ public class DiodeLampBlock extends Block implements DropsItself {
 
     @Override
     public void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
-        if (state.get(LIT) && !hasPower(state, world, pos)) {
+        if (state.get(LIT) && !hasPower(world, pos)) {
             world.setBlockState(pos, state.cycle(LIT), 2);
         }
     }
 
-    protected boolean hasPower(BlockState state, World world, BlockPos pos) {
+    protected boolean hasPower(World world, BlockPos pos) {
         return world.isReceivingRedstonePower(pos);
     }
 

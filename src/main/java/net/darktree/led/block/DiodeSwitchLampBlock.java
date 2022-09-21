@@ -7,9 +7,8 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
-
-import java.util.Random;
 
 public class DiodeSwitchLampBlock extends DiodeButtonLampBlock {
 
@@ -17,6 +16,7 @@ public class DiodeSwitchLampBlock extends DiodeButtonLampBlock {
         super();
     }
 
+    @Override
     public void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
         // do nothing
     }
@@ -28,6 +28,8 @@ public class DiodeSwitchLampBlock extends DiodeButtonLampBlock {
         playClickSound(player, world, pos, !power);
         world.updateNeighborsAlways(pos, this);
         world.updateNeighborsAlways(pos.offset(getDirection(state).getOpposite()), this);
+
         return ActionResult.SUCCESS;
     }
+
 }

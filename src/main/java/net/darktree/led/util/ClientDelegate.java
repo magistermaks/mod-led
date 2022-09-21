@@ -17,7 +17,7 @@ public class ClientDelegate {
     private final Item item;
     private final DyeColor color;
 
-    public ClientDelegate( DyeColor color, Block block, Item item ) {
+    public ClientDelegate(DyeColor color, Block block, Item item) {
         this.color = color;
         this.block = block;
         this.item = item;
@@ -25,19 +25,8 @@ public class ClientDelegate {
 
     @Environment(EnvType.CLIENT)
     public void register() {
-        if( block != null ) {
-            ColorProviderRegistry.BLOCK.register(
-                    this::blockProvider,
-                    block
-            );
-        }
-
-        if( item != null ) {
-            ColorProviderRegistry.ITEM.register(
-                    this::itemProvider,
-                    item
-            );
-        }
+        ColorProviderRegistry.BLOCK.register(this::blockProvider, block);
+        ColorProviderRegistry.ITEM.register(this::itemProvider, item);
     }
 
     @Environment(EnvType.CLIENT)
