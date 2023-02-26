@@ -5,8 +5,8 @@ import com.google.gson.JsonObject;
 import net.darktree.interference.RecipeInjector;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.registry.Registries;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
 
 public class RecipeHelper {
 
@@ -63,12 +63,12 @@ public class RecipeHelper {
     }
 
     private static String getIdentifier(Item item) {
-        return Registry.ITEM.getId(item).toString();
+        return Registries.ITEM.getId(item).toString();
     }
 
     private static void inject(JsonObject recipe) {
         Identifier id = new Identifier(recipe.getAsJsonObject("result").getAsJsonPrimitive("item").getAsString());
-        RecipeInjector.inject(id, recipe);
+        RecipeInjector.register(id, recipe);
     }
 
 }

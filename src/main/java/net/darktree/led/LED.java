@@ -12,7 +12,9 @@ import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.DedicatedServerModInitializer;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
+import net.fabricmc.fabric.impl.itemgroup.ItemGroupHelper;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemGroup;
 import net.minecraft.util.shape.VoxelShape;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,9 +29,9 @@ public class LED implements ModInitializer, ClientModInitializer, DedicatedServe
 
     @Override
     public void onInitialize() {
-        RegistryHelper.registerItem("led", LED);
-        RegistryHelper.registerItem("bulb", BULB);
-        RegistryHelper.registerItem("shade", SHADE);
+        RegistryHelper.registerItem("led", LED, true);
+        RegistryHelper.registerItem("bulb", BULB, false);
+        RegistryHelper.registerItem("shade", SHADE, true);
 
         VoxelShape[] smallDiodeStance = Util.getVariants(4, 0, 4, 12, 1, 12);
         VoxelShape[] largeDiodeStance = Util.getVariants(3, 0, 3, 13, 1, 13);
@@ -72,6 +74,9 @@ public class LED implements ModInitializer, ClientModInitializer, DedicatedServe
             );
 
         }
+
+        // add everything to one group
+        RegistryHelper.appendItemsToGroup();
 
         MessageInjector.inject("Q2hlY2sgb3V0IE11cmRlciBEcm9uZXMh");
         MessageInjector.inject("Q2hlY2sgb3V0IFJlZCBCaXRzIQ==");

@@ -71,7 +71,7 @@ public class DiodeLampBlock extends Block implements DropsItself {
 
             if (lit != hasPower(world, pos)) {
                 if (lit) {
-                    world.createAndScheduleBlockTick(pos, this, 4);
+                    world.scheduleBlockTick(pos, this, 4);
                 } else {
                     world.setBlockState(pos, state.cycle(LIT), 2);
                 }
