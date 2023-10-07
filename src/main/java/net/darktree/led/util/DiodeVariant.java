@@ -1,9 +1,9 @@
 package net.darktree.led.util;
 
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
-import net.minecraft.block.Material;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.DyeColor;
 
 public enum DiodeVariant {
@@ -29,7 +29,7 @@ public enum DiodeVariant {
     }
 
     public FabricBlockSettings settings() {
-        return FabricBlockSettings.of(Material.METAL).strength(reinforced ? 0.8f : 0.4f);
+        return FabricBlockSettings.create().sounds(BlockSoundGroup.METAL).strength(reinforced ? 0.8f : 0.4f);
     }
 
     public int getLightLevel() {

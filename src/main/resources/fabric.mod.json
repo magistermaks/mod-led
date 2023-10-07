@@ -33,7 +33,7 @@
     "fabricloader": "*",
     "fabric": "*",
     "jmxl": ">=1.4",
-    "interference": "1.6.x",
-    "minecraft": "1.19.4"
+    "interference": "1.7.x",
+    "minecraft": ["1.20.0", "1.20.1"]
   }
 }

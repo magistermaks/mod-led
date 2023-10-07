@@ -7,12 +7,11 @@ import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.block.Block;
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ItemStack;
+import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.registry.RegistryKey;
+import net.minecraft.registry.RegistryKeys;
 import net.minecraft.text.Text;
 import net.minecraft.util.DyeColor;
 import net.minecraft.util.Identifier;
@@ -26,7 +25,7 @@ public class RegistryHelper {
     private static final ArrayList<ClientDelegate> delegates = new ArrayList<>();
     public static final String ID = "led";
 
-    public static final ItemGroup GROUP = FabricItemGroup.builder(id("group"))
+    public static final ItemGroup GROUP = FabricItemGroup.builder()
             .displayName(Text.translatable("itemGroup.led.group"))
             .icon(() -> new ItemStack(LED.BULB))
             .build();
@@ -84,7 +83,12 @@ public class RegistryHelper {
     }
 
     public static void appendItemsToGroup() {
-        ItemGroupEvents.modifyEntriesEvent(GROUP).register(listener -> {
+        Identifier group = id("group");
+
+        Registry.register(Registries.ITEM_GROUP, group, GROUP);
+        RegistryKey<ItemGroup> key = RegistryKey.of(RegistryKeys.ITEM_GROUP, group);
+
+        ItemGroupEvents.modifyEntriesEvent(key).register(listener -> {
             items.forEach(listener::add);
         });
     }
