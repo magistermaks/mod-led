@@ -99,2307 +99,11 @@
     },
     "LightBlock": [
         {
-            "block": "led:shaded_reinforced_flat_fixture_orange",
-            "state": {
-                "lit": true
-            },
-            "color": "#orange",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_reinforced_flat_fixture_lime",
-            "state": {
-                "lit": true
-            },
-            "color": "#lime",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_reinforced_flat_fixture_pink",
-            "state": {
-                "lit": true
-            },
-            "color": "#pink",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_reinforced_flat_fixture_gray",
-            "state": {
-                "lit": true
-            },
-            "color": "#gray",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_reinforced_flat_fixture_purple",
-            "state": {
-                "lit": true
-            },
-            "color": "#purple",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_reinforced_flat_fixture_magenta",
-            "state": {
-                "lit": true
-            },
-            "color": "#magenta",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_reinforced_flat_fixture_white",
+            "block": "led:clear_full_white",
             "state": {
                 "lit": true
             },
             "color": "#white",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_reinforced_flat_fixture_blue",
-            "state": {
-                "lit": true
-            },
-            "color": "#blue",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_reinforced_flat_fixture_brown",
-            "state": {
-                "lit": true
-            },
-            "color": "#brown",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_reinforced_flat_fixture_light_blue",
-            "state": {
-                "lit": true
-            },
-            "color": "#light_blue",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_reinforced_flat_fixture_black",
-            "state": {
-                "lit": true
-            },
-            "color": "#black",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_reinforced_flat_fixture_light_gray",
-            "state": {
-                "lit": true
-            },
-            "color": "#light_gray",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_reinforced_flat_fixture_green",
-            "state": {
-                "lit": true
-            },
-            "color": "#green",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_reinforced_flat_fixture_cyan",
-            "state": {
-                "lit": true
-            },
-            "color": "#cyan",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_reinforced_flat_fixture_red",
-            "state": {
-                "lit": true
-            },
-            "color": "#red",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_reinforced_flat_fixture_yellow",
-            "state": {
-                "lit": true
-            },
-            "color": "#yellow",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_reinforced_medium_fixture_orange",
-            "state": {
-                "lit": true
-            },
-            "color": "#orange",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_reinforced_medium_fixture_lime",
-            "state": {
-                "lit": true
-            },
-            "color": "#lime",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_reinforced_medium_fixture_pink",
-            "state": {
-                "lit": true
-            },
-            "color": "#pink",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_reinforced_medium_fixture_gray",
-            "state": {
-                "lit": true
-            },
-            "color": "#gray",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_reinforced_medium_fixture_purple",
-            "state": {
-                "lit": true
-            },
-            "color": "#purple",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_reinforced_medium_fixture_magenta",
-            "state": {
-                "lit": true
-            },
-            "color": "#magenta",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_reinforced_medium_fixture_white",
-            "state": {
-                "lit": true
-            },
-            "color": "#white",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_reinforced_medium_fixture_blue",
-            "state": {
-                "lit": true
-            },
-            "color": "#blue",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_reinforced_medium_fixture_brown",
-            "state": {
-                "lit": true
-            },
-            "color": "#brown",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_reinforced_medium_fixture_light_blue",
-            "state": {
-                "lit": true
-            },
-            "color": "#light_blue",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_reinforced_medium_fixture_black",
-            "state": {
-                "lit": true
-            },
-            "color": "#black",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_reinforced_medium_fixture_light_gray",
-            "state": {
-                "lit": true
-            },
-            "color": "#light_gray",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_reinforced_medium_fixture_green",
-            "state": {
-                "lit": true
-            },
-            "color": "#green",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_reinforced_medium_fixture_cyan",
-            "state": {
-                "lit": true
-            },
-            "color": "#cyan",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_reinforced_medium_fixture_red",
-            "state": {
-                "lit": true
-            },
-            "color": "#red",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_reinforced_medium_fixture_yellow",
-            "state": {
-                "lit": true
-            },
-            "color": "#yellow",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_reinforced_small_fixture_orange",
-            "state": {
-                "lit": true
-            },
-            "color": "#orange",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_reinforced_small_fixture_lime",
-            "state": {
-                "lit": true
-            },
-            "color": "#lime",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_reinforced_small_fixture_pink",
-            "state": {
-                "lit": true
-            },
-            "color": "#pink",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_reinforced_small_fixture_gray",
-            "state": {
-                "lit": true
-            },
-            "color": "#gray",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_reinforced_small_fixture_purple",
-            "state": {
-                "lit": true
-            },
-            "color": "#purple",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_reinforced_small_fixture_magenta",
-            "state": {
-                "lit": true
-            },
-            "color": "#magenta",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_reinforced_small_fixture_white",
-            "state": {
-                "lit": true
-            },
-            "color": "#white",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_reinforced_small_fixture_blue",
-            "state": {
-                "lit": true
-            },
-            "color": "#blue",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_reinforced_small_fixture_brown",
-            "state": {
-                "lit": true
-            },
-            "color": "#brown",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_reinforced_small_fixture_light_blue",
-            "state": {
-                "lit": true
-            },
-            "color": "#light_blue",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_reinforced_small_fixture_black",
-            "state": {
-                "lit": true
-            },
-            "color": "#black",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_reinforced_small_fixture_light_gray",
-            "state": {
-                "lit": true
-            },
-            "color": "#light_gray",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_reinforced_small_fixture_green",
-            "state": {
-                "lit": true
-            },
-            "color": "#green",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_reinforced_small_fixture_cyan",
-            "state": {
-                "lit": true
-            },
-            "color": "#cyan",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_reinforced_small_fixture_red",
-            "state": {
-                "lit": true
-            },
-            "color": "#red",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_reinforced_small_fixture_yellow",
-            "state": {
-                "lit": true
-            },
-            "color": "#yellow",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_reinforced_clear_full_orange",
-            "state": {
-                "lit": true
-            },
-            "color": "#orange",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_reinforced_clear_full_lime",
-            "state": {
-                "lit": true
-            },
-            "color": "#lime",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_reinforced_clear_full_pink",
-            "state": {
-                "lit": true
-            },
-            "color": "#pink",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_reinforced_clear_full_gray",
-            "state": {
-                "lit": true
-            },
-            "color": "#gray",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_reinforced_clear_full_purple",
-            "state": {
-                "lit": true
-            },
-            "color": "#purple",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_reinforced_clear_full_magenta",
-            "state": {
-                "lit": true
-            },
-            "color": "#magenta",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_reinforced_clear_full_white",
-            "state": {
-                "lit": true
-            },
-            "color": "#white",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_reinforced_clear_full_blue",
-            "state": {
-                "lit": true
-            },
-            "color": "#blue",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_reinforced_clear_full_brown",
-            "state": {
-                "lit": true
-            },
-            "color": "#brown",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_reinforced_clear_full_light_blue",
-            "state": {
-                "lit": true
-            },
-            "color": "#light_blue",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_reinforced_clear_full_black",
-            "state": {
-                "lit": true
-            },
-            "color": "#black",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_reinforced_clear_full_light_gray",
-            "state": {
-                "lit": true
-            },
-            "color": "#light_gray",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_reinforced_clear_full_green",
-            "state": {
-                "lit": true
-            },
-            "color": "#green",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_reinforced_clear_full_cyan",
-            "state": {
-                "lit": true
-            },
-            "color": "#cyan",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_reinforced_clear_full_red",
-            "state": {
-                "lit": true
-            },
-            "color": "#red",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_reinforced_clear_full_yellow",
-            "state": {
-                "lit": true
-            },
-            "color": "#yellow",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_reinforced_large_fixture_orange",
-            "state": {
-                "lit": true
-            },
-            "color": "#orange",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_reinforced_large_fixture_lime",
-            "state": {
-                "lit": true
-            },
-            "color": "#lime",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_reinforced_large_fixture_pink",
-            "state": {
-                "lit": true
-            },
-            "color": "#pink",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_reinforced_large_fixture_gray",
-            "state": {
-                "lit": true
-            },
-            "color": "#gray",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_reinforced_large_fixture_purple",
-            "state": {
-                "lit": true
-            },
-            "color": "#purple",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_reinforced_large_fixture_magenta",
-            "state": {
-                "lit": true
-            },
-            "color": "#magenta",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_reinforced_large_fixture_white",
-            "state": {
-                "lit": true
-            },
-            "color": "#white",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_reinforced_large_fixture_blue",
-            "state": {
-                "lit": true
-            },
-            "color": "#blue",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_reinforced_large_fixture_brown",
-            "state": {
-                "lit": true
-            },
-            "color": "#brown",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_reinforced_large_fixture_light_blue",
-            "state": {
-                "lit": true
-            },
-            "color": "#light_blue",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_reinforced_large_fixture_black",
-            "state": {
-                "lit": true
-            },
-            "color": "#black",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_reinforced_large_fixture_light_gray",
-            "state": {
-                "lit": true
-            },
-            "color": "#light_gray",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_reinforced_large_fixture_green",
-            "state": {
-                "lit": true
-            },
-            "color": "#green",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_reinforced_large_fixture_cyan",
-            "state": {
-                "lit": true
-            },
-            "color": "#cyan",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_reinforced_large_fixture_red",
-            "state": {
-                "lit": true
-            },
-            "color": "#red",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_reinforced_large_fixture_yellow",
-            "state": {
-                "lit": true
-            },
-            "color": "#yellow",
-            "radius": 3
-        },
-        {
-            "block": "led:reinforced_flat_fixture_orange",
-            "state": {
-                "lit": true
-            },
-            "color": "#orange",
-            "radius": 14
-        },
-        {
-            "block": "led:reinforced_flat_fixture_lime",
-            "state": {
-                "lit": true
-            },
-            "color": "#lime",
-            "radius": 14
-        },
-        {
-            "block": "led:reinforced_flat_fixture_pink",
-            "state": {
-                "lit": true
-            },
-            "color": "#pink",
-            "radius": 14
-        },
-        {
-            "block": "led:reinforced_flat_fixture_gray",
-            "state": {
-                "lit": true
-            },
-            "color": "#gray",
-            "radius": 14
-        },
-        {
-            "block": "led:reinforced_flat_fixture_purple",
-            "state": {
-                "lit": true
-            },
-            "color": "#purple",
-            "radius": 14
-        },
-        {
-            "block": "led:reinforced_flat_fixture_magenta",
-            "state": {
-                "lit": true
-            },
-            "color": "#magenta",
-            "radius": 14
-        },
-        {
-            "block": "led:reinforced_flat_fixture_white",
-            "state": {
-                "lit": true
-            },
-            "color": "#white",
-            "radius": 14
-        },
-        {
-            "block": "led:reinforced_flat_fixture_blue",
-            "state": {
-                "lit": true
-            },
-            "color": "#blue",
-            "radius": 14
-        },
-        {
-            "block": "led:reinforced_flat_fixture_brown",
-            "state": {
-                "lit": true
-            },
-            "color": "#brown",
-            "radius": 14
-        },
-        {
-            "block": "led:reinforced_flat_fixture_light_blue",
-            "state": {
-                "lit": true
-            },
-            "color": "#light_blue",
-            "radius": 14
-        },
-        {
-            "block": "led:reinforced_flat_fixture_black",
-            "state": {
-                "lit": true
-            },
-            "color": "#black",
-            "radius": 14
-        },
-        {
-            "block": "led:reinforced_flat_fixture_light_gray",
-            "state": {
-                "lit": true
-            },
-            "color": "#light_gray",
-            "radius": 14
-        },
-        {
-            "block": "led:reinforced_flat_fixture_green",
-            "state": {
-                "lit": true
-            },
-            "color": "#green",
-            "radius": 14
-        },
-        {
-            "block": "led:reinforced_flat_fixture_cyan",
-            "state": {
-                "lit": true
-            },
-            "color": "#cyan",
-            "radius": 14
-        },
-        {
-            "block": "led:reinforced_flat_fixture_red",
-            "state": {
-                "lit": true
-            },
-            "color": "#red",
-            "radius": 14
-        },
-        {
-            "block": "led:reinforced_flat_fixture_yellow",
-            "state": {
-                "lit": true
-            },
-            "color": "#yellow",
-            "radius": 14
-        },
-        {
-            "block": "led:reinforced_medium_fixture_orange",
-            "state": {
-                "lit": true
-            },
-            "color": "#orange",
-            "radius": 14
-        },
-        {
-            "block": "led:reinforced_medium_fixture_lime",
-            "state": {
-                "lit": true
-            },
-            "color": "#lime",
-            "radius": 14
-        },
-        {
-            "block": "led:reinforced_medium_fixture_pink",
-            "state": {
-                "lit": true
-            },
-            "color": "#pink",
-            "radius": 14
-        },
-        {
-            "block": "led:reinforced_medium_fixture_gray",
-            "state": {
-                "lit": true
-            },
-            "color": "#gray",
-            "radius": 14
-        },
-        {
-            "block": "led:reinforced_medium_fixture_purple",
-            "state": {
-                "lit": true
-            },
-            "color": "#purple",
-            "radius": 14
-        },
-        {
-            "block": "led:reinforced_medium_fixture_magenta",
-            "state": {
-                "lit": true
-            },
-            "color": "#magenta",
-            "radius": 14
-        },
-        {
-            "block": "led:reinforced_medium_fixture_white",
-            "state": {
-                "lit": true
-            },
-            "color": "#white",
-            "radius": 14
-        },
-        {
-            "block": "led:reinforced_medium_fixture_blue",
-            "state": {
-                "lit": true
-            },
-            "color": "#blue",
-            "radius": 14
-        },
-        {
-            "block": "led:reinforced_medium_fixture_brown",
-            "state": {
-                "lit": true
-            },
-            "color": "#brown",
-            "radius": 14
-        },
-        {
-            "block": "led:reinforced_medium_fixture_light_blue",
-            "state": {
-                "lit": true
-            },
-            "color": "#light_blue",
-            "radius": 14
-        },
-        {
-            "block": "led:reinforced_medium_fixture_black",
-            "state": {
-                "lit": true
-            },
-            "color": "#black",
-            "radius": 14
-        },
-        {
-            "block": "led:reinforced_medium_fixture_light_gray",
-            "state": {
-                "lit": true
-            },
-            "color": "#light_gray",
-            "radius": 14
-        },
-        {
-            "block": "led:reinforced_medium_fixture_green",
-            "state": {
-                "lit": true
-            },
-            "color": "#green",
-            "radius": 14
-        },
-        {
-            "block": "led:reinforced_medium_fixture_cyan",
-            "state": {
-                "lit": true
-            },
-            "color": "#cyan",
-            "radius": 14
-        },
-        {
-            "block": "led:reinforced_medium_fixture_red",
-            "state": {
-                "lit": true
-            },
-            "color": "#red",
-            "radius": 14
-        },
-        {
-            "block": "led:reinforced_medium_fixture_yellow",
-            "state": {
-                "lit": true
-            },
-            "color": "#yellow",
-            "radius": 14
-        },
-        {
-            "block": "led:reinforced_small_fixture_orange",
-            "state": {
-                "lit": true
-            },
-            "color": "#orange",
-            "radius": 14
-        },
-        {
-            "block": "led:reinforced_small_fixture_lime",
-            "state": {
-                "lit": true
-            },
-            "color": "#lime",
-            "radius": 14
-        },
-        {
-            "block": "led:reinforced_small_fixture_pink",
-            "state": {
-                "lit": true
-            },
-            "color": "#pink",
-            "radius": 14
-        },
-        {
-            "block": "led:reinforced_small_fixture_gray",
-            "state": {
-                "lit": true
-            },
-            "color": "#gray",
-            "radius": 14
-        },
-        {
-            "block": "led:reinforced_small_fixture_purple",
-            "state": {
-                "lit": true
-            },
-            "color": "#purple",
-            "radius": 14
-        },
-        {
-            "block": "led:reinforced_small_fixture_magenta",
-            "state": {
-                "lit": true
-            },
-            "color": "#magenta",
-            "radius": 14
-        },
-        {
-            "block": "led:reinforced_small_fixture_white",
-            "state": {
-                "lit": true
-            },
-            "color": "#white",
-            "radius": 14
-        },
-        {
-            "block": "led:reinforced_small_fixture_blue",
-            "state": {
-                "lit": true
-            },
-            "color": "#blue",
-            "radius": 14
-        },
-        {
-            "block": "led:reinforced_small_fixture_brown",
-            "state": {
-                "lit": true
-            },
-            "color": "#brown",
-            "radius": 14
-        },
-        {
-            "block": "led:reinforced_small_fixture_light_blue",
-            "state": {
-                "lit": true
-            },
-            "color": "#light_blue",
-            "radius": 14
-        },
-        {
-            "block": "led:reinforced_small_fixture_black",
-            "state": {
-                "lit": true
-            },
-            "color": "#black",
-            "radius": 14
-        },
-        {
-            "block": "led:reinforced_small_fixture_light_gray",
-            "state": {
-                "lit": true
-            },
-            "color": "#light_gray",
-            "radius": 14
-        },
-        {
-            "block": "led:reinforced_small_fixture_green",
-            "state": {
-                "lit": true
-            },
-            "color": "#green",
-            "radius": 14
-        },
-        {
-            "block": "led:reinforced_small_fixture_cyan",
-            "state": {
-                "lit": true
-            },
-            "color": "#cyan",
-            "radius": 14
-        },
-        {
-            "block": "led:reinforced_small_fixture_red",
-            "state": {
-                "lit": true
-            },
-            "color": "#red",
-            "radius": 14
-        },
-        {
-            "block": "led:reinforced_small_fixture_yellow",
-            "state": {
-                "lit": true
-            },
-            "color": "#yellow",
-            "radius": 14
-        },
-        {
-            "block": "led:reinforced_clear_full_orange",
-            "state": {
-                "lit": true
-            },
-            "color": "#orange",
-            "radius": 14
-        },
-        {
-            "block": "led:reinforced_clear_full_lime",
-            "state": {
-                "lit": true
-            },
-            "color": "#lime",
-            "radius": 14
-        },
-        {
-            "block": "led:reinforced_clear_full_pink",
-            "state": {
-                "lit": true
-            },
-            "color": "#pink",
-            "radius": 14
-        },
-        {
-            "block": "led:reinforced_clear_full_gray",
-            "state": {
-                "lit": true
-            },
-            "color": "#gray",
-            "radius": 14
-        },
-        {
-            "block": "led:reinforced_clear_full_purple",
-            "state": {
-                "lit": true
-            },
-            "color": "#purple",
-            "radius": 14
-        },
-        {
-            "block": "led:reinforced_clear_full_magenta",
-            "state": {
-                "lit": true
-            },
-            "color": "#magenta",
-            "radius": 14
-        },
-        {
-            "block": "led:reinforced_clear_full_white",
-            "state": {
-                "lit": true
-            },
-            "color": "#white",
-            "radius": 14
-        },
-        {
-            "block": "led:reinforced_clear_full_blue",
-            "state": {
-                "lit": true
-            },
-            "color": "#blue",
-            "radius": 14
-        },
-        {
-            "block": "led:reinforced_clear_full_brown",
-            "state": {
-                "lit": true
-            },
-            "color": "#brown",
-            "radius": 14
-        },
-        {
-            "block": "led:reinforced_clear_full_light_blue",
-            "state": {
-                "lit": true
-            },
-            "color": "#light_blue",
-            "radius": 14
-        },
-        {
-            "block": "led:reinforced_clear_full_black",
-            "state": {
-                "lit": true
-            },
-            "color": "#black",
-            "radius": 14
-        },
-        {
-            "block": "led:reinforced_clear_full_light_gray",
-            "state": {
-                "lit": true
-            },
-            "color": "#light_gray",
-            "radius": 14
-        },
-        {
-            "block": "led:reinforced_clear_full_green",
-            "state": {
-                "lit": true
-            },
-            "color": "#green",
-            "radius": 14
-        },
-        {
-            "block": "led:reinforced_clear_full_cyan",
-            "state": {
-                "lit": true
-            },
-            "color": "#cyan",
-            "radius": 14
-        },
-        {
-            "block": "led:reinforced_clear_full_red",
-            "state": {
-                "lit": true
-            },
-            "color": "#red",
-            "radius": 14
-        },
-        {
-            "block": "led:reinforced_clear_full_yellow",
-            "state": {
-                "lit": true
-            },
-            "color": "#yellow",
-            "radius": 14
-        },
-        {
-            "block": "led:reinforced_large_fixture_orange",
-            "state": {
-                "lit": true
-            },
-            "color": "#orange",
-            "radius": 14
-        },
-        {
-            "block": "led:reinforced_large_fixture_lime",
-            "state": {
-                "lit": true
-            },
-            "color": "#lime",
-            "radius": 14
-        },
-        {
-            "block": "led:reinforced_large_fixture_pink",
-            "state": {
-                "lit": true
-            },
-            "color": "#pink",
-            "radius": 14
-        },
-        {
-            "block": "led:reinforced_large_fixture_gray",
-            "state": {
-                "lit": true
-            },
-            "color": "#gray",
-            "radius": 14
-        },
-        {
-            "block": "led:reinforced_large_fixture_purple",
-            "state": {
-                "lit": true
-            },
-            "color": "#purple",
-            "radius": 14
-        },
-        {
-            "block": "led:reinforced_large_fixture_magenta",
-            "state": {
-                "lit": true
-            },
-            "color": "#magenta",
-            "radius": 14
-        },
-        {
-            "block": "led:reinforced_large_fixture_white",
-            "state": {
-                "lit": true
-            },
-            "color": "#white",
-            "radius": 14
-        },
-        {
-            "block": "led:reinforced_large_fixture_blue",
-            "state": {
-                "lit": true
-            },
-            "color": "#blue",
-            "radius": 14
-        },
-        {
-            "block": "led:reinforced_large_fixture_brown",
-            "state": {
-                "lit": true
-            },
-            "color": "#brown",
-            "radius": 14
-        },
-        {
-            "block": "led:reinforced_large_fixture_light_blue",
-            "state": {
-                "lit": true
-            },
-            "color": "#light_blue",
-            "radius": 14
-        },
-        {
-            "block": "led:reinforced_large_fixture_black",
-            "state": {
-                "lit": true
-            },
-            "color": "#black",
-            "radius": 14
-        },
-        {
-            "block": "led:reinforced_large_fixture_light_gray",
-            "state": {
-                "lit": true
-            },
-            "color": "#light_gray",
-            "radius": 14
-        },
-        {
-            "block": "led:reinforced_large_fixture_green",
-            "state": {
-                "lit": true
-            },
-            "color": "#green",
-            "radius": 14
-        },
-        {
-            "block": "led:reinforced_large_fixture_cyan",
-            "state": {
-                "lit": true
-            },
-            "color": "#cyan",
-            "radius": 14
-        },
-        {
-            "block": "led:reinforced_large_fixture_red",
-            "state": {
-                "lit": true
-            },
-            "color": "#red",
-            "radius": 14
-        },
-        {
-            "block": "led:reinforced_large_fixture_yellow",
-            "state": {
-                "lit": true
-            },
-            "color": "#yellow",
-            "radius": 14
-        },
-        {
-            "block": "led:shaded_flat_fixture_orange",
-            "state": {
-                "lit": true
-            },
-            "color": "#orange",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_flat_fixture_lime",
-            "state": {
-                "lit": true
-            },
-            "color": "#lime",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_flat_fixture_pink",
-            "state": {
-                "lit": true
-            },
-            "color": "#pink",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_flat_fixture_gray",
-            "state": {
-                "lit": true
-            },
-            "color": "#gray",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_flat_fixture_purple",
-            "state": {
-                "lit": true
-            },
-            "color": "#purple",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_flat_fixture_magenta",
-            "state": {
-                "lit": true
-            },
-            "color": "#magenta",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_flat_fixture_white",
-            "state": {
-                "lit": true
-            },
-            "color": "#white",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_flat_fixture_blue",
-            "state": {
-                "lit": true
-            },
-            "color": "#blue",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_flat_fixture_brown",
-            "state": {
-                "lit": true
-            },
-            "color": "#brown",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_flat_fixture_light_blue",
-            "state": {
-                "lit": true
-            },
-            "color": "#light_blue",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_flat_fixture_black",
-            "state": {
-                "lit": true
-            },
-            "color": "#black",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_flat_fixture_light_gray",
-            "state": {
-                "lit": true
-            },
-            "color": "#light_gray",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_flat_fixture_green",
-            "state": {
-                "lit": true
-            },
-            "color": "#green",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_flat_fixture_cyan",
-            "state": {
-                "lit": true
-            },
-            "color": "#cyan",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_flat_fixture_red",
-            "state": {
-                "lit": true
-            },
-            "color": "#red",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_flat_fixture_yellow",
-            "state": {
-                "lit": true
-            },
-            "color": "#yellow",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_medium_fixture_orange",
-            "state": {
-                "lit": true
-            },
-            "color": "#orange",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_medium_fixture_lime",
-            "state": {
-                "lit": true
-            },
-            "color": "#lime",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_medium_fixture_pink",
-            "state": {
-                "lit": true
-            },
-            "color": "#pink",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_medium_fixture_gray",
-            "state": {
-                "lit": true
-            },
-            "color": "#gray",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_medium_fixture_purple",
-            "state": {
-                "lit": true
-            },
-            "color": "#purple",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_medium_fixture_magenta",
-            "state": {
-                "lit": true
-            },
-            "color": "#magenta",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_medium_fixture_white",
-            "state": {
-                "lit": true
-            },
-            "color": "#white",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_medium_fixture_blue",
-            "state": {
-                "lit": true
-            },
-            "color": "#blue",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_medium_fixture_brown",
-            "state": {
-                "lit": true
-            },
-            "color": "#brown",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_medium_fixture_light_blue",
-            "state": {
-                "lit": true
-            },
-            "color": "#light_blue",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_medium_fixture_black",
-            "state": {
-                "lit": true
-            },
-            "color": "#black",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_medium_fixture_light_gray",
-            "state": {
-                "lit": true
-            },
-            "color": "#light_gray",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_medium_fixture_green",
-            "state": {
-                "lit": true
-            },
-            "color": "#green",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_medium_fixture_cyan",
-            "state": {
-                "lit": true
-            },
-            "color": "#cyan",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_medium_fixture_red",
-            "state": {
-                "lit": true
-            },
-            "color": "#red",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_medium_fixture_yellow",
-            "state": {
-                "lit": true
-            },
-            "color": "#yellow",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_small_fixture_orange",
-            "state": {
-                "lit": true
-            },
-            "color": "#orange",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_small_fixture_lime",
-            "state": {
-                "lit": true
-            },
-            "color": "#lime",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_small_fixture_pink",
-            "state": {
-                "lit": true
-            },
-            "color": "#pink",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_small_fixture_gray",
-            "state": {
-                "lit": true
-            },
-            "color": "#gray",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_small_fixture_purple",
-            "state": {
-                "lit": true
-            },
-            "color": "#purple",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_small_fixture_magenta",
-            "state": {
-                "lit": true
-            },
-            "color": "#magenta",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_small_fixture_white",
-            "state": {
-                "lit": true
-            },
-            "color": "#white",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_small_fixture_blue",
-            "state": {
-                "lit": true
-            },
-            "color": "#blue",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_small_fixture_brown",
-            "state": {
-                "lit": true
-            },
-            "color": "#brown",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_small_fixture_light_blue",
-            "state": {
-                "lit": true
-            },
-            "color": "#light_blue",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_small_fixture_black",
-            "state": {
-                "lit": true
-            },
-            "color": "#black",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_small_fixture_light_gray",
-            "state": {
-                "lit": true
-            },
-            "color": "#light_gray",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_small_fixture_green",
-            "state": {
-                "lit": true
-            },
-            "color": "#green",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_small_fixture_cyan",
-            "state": {
-                "lit": true
-            },
-            "color": "#cyan",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_small_fixture_red",
-            "state": {
-                "lit": true
-            },
-            "color": "#red",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_small_fixture_yellow",
-            "state": {
-                "lit": true
-            },
-            "color": "#yellow",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_clear_full_orange",
-            "state": {
-                "lit": true
-            },
-            "color": "#orange",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_clear_full_lime",
-            "state": {
-                "lit": true
-            },
-            "color": "#lime",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_clear_full_pink",
-            "state": {
-                "lit": true
-            },
-            "color": "#pink",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_clear_full_gray",
-            "state": {
-                "lit": true
-            },
-            "color": "#gray",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_clear_full_purple",
-            "state": {
-                "lit": true
-            },
-            "color": "#purple",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_clear_full_magenta",
-            "state": {
-                "lit": true
-            },
-            "color": "#magenta",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_clear_full_white",
-            "state": {
-                "lit": true
-            },
-            "color": "#white",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_clear_full_blue",
-            "state": {
-                "lit": true
-            },
-            "color": "#blue",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_clear_full_brown",
-            "state": {
-                "lit": true
-            },
-            "color": "#brown",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_clear_full_light_blue",
-            "state": {
-                "lit": true
-            },
-            "color": "#light_blue",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_clear_full_black",
-            "state": {
-                "lit": true
-            },
-            "color": "#black",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_clear_full_light_gray",
-            "state": {
-                "lit": true
-            },
-            "color": "#light_gray",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_clear_full_green",
-            "state": {
-                "lit": true
-            },
-            "color": "#green",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_clear_full_cyan",
-            "state": {
-                "lit": true
-            },
-            "color": "#cyan",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_clear_full_red",
-            "state": {
-                "lit": true
-            },
-            "color": "#red",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_clear_full_yellow",
-            "state": {
-                "lit": true
-            },
-            "color": "#yellow",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_large_fixture_orange",
-            "state": {
-                "lit": true
-            },
-            "color": "#orange",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_large_fixture_lime",
-            "state": {
-                "lit": true
-            },
-            "color": "#lime",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_large_fixture_pink",
-            "state": {
-                "lit": true
-            },
-            "color": "#pink",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_large_fixture_gray",
-            "state": {
-                "lit": true
-            },
-            "color": "#gray",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_large_fixture_purple",
-            "state": {
-                "lit": true
-            },
-            "color": "#purple",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_large_fixture_magenta",
-            "state": {
-                "lit": true
-            },
-            "color": "#magenta",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_large_fixture_white",
-            "state": {
-                "lit": true
-            },
-            "color": "#white",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_large_fixture_blue",
-            "state": {
-                "lit": true
-            },
-            "color": "#blue",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_large_fixture_brown",
-            "state": {
-                "lit": true
-            },
-            "color": "#brown",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_large_fixture_light_blue",
-            "state": {
-                "lit": true
-            },
-            "color": "#light_blue",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_large_fixture_black",
-            "state": {
-                "lit": true
-            },
-            "color": "#black",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_large_fixture_light_gray",
-            "state": {
-                "lit": true
-            },
-            "color": "#light_gray",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_large_fixture_green",
-            "state": {
-                "lit": true
-            },
-            "color": "#green",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_large_fixture_cyan",
-            "state": {
-                "lit": true
-            },
-            "color": "#cyan",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_large_fixture_red",
-            "state": {
-                "lit": true
-            },
-            "color": "#red",
-            "radius": 3
-        },
-        {
-            "block": "led:shaded_large_fixture_yellow",
-            "state": {
-                "lit": true
-            },
-            "color": "#yellow",
-            "radius": 3
-        },
-        {
-            "block": "led:flat_fixture_orange",
-            "state": {
-                "lit": true
-            },
-            "color": "#orange",
-            "radius": 15
-        },
-        {
-            "block": "led:flat_fixture_lime",
-            "state": {
-                "lit": true
-            },
-            "color": "#lime",
-            "radius": 15
-        },
-        {
-            "block": "led:flat_fixture_pink",
-            "state": {
-                "lit": true
-            },
-            "color": "#pink",
-            "radius": 15
-        },
-        {
-            "block": "led:flat_fixture_gray",
-            "state": {
-                "lit": true
-            },
-            "color": "#gray",
-            "radius": 15
-        },
-        {
-            "block": "led:flat_fixture_purple",
-            "state": {
-                "lit": true
-            },
-            "color": "#purple",
-            "radius": 15
-        },
-        {
-            "block": "led:flat_fixture_magenta",
-            "state": {
-                "lit": true
-            },
-            "color": "#magenta",
-            "radius": 15
-        },
-        {
-            "block": "led:flat_fixture_white",
-            "state": {
-                "lit": true
-            },
-            "color": "#white",
-            "radius": 15
-        },
-        {
-            "block": "led:flat_fixture_blue",
-            "state": {
-                "lit": true
-            },
-            "color": "#blue",
-            "radius": 15
-        },
-        {
-            "block": "led:flat_fixture_brown",
-            "state": {
-                "lit": true
-            },
-            "color": "#brown",
-            "radius": 15
-        },
-        {
-            "block": "led:flat_fixture_light_blue",
-            "state": {
-                "lit": true
-            },
-            "color": "#light_blue",
-            "radius": 15
-        },
-        {
-            "block": "led:flat_fixture_black",
-            "state": {
-                "lit": true
-            },
-            "color": "#black",
-            "radius": 15
-        },
-        {
-            "block": "led:flat_fixture_light_gray",
-            "state": {
-                "lit": true
-            },
-            "color": "#light_gray",
-            "radius": 15
-        },
-        {
-            "block": "led:flat_fixture_green",
-            "state": {
-                "lit": true
-            },
-            "color": "#green",
-            "radius": 15
-        },
-        {
-            "block": "led:flat_fixture_cyan",
-            "state": {
-                "lit": true
-            },
-            "color": "#cyan",
-            "radius": 15
-        },
-        {
-            "block": "led:flat_fixture_red",
-            "state": {
-                "lit": true
-            },
-            "color": "#red",
-            "radius": 15
-        },
-        {
-            "block": "led:flat_fixture_yellow",
-            "state": {
-                "lit": true
-            },
-            "color": "#yellow",
-            "radius": 15
-        },
-        {
-            "block": "led:medium_fixture_orange",
-            "state": {
-                "lit": true
-            },
-            "color": "#orange",
-            "radius": 15
-        },
-        {
-            "block": "led:medium_fixture_lime",
-            "state": {
-                "lit": true
-            },
-            "color": "#lime",
-            "radius": 15
-        },
-        {
-            "block": "led:medium_fixture_pink",
-            "state": {
-                "lit": true
-            },
-            "color": "#pink",
-            "radius": 15
-        },
-        {
-            "block": "led:medium_fixture_gray",
-            "state": {
-                "lit": true
-            },
-            "color": "#gray",
-            "radius": 15
-        },
-        {
-            "block": "led:medium_fixture_purple",
-            "state": {
-                "lit": true
-            },
-            "color": "#purple",
-            "radius": 15
-        },
-        {
-            "block": "led:medium_fixture_magenta",
-            "state": {
-                "lit": true
-            },
-            "color": "#magenta",
-            "radius": 15
-        },
-        {
-            "block": "led:medium_fixture_white",
-            "state": {
-                "lit": true
-            },
-            "color": "#white",
-            "radius": 15
-        },
-        {
-            "block": "led:medium_fixture_blue",
-            "state": {
-                "lit": true
-            },
-            "color": "#blue",
-            "radius": 15
-        },
-        {
-            "block": "led:medium_fixture_brown",
-            "state": {
-                "lit": true
-            },
-            "color": "#brown",
-            "radius": 15
-        },
-        {
-            "block": "led:medium_fixture_light_blue",
-            "state": {
-                "lit": true
-            },
-            "color": "#light_blue",
-            "radius": 15
-        },
-        {
-            "block": "led:medium_fixture_black",
-            "state": {
-                "lit": true
-            },
-            "color": "#black",
-            "radius": 15
-        },
-        {
-            "block": "led:medium_fixture_light_gray",
-            "state": {
-                "lit": true
-            },
-            "color": "#light_gray",
-            "radius": 15
-        },
-        {
-            "block": "led:medium_fixture_green",
-            "state": {
-                "lit": true
-            },
-            "color": "#green",
-            "radius": 15
-        },
-        {
-            "block": "led:medium_fixture_cyan",
-            "state": {
-                "lit": true
-            },
-            "color": "#cyan",
-            "radius": 15
-        },
-        {
-            "block": "led:medium_fixture_red",
-            "state": {
-                "lit": true
-            },
-            "color": "#red",
-            "radius": 15
-        },
-        {
-            "block": "led:medium_fixture_yellow",
-            "state": {
-                "lit": true
-            },
-            "color": "#yellow",
-            "radius": 15
-        },
-        {
-            "block": "led:small_fixture_orange",
-            "state": {
-                "lit": true
-            },
-            "color": "#orange",
-            "radius": 15
-        },
-        {
-            "block": "led:small_fixture_lime",
-            "state": {
-                "lit": true
-            },
-            "color": "#lime",
-            "radius": 15
-        },
-        {
-            "block": "led:small_fixture_pink",
-            "state": {
-                "lit": true
-            },
-            "color": "#pink",
-            "radius": 15
-        },
-        {
-            "block": "led:small_fixture_gray",
-            "state": {
-                "lit": true
-            },
-            "color": "#gray",
-            "radius": 15
-        },
-        {
-            "block": "led:small_fixture_purple",
-            "state": {
-                "lit": true
-            },
-            "color": "#purple",
-            "radius": 15
-        },
-        {
-            "block": "led:small_fixture_magenta",
-            "state": {
-                "lit": true
-            },
-            "color": "#magenta",
-            "radius": 15
-        },
-        {
-            "block": "led:small_fixture_white",
-            "state": {
-                "lit": true
-            },
-            "color": "#white",
-            "radius": 15
-        },
-        {
-            "block": "led:small_fixture_blue",
-            "state": {
-                "lit": true
-            },
-            "color": "#blue",
-            "radius": 15
-        },
-        {
-            "block": "led:small_fixture_brown",
-            "state": {
-                "lit": true
-            },
-            "color": "#brown",
-            "radius": 15
-        },
-        {
-            "block": "led:small_fixture_light_blue",
-            "state": {
-                "lit": true
-            },
-            "color": "#light_blue",
-            "radius": 15
-        },
-        {
-            "block": "led:small_fixture_black",
-            "state": {
-                "lit": true
-            },
-            "color": "#black",
-            "radius": 15
-        },
-        {
-            "block": "led:small_fixture_light_gray",
-            "state": {
-                "lit": true
-            },
-            "color": "#light_gray",
-            "radius": 15
-        },
-        {
-            "block": "led:small_fixture_green",
-            "state": {
-                "lit": true
-            },
-            "color": "#green",
-            "radius": 15
-        },
-        {
-            "block": "led:small_fixture_cyan",
-            "state": {
-                "lit": true
-            },
-            "color": "#cyan",
-            "radius": 15
-        },
-        {
-            "block": "led:small_fixture_red",
-            "state": {
-                "lit": true
-            },
-            "color": "#red",
-            "radius": 15
-        },
-        {
-            "block": "led:small_fixture_yellow",
-            "state": {
-                "lit": true
-            },
-            "color": "#yellow",
             "radius": 15
         },
         {
@@ -2408,6 +112,30 @@
                 "lit": true
             },
             "color": "#orange",
+            "radius": 15
+        },
+        {
+            "block": "led:clear_full_magenta",
+            "state": {
+                "lit": true
+            },
+            "color": "#magenta",
+            "radius": 15
+        },
+        {
+            "block": "led:clear_full_light_blue",
+            "state": {
+                "lit": true
+            },
+            "color": "#light_blue",
+            "radius": 15
+        },
+        {
+            "block": "led:clear_full_yellow",
+            "state": {
+                "lit": true
+            },
+            "color": "#yellow",
             "radius": 15
         },
         {
@@ -2435,27 +163,27 @@
             "radius": 15
         },
         {
+            "block": "led:clear_full_light_gray",
+            "state": {
+                "lit": true
+            },
+            "color": "#light_gray",
+            "radius": 15
+        },
+        {
+            "block": "led:clear_full_cyan",
+            "state": {
+                "lit": true
+            },
+            "color": "#cyan",
+            "radius": 15
+        },
+        {
             "block": "led:clear_full_purple",
             "state": {
                 "lit": true
             },
             "color": "#purple",
-            "radius": 15
-        },
-        {
-            "block": "led:clear_full_magenta",
-            "state": {
-                "lit": true
-            },
-            "color": "#magenta",
-            "radius": 15
-        },
-        {
-            "block": "led:clear_full_white",
-            "state": {
-                "lit": true
-            },
-            "color": "#white",
             "radius": 15
         },
         {
@@ -2475,43 +203,11 @@
             "radius": 15
         },
         {
-            "block": "led:clear_full_light_blue",
-            "state": {
-                "lit": true
-            },
-            "color": "#light_blue",
-            "radius": 15
-        },
-        {
-            "block": "led:clear_full_black",
-            "state": {
-                "lit": true
-            },
-            "color": "#black",
-            "radius": 15
-        },
-        {
-            "block": "led:clear_full_light_gray",
-            "state": {
-                "lit": true
-            },
-            "color": "#light_gray",
-            "radius": 15
-        },
-        {
             "block": "led:clear_full_green",
             "state": {
                 "lit": true
             },
             "color": "#green",
-            "radius": 15
-        },
-        {
-            "block": "led:clear_full_cyan",
-            "state": {
-                "lit": true
-            },
-            "color": "#cyan",
             "radius": 15
         },
         {
@@ -2523,11 +219,275 @@
             "radius": 15
         },
         {
-            "block": "led:clear_full_yellow",
+            "block": "led:clear_full_black",
+            "state": {
+                "lit": true
+            },
+            "color": "#black",
+            "radius": 15
+        },
+        {
+            "block": "led:small_fixture_white",
+            "state": {
+                "lit": true
+            },
+            "color": "#white",
+            "radius": 15
+        },
+        {
+            "block": "led:small_fixture_orange",
+            "state": {
+                "lit": true
+            },
+            "color": "#orange",
+            "radius": 15
+        },
+        {
+            "block": "led:small_fixture_magenta",
+            "state": {
+                "lit": true
+            },
+            "color": "#magenta",
+            "radius": 15
+        },
+        {
+            "block": "led:small_fixture_light_blue",
+            "state": {
+                "lit": true
+            },
+            "color": "#light_blue",
+            "radius": 15
+        },
+        {
+            "block": "led:small_fixture_yellow",
             "state": {
                 "lit": true
             },
             "color": "#yellow",
+            "radius": 15
+        },
+        {
+            "block": "led:small_fixture_lime",
+            "state": {
+                "lit": true
+            },
+            "color": "#lime",
+            "radius": 15
+        },
+        {
+            "block": "led:small_fixture_pink",
+            "state": {
+                "lit": true
+            },
+            "color": "#pink",
+            "radius": 15
+        },
+        {
+            "block": "led:small_fixture_gray",
+            "state": {
+                "lit": true
+            },
+            "color": "#gray",
+            "radius": 15
+        },
+        {
+            "block": "led:small_fixture_light_gray",
+            "state": {
+                "lit": true
+            },
+            "color": "#light_gray",
+            "radius": 15
+        },
+        {
+            "block": "led:small_fixture_cyan",
+            "state": {
+                "lit": true
+            },
+            "color": "#cyan",
+            "radius": 15
+        },
+        {
+            "block": "led:small_fixture_purple",
+            "state": {
+                "lit": true
+            },
+            "color": "#purple",
+            "radius": 15
+        },
+        {
+            "block": "led:small_fixture_blue",
+            "state": {
+                "lit": true
+            },
+            "color": "#blue",
+            "radius": 15
+        },
+        {
+            "block": "led:small_fixture_brown",
+            "state": {
+                "lit": true
+            },
+            "color": "#brown",
+            "radius": 15
+        },
+        {
+            "block": "led:small_fixture_green",
+            "state": {
+                "lit": true
+            },
+            "color": "#green",
+            "radius": 15
+        },
+        {
+            "block": "led:small_fixture_red",
+            "state": {
+                "lit": true
+            },
+            "color": "#red",
+            "radius": 15
+        },
+        {
+            "block": "led:small_fixture_black",
+            "state": {
+                "lit": true
+            },
+            "color": "#black",
+            "radius": 15
+        },
+        {
+            "block": "led:medium_fixture_white",
+            "state": {
+                "lit": true
+            },
+            "color": "#white",
+            "radius": 15
+        },
+        {
+            "block": "led:medium_fixture_orange",
+            "state": {
+                "lit": true
+            },
+            "color": "#orange",
+            "radius": 15
+        },
+        {
+            "block": "led:medium_fixture_magenta",
+            "state": {
+                "lit": true
+            },
+            "color": "#magenta",
+            "radius": 15
+        },
+        {
+            "block": "led:medium_fixture_light_blue",
+            "state": {
+                "lit": true
+            },
+            "color": "#light_blue",
+            "radius": 15
+        },
+        {
+            "block": "led:medium_fixture_yellow",
+            "state": {
+                "lit": true
+            },
+            "color": "#yellow",
+            "radius": 15
+        },
+        {
+            "block": "led:medium_fixture_lime",
+            "state": {
+                "lit": true
+            },
+            "color": "#lime",
+            "radius": 15
+        },
+        {
+            "block": "led:medium_fixture_pink",
+            "state": {
+                "lit": true
+            },
+            "color": "#pink",
+            "radius": 15
+        },
+        {
+            "block": "led:medium_fixture_gray",
+            "state": {
+                "lit": true
+            },
+            "color": "#gray",
+            "radius": 15
+        },
+        {
+            "block": "led:medium_fixture_light_gray",
+            "state": {
+                "lit": true
+            },
+            "color": "#light_gray",
+            "radius": 15
+        },
+        {
+            "block": "led:medium_fixture_cyan",
+            "state": {
+                "lit": true
+            },
+            "color": "#cyan",
+            "radius": 15
+        },
+        {
+            "block": "led:medium_fixture_purple",
+            "state": {
+                "lit": true
+            },
+            "color": "#purple",
+            "radius": 15
+        },
+        {
+            "block": "led:medium_fixture_blue",
+            "state": {
+                "lit": true
+            },
+            "color": "#blue",
+            "radius": 15
+        },
+        {
+            "block": "led:medium_fixture_brown",
+            "state": {
+                "lit": true
+            },
+            "color": "#brown",
+            "radius": 15
+        },
+        {
+            "block": "led:medium_fixture_green",
+            "state": {
+                "lit": true
+            },
+            "color": "#green",
+            "radius": 15
+        },
+        {
+            "block": "led:medium_fixture_red",
+            "state": {
+                "lit": true
+            },
+            "color": "#red",
+            "radius": 15
+        },
+        {
+            "block": "led:medium_fixture_black",
+            "state": {
+                "lit": true
+            },
+            "color": "#black",
+            "radius": 15
+        },
+        {
+            "block": "led:large_fixture_white",
+            "state": {
+                "lit": true
+            },
+            "color": "#white",
             "radius": 15
         },
         {
@@ -2536,6 +496,30 @@
                 "lit": true
             },
             "color": "#orange",
+            "radius": 15
+        },
+        {
+            "block": "led:large_fixture_magenta",
+            "state": {
+                "lit": true
+            },
+            "color": "#magenta",
+            "radius": 15
+        },
+        {
+            "block": "led:large_fixture_light_blue",
+            "state": {
+                "lit": true
+            },
+            "color": "#light_blue",
+            "radius": 15
+        },
+        {
+            "block": "led:large_fixture_yellow",
+            "state": {
+                "lit": true
+            },
+            "color": "#yellow",
             "radius": 15
         },
         {
@@ -2563,27 +547,27 @@
             "radius": 15
         },
         {
+            "block": "led:large_fixture_light_gray",
+            "state": {
+                "lit": true
+            },
+            "color": "#light_gray",
+            "radius": 15
+        },
+        {
+            "block": "led:large_fixture_cyan",
+            "state": {
+                "lit": true
+            },
+            "color": "#cyan",
+            "radius": 15
+        },
+        {
             "block": "led:large_fixture_purple",
             "state": {
                 "lit": true
             },
             "color": "#purple",
-            "radius": 15
-        },
-        {
-            "block": "led:large_fixture_magenta",
-            "state": {
-                "lit": true
-            },
-            "color": "#magenta",
-            "radius": 15
-        },
-        {
-            "block": "led:large_fixture_white",
-            "state": {
-                "lit": true
-            },
-            "color": "#white",
             "radius": 15
         },
         {
@@ -2603,43 +587,11 @@
             "radius": 15
         },
         {
-            "block": "led:large_fixture_light_blue",
-            "state": {
-                "lit": true
-            },
-            "color": "#light_blue",
-            "radius": 15
-        },
-        {
-            "block": "led:large_fixture_black",
-            "state": {
-                "lit": true
-            },
-            "color": "#black",
-            "radius": 15
-        },
-        {
-            "block": "led:large_fixture_light_gray",
-            "state": {
-                "lit": true
-            },
-            "color": "#light_gray",
-            "radius": 15
-        },
-        {
             "block": "led:large_fixture_green",
             "state": {
                 "lit": true
             },
             "color": "#green",
-            "radius": 15
-        },
-        {
-            "block": "led:large_fixture_cyan",
-            "state": {
-                "lit": true
-            },
-            "color": "#cyan",
             "radius": 15
         },
         {
@@ -2651,12 +603,2316 @@
             "radius": 15
         },
         {
-            "block": "led:large_fixture_yellow",
+            "block": "led:large_fixture_black",
+            "state": {
+                "lit": true
+            },
+            "color": "#black",
+            "radius": 15
+        },
+        {
+            "block": "led:flat_fixture_white",
+            "state": {
+                "lit": true
+            },
+            "color": "#white",
+            "radius": 15
+        },
+        {
+            "block": "led:flat_fixture_orange",
+            "state": {
+                "lit": true
+            },
+            "color": "#orange",
+            "radius": 15
+        },
+        {
+            "block": "led:flat_fixture_magenta",
+            "state": {
+                "lit": true
+            },
+            "color": "#magenta",
+            "radius": 15
+        },
+        {
+            "block": "led:flat_fixture_light_blue",
+            "state": {
+                "lit": true
+            },
+            "color": "#light_blue",
+            "radius": 15
+        },
+        {
+            "block": "led:flat_fixture_yellow",
             "state": {
                 "lit": true
             },
             "color": "#yellow",
             "radius": 15
+        },
+        {
+            "block": "led:flat_fixture_lime",
+            "state": {
+                "lit": true
+            },
+            "color": "#lime",
+            "radius": 15
+        },
+        {
+            "block": "led:flat_fixture_pink",
+            "state": {
+                "lit": true
+            },
+            "color": "#pink",
+            "radius": 15
+        },
+        {
+            "block": "led:flat_fixture_gray",
+            "state": {
+                "lit": true
+            },
+            "color": "#gray",
+            "radius": 15
+        },
+        {
+            "block": "led:flat_fixture_light_gray",
+            "state": {
+                "lit": true
+            },
+            "color": "#light_gray",
+            "radius": 15
+        },
+        {
+            "block": "led:flat_fixture_cyan",
+            "state": {
+                "lit": true
+            },
+            "color": "#cyan",
+            "radius": 15
+        },
+        {
+            "block": "led:flat_fixture_purple",
+            "state": {
+                "lit": true
+            },
+            "color": "#purple",
+            "radius": 15
+        },
+        {
+            "block": "led:flat_fixture_blue",
+            "state": {
+                "lit": true
+            },
+            "color": "#blue",
+            "radius": 15
+        },
+        {
+            "block": "led:flat_fixture_brown",
+            "state": {
+                "lit": true
+            },
+            "color": "#brown",
+            "radius": 15
+        },
+        {
+            "block": "led:flat_fixture_green",
+            "state": {
+                "lit": true
+            },
+            "color": "#green",
+            "radius": 15
+        },
+        {
+            "block": "led:flat_fixture_red",
+            "state": {
+                "lit": true
+            },
+            "color": "#red",
+            "radius": 15
+        },
+        {
+            "block": "led:flat_fixture_black",
+            "state": {
+                "lit": true
+            },
+            "color": "#black",
+            "radius": 15
+        },
+        {
+            "block": "led:reinforced_clear_full_white",
+            "state": {
+                "lit": true
+            },
+            "color": "#white",
+            "radius": 14
+        },
+        {
+            "block": "led:reinforced_clear_full_orange",
+            "state": {
+                "lit": true
+            },
+            "color": "#orange",
+            "radius": 14
+        },
+        {
+            "block": "led:reinforced_clear_full_magenta",
+            "state": {
+                "lit": true
+            },
+            "color": "#magenta",
+            "radius": 14
+        },
+        {
+            "block": "led:reinforced_clear_full_light_blue",
+            "state": {
+                "lit": true
+            },
+            "color": "#light_blue",
+            "radius": 14
+        },
+        {
+            "block": "led:reinforced_clear_full_yellow",
+            "state": {
+                "lit": true
+            },
+            "color": "#yellow",
+            "radius": 14
+        },
+        {
+            "block": "led:reinforced_clear_full_lime",
+            "state": {
+                "lit": true
+            },
+            "color": "#lime",
+            "radius": 14
+        },
+        {
+            "block": "led:reinforced_clear_full_pink",
+            "state": {
+                "lit": true
+            },
+            "color": "#pink",
+            "radius": 14
+        },
+        {
+            "block": "led:reinforced_clear_full_gray",
+            "state": {
+                "lit": true
+            },
+            "color": "#gray",
+            "radius": 14
+        },
+        {
+            "block": "led:reinforced_clear_full_light_gray",
+            "state": {
+                "lit": true
+            },
+            "color": "#light_gray",
+            "radius": 14
+        },
+        {
+            "block": "led:reinforced_clear_full_cyan",
+            "state": {
+                "lit": true
+            },
+            "color": "#cyan",
+            "radius": 14
+        },
+        {
+            "block": "led:reinforced_clear_full_purple",
+            "state": {
+                "lit": true
+            },
+            "color": "#purple",
+            "radius": 14
+        },
+        {
+            "block": "led:reinforced_clear_full_blue",
+            "state": {
+                "lit": true
+            },
+            "color": "#blue",
+            "radius": 14
+        },
+        {
+            "block": "led:reinforced_clear_full_brown",
+            "state": {
+                "lit": true
+            },
+            "color": "#brown",
+            "radius": 14
+        },
+        {
+            "block": "led:reinforced_clear_full_green",
+            "state": {
+                "lit": true
+            },
+            "color": "#green",
+            "radius": 14
+        },
+        {
+            "block": "led:reinforced_clear_full_red",
+            "state": {
+                "lit": true
+            },
+            "color": "#red",
+            "radius": 14
+        },
+        {
+            "block": "led:reinforced_clear_full_black",
+            "state": {
+                "lit": true
+            },
+            "color": "#black",
+            "radius": 14
+        },
+        {
+            "block": "led:reinforced_small_fixture_white",
+            "state": {
+                "lit": true
+            },
+            "color": "#white",
+            "radius": 14
+        },
+        {
+            "block": "led:reinforced_small_fixture_orange",
+            "state": {
+                "lit": true
+            },
+            "color": "#orange",
+            "radius": 14
+        },
+        {
+            "block": "led:reinforced_small_fixture_magenta",
+            "state": {
+                "lit": true
+            },
+            "color": "#magenta",
+            "radius": 14
+        },
+        {
+            "block": "led:reinforced_small_fixture_light_blue",
+            "state": {
+                "lit": true
+            },
+            "color": "#light_blue",
+            "radius": 14
+        },
+        {
+            "block": "led:reinforced_small_fixture_yellow",
+            "state": {
+                "lit": true
+            },
+            "color": "#yellow",
+            "radius": 14
+        },
+        {
+            "block": "led:reinforced_small_fixture_lime",
+            "state": {
+                "lit": true
+            },
+            "color": "#lime",
+            "radius": 14
+        },
+        {
+            "block": "led:reinforced_small_fixture_pink",
+            "state": {
+                "lit": true
+            },
+            "color": "#pink",
+            "radius": 14
+        },
+        {
+            "block": "led:reinforced_small_fixture_gray",
+            "state": {
+                "lit": true
+            },
+            "color": "#gray",
+            "radius": 14
+        },
+        {
+            "block": "led:reinforced_small_fixture_light_gray",
+            "state": {
+                "lit": true
+            },
+            "color": "#light_gray",
+            "radius": 14
+        },
+        {
+            "block": "led:reinforced_small_fixture_cyan",
+            "state": {
+                "lit": true
+            },
+            "color": "#cyan",
+            "radius": 14
+        },
+        {
+            "block": "led:reinforced_small_fixture_purple",
+            "state": {
+                "lit": true
+            },
+            "color": "#purple",
+            "radius": 14
+        },
+        {
+            "block": "led:reinforced_small_fixture_blue",
+            "state": {
+                "lit": true
+            },
+            "color": "#blue",
+            "radius": 14
+        },
+        {
+            "block": "led:reinforced_small_fixture_brown",
+            "state": {
+                "lit": true
+            },
+            "color": "#brown",
+            "radius": 14
+        },
+        {
+            "block": "led:reinforced_small_fixture_green",
+            "state": {
+                "lit": true
+            },
+            "color": "#green",
+            "radius": 14
+        },
+        {
+            "block": "led:reinforced_small_fixture_red",
+            "state": {
+                "lit": true
+            },
+            "color": "#red",
+            "radius": 14
+        },
+        {
+            "block": "led:reinforced_small_fixture_black",
+            "state": {
+                "lit": true
+            },
+            "color": "#black",
+            "radius": 14
+        },
+        {
+            "block": "led:reinforced_medium_fixture_white",
+            "state": {
+                "lit": true
+            },
+            "color": "#white",
+            "radius": 14
+        },
+        {
+            "block": "led:reinforced_medium_fixture_orange",
+            "state": {
+                "lit": true
+            },
+            "color": "#orange",
+            "radius": 14
+        },
+        {
+            "block": "led:reinforced_medium_fixture_magenta",
+            "state": {
+                "lit": true
+            },
+            "color": "#magenta",
+            "radius": 14
+        },
+        {
+            "block": "led:reinforced_medium_fixture_light_blue",
+            "state": {
+                "lit": true
+            },
+            "color": "#light_blue",
+            "radius": 14
+        },
+        {
+            "block": "led:reinforced_medium_fixture_yellow",
+            "state": {
+                "lit": true
+            },
+            "color": "#yellow",
+            "radius": 14
+        },
+        {
+            "block": "led:reinforced_medium_fixture_lime",
+            "state": {
+                "lit": true
+            },
+            "color": "#lime",
+            "radius": 14
+        },
+        {
+            "block": "led:reinforced_medium_fixture_pink",
+            "state": {
+                "lit": true
+            },
+            "color": "#pink",
+            "radius": 14
+        },
+        {
+            "block": "led:reinforced_medium_fixture_gray",
+            "state": {
+                "lit": true
+            },
+            "color": "#gray",
+            "radius": 14
+        },
+        {
+            "block": "led:reinforced_medium_fixture_light_gray",
+            "state": {
+                "lit": true
+            },
+            "color": "#light_gray",
+            "radius": 14
+        },
+        {
+            "block": "led:reinforced_medium_fixture_cyan",
+            "state": {
+                "lit": true
+            },
+            "color": "#cyan",
+            "radius": 14
+        },
+        {
+            "block": "led:reinforced_medium_fixture_purple",
+            "state": {
+                "lit": true
+            },
+            "color": "#purple",
+            "radius": 14
+        },
+        {
+            "block": "led:reinforced_medium_fixture_blue",
+            "state": {
+                "lit": true
+            },
+            "color": "#blue",
+            "radius": 14
+        },
+        {
+            "block": "led:reinforced_medium_fixture_brown",
+            "state": {
+                "lit": true
+            },
+            "color": "#brown",
+            "radius": 14
+        },
+        {
+            "block": "led:reinforced_medium_fixture_green",
+            "state": {
+                "lit": true
+            },
+            "color": "#green",
+            "radius": 14
+        },
+        {
+            "block": "led:reinforced_medium_fixture_red",
+            "state": {
+                "lit": true
+            },
+            "color": "#red",
+            "radius": 14
+        },
+        {
+            "block": "led:reinforced_medium_fixture_black",
+            "state": {
+                "lit": true
+            },
+            "color": "#black",
+            "radius": 14
+        },
+        {
+            "block": "led:reinforced_large_fixture_white",
+            "state": {
+                "lit": true
+            },
+            "color": "#white",
+            "radius": 14
+        },
+        {
+            "block": "led:reinforced_large_fixture_orange",
+            "state": {
+                "lit": true
+            },
+            "color": "#orange",
+            "radius": 14
+        },
+        {
+            "block": "led:reinforced_large_fixture_magenta",
+            "state": {
+                "lit": true
+            },
+            "color": "#magenta",
+            "radius": 14
+        },
+        {
+            "block": "led:reinforced_large_fixture_light_blue",
+            "state": {
+                "lit": true
+            },
+            "color": "#light_blue",
+            "radius": 14
+        },
+        {
+            "block": "led:reinforced_large_fixture_yellow",
+            "state": {
+                "lit": true
+            },
+            "color": "#yellow",
+            "radius": 14
+        },
+        {
+            "block": "led:reinforced_large_fixture_lime",
+            "state": {
+                "lit": true
+            },
+            "color": "#lime",
+            "radius": 14
+        },
+        {
+            "block": "led:reinforced_large_fixture_pink",
+            "state": {
+                "lit": true
+            },
+            "color": "#pink",
+            "radius": 14
+        },
+        {
+            "block": "led:reinforced_large_fixture_gray",
+            "state": {
+                "lit": true
+            },
+            "color": "#gray",
+            "radius": 14
+        },
+        {
+            "block": "led:reinforced_large_fixture_light_gray",
+            "state": {
+                "lit": true
+            },
+            "color": "#light_gray",
+            "radius": 14
+        },
+        {
+            "block": "led:reinforced_large_fixture_cyan",
+            "state": {
+                "lit": true
+            },
+            "color": "#cyan",
+            "radius": 14
+        },
+        {
+            "block": "led:reinforced_large_fixture_purple",
+            "state": {
+                "lit": true
+            },
+            "color": "#purple",
+            "radius": 14
+        },
+        {
+            "block": "led:reinforced_large_fixture_blue",
+            "state": {
+                "lit": true
+            },
+            "color": "#blue",
+            "radius": 14
+        },
+        {
+            "block": "led:reinforced_large_fixture_brown",
+            "state": {
+                "lit": true
+            },
+            "color": "#brown",
+            "radius": 14
+        },
+        {
+            "block": "led:reinforced_large_fixture_green",
+            "state": {
+                "lit": true
+            },
+            "color": "#green",
+            "radius": 14
+        },
+        {
+            "block": "led:reinforced_large_fixture_red",
+            "state": {
+                "lit": true
+            },
+            "color": "#red",
+            "radius": 14
+        },
+        {
+            "block": "led:reinforced_large_fixture_black",
+            "state": {
+                "lit": true
+            },
+            "color": "#black",
+            "radius": 14
+        },
+        {
+            "block": "led:reinforced_flat_fixture_white",
+            "state": {
+                "lit": true
+            },
+            "color": "#white",
+            "radius": 14
+        },
+        {
+            "block": "led:reinforced_flat_fixture_orange",
+            "state": {
+                "lit": true
+            },
+            "color": "#orange",
+            "radius": 14
+        },
+        {
+            "block": "led:reinforced_flat_fixture_magenta",
+            "state": {
+                "lit": true
+            },
+            "color": "#magenta",
+            "radius": 14
+        },
+        {
+            "block": "led:reinforced_flat_fixture_light_blue",
+            "state": {
+                "lit": true
+            },
+            "color": "#light_blue",
+            "radius": 14
+        },
+        {
+            "block": "led:reinforced_flat_fixture_yellow",
+            "state": {
+                "lit": true
+            },
+            "color": "#yellow",
+            "radius": 14
+        },
+        {
+            "block": "led:reinforced_flat_fixture_lime",
+            "state": {
+                "lit": true
+            },
+            "color": "#lime",
+            "radius": 14
+        },
+        {
+            "block": "led:reinforced_flat_fixture_pink",
+            "state": {
+                "lit": true
+            },
+            "color": "#pink",
+            "radius": 14
+        },
+        {
+            "block": "led:reinforced_flat_fixture_gray",
+            "state": {
+                "lit": true
+            },
+            "color": "#gray",
+            "radius": 14
+        },
+        {
+            "block": "led:reinforced_flat_fixture_light_gray",
+            "state": {
+                "lit": true
+            },
+            "color": "#light_gray",
+            "radius": 14
+        },
+        {
+            "block": "led:reinforced_flat_fixture_cyan",
+            "state": {
+                "lit": true
+            },
+            "color": "#cyan",
+            "radius": 14
+        },
+        {
+            "block": "led:reinforced_flat_fixture_purple",
+            "state": {
+                "lit": true
+            },
+            "color": "#purple",
+            "radius": 14
+        },
+        {
+            "block": "led:reinforced_flat_fixture_blue",
+            "state": {
+                "lit": true
+            },
+            "color": "#blue",
+            "radius": 14
+        },
+        {
+            "block": "led:reinforced_flat_fixture_brown",
+            "state": {
+                "lit": true
+            },
+            "color": "#brown",
+            "radius": 14
+        },
+        {
+            "block": "led:reinforced_flat_fixture_green",
+            "state": {
+                "lit": true
+            },
+            "color": "#green",
+            "radius": 14
+        },
+        {
+            "block": "led:reinforced_flat_fixture_red",
+            "state": {
+                "lit": true
+            },
+            "color": "#red",
+            "radius": 14
+        },
+        {
+            "block": "led:reinforced_flat_fixture_black",
+            "state": {
+                "lit": true
+            },
+            "color": "#black",
+            "radius": 14
+        },
+        {
+            "block": "led:shaded_clear_full_white",
+            "state": {
+                "lit": true
+            },
+            "color": "#white",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_clear_full_orange",
+            "state": {
+                "lit": true
+            },
+            "color": "#orange",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_clear_full_magenta",
+            "state": {
+                "lit": true
+            },
+            "color": "#magenta",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_clear_full_light_blue",
+            "state": {
+                "lit": true
+            },
+            "color": "#light_blue",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_clear_full_yellow",
+            "state": {
+                "lit": true
+            },
+            "color": "#yellow",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_clear_full_lime",
+            "state": {
+                "lit": true
+            },
+            "color": "#lime",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_clear_full_pink",
+            "state": {
+                "lit": true
+            },
+            "color": "#pink",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_clear_full_gray",
+            "state": {
+                "lit": true
+            },
+            "color": "#gray",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_clear_full_light_gray",
+            "state": {
+                "lit": true
+            },
+            "color": "#light_gray",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_clear_full_cyan",
+            "state": {
+                "lit": true
+            },
+            "color": "#cyan",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_clear_full_purple",
+            "state": {
+                "lit": true
+            },
+            "color": "#purple",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_clear_full_blue",
+            "state": {
+                "lit": true
+            },
+            "color": "#blue",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_clear_full_brown",
+            "state": {
+                "lit": true
+            },
+            "color": "#brown",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_clear_full_green",
+            "state": {
+                "lit": true
+            },
+            "color": "#green",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_clear_full_red",
+            "state": {
+                "lit": true
+            },
+            "color": "#red",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_clear_full_black",
+            "state": {
+                "lit": true
+            },
+            "color": "#black",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_small_fixture_white",
+            "state": {
+                "lit": true
+            },
+            "color": "#white",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_small_fixture_orange",
+            "state": {
+                "lit": true
+            },
+            "color": "#orange",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_small_fixture_magenta",
+            "state": {
+                "lit": true
+            },
+            "color": "#magenta",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_small_fixture_light_blue",
+            "state": {
+                "lit": true
+            },
+            "color": "#light_blue",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_small_fixture_yellow",
+            "state": {
+                "lit": true
+            },
+            "color": "#yellow",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_small_fixture_lime",
+            "state": {
+                "lit": true
+            },
+            "color": "#lime",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_small_fixture_pink",
+            "state": {
+                "lit": true
+            },
+            "color": "#pink",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_small_fixture_gray",
+            "state": {
+                "lit": true
+            },
+            "color": "#gray",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_small_fixture_light_gray",
+            "state": {
+                "lit": true
+            },
+            "color": "#light_gray",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_small_fixture_cyan",
+            "state": {
+                "lit": true
+            },
+            "color": "#cyan",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_small_fixture_purple",
+            "state": {
+                "lit": true
+            },
+            "color": "#purple",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_small_fixture_blue",
+            "state": {
+                "lit": true
+            },
+            "color": "#blue",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_small_fixture_brown",
+            "state": {
+                "lit": true
+            },
+            "color": "#brown",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_small_fixture_green",
+            "state": {
+                "lit": true
+            },
+            "color": "#green",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_small_fixture_red",
+            "state": {
+                "lit": true
+            },
+            "color": "#red",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_small_fixture_black",
+            "state": {
+                "lit": true
+            },
+            "color": "#black",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_medium_fixture_white",
+            "state": {
+                "lit": true
+            },
+            "color": "#white",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_medium_fixture_orange",
+            "state": {
+                "lit": true
+            },
+            "color": "#orange",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_medium_fixture_magenta",
+            "state": {
+                "lit": true
+            },
+            "color": "#magenta",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_medium_fixture_light_blue",
+            "state": {
+                "lit": true
+            },
+            "color": "#light_blue",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_medium_fixture_yellow",
+            "state": {
+                "lit": true
+            },
+            "color": "#yellow",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_medium_fixture_lime",
+            "state": {
+                "lit": true
+            },
+            "color": "#lime",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_medium_fixture_pink",
+            "state": {
+                "lit": true
+            },
+            "color": "#pink",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_medium_fixture_gray",
+            "state": {
+                "lit": true
+            },
+            "color": "#gray",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_medium_fixture_light_gray",
+            "state": {
+                "lit": true
+            },
+            "color": "#light_gray",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_medium_fixture_cyan",
+            "state": {
+                "lit": true
+            },
+            "color": "#cyan",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_medium_fixture_purple",
+            "state": {
+                "lit": true
+            },
+            "color": "#purple",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_medium_fixture_blue",
+            "state": {
+                "lit": true
+            },
+            "color": "#blue",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_medium_fixture_brown",
+            "state": {
+                "lit": true
+            },
+            "color": "#brown",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_medium_fixture_green",
+            "state": {
+                "lit": true
+            },
+            "color": "#green",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_medium_fixture_red",
+            "state": {
+                "lit": true
+            },
+            "color": "#red",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_medium_fixture_black",
+            "state": {
+                "lit": true
+            },
+            "color": "#black",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_large_fixture_white",
+            "state": {
+                "lit": true
+            },
+            "color": "#white",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_large_fixture_orange",
+            "state": {
+                "lit": true
+            },
+            "color": "#orange",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_large_fixture_magenta",
+            "state": {
+                "lit": true
+            },
+            "color": "#magenta",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_large_fixture_light_blue",
+            "state": {
+                "lit": true
+            },
+            "color": "#light_blue",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_large_fixture_yellow",
+            "state": {
+                "lit": true
+            },
+            "color": "#yellow",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_large_fixture_lime",
+            "state": {
+                "lit": true
+            },
+            "color": "#lime",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_large_fixture_pink",
+            "state": {
+                "lit": true
+            },
+            "color": "#pink",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_large_fixture_gray",
+            "state": {
+                "lit": true
+            },
+            "color": "#gray",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_large_fixture_light_gray",
+            "state": {
+                "lit": true
+            },
+            "color": "#light_gray",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_large_fixture_cyan",
+            "state": {
+                "lit": true
+            },
+            "color": "#cyan",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_large_fixture_purple",
+            "state": {
+                "lit": true
+            },
+            "color": "#purple",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_large_fixture_blue",
+            "state": {
+                "lit": true
+            },
+            "color": "#blue",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_large_fixture_brown",
+            "state": {
+                "lit": true
+            },
+            "color": "#brown",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_large_fixture_green",
+            "state": {
+                "lit": true
+            },
+            "color": "#green",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_large_fixture_red",
+            "state": {
+                "lit": true
+            },
+            "color": "#red",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_large_fixture_black",
+            "state": {
+                "lit": true
+            },
+            "color": "#black",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_flat_fixture_white",
+            "state": {
+                "lit": true
+            },
+            "color": "#white",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_flat_fixture_orange",
+            "state": {
+                "lit": true
+            },
+            "color": "#orange",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_flat_fixture_magenta",
+            "state": {
+                "lit": true
+            },
+            "color": "#magenta",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_flat_fixture_light_blue",
+            "state": {
+                "lit": true
+            },
+            "color": "#light_blue",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_flat_fixture_yellow",
+            "state": {
+                "lit": true
+            },
+            "color": "#yellow",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_flat_fixture_lime",
+            "state": {
+                "lit": true
+            },
+            "color": "#lime",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_flat_fixture_pink",
+            "state": {
+                "lit": true
+            },
+            "color": "#pink",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_flat_fixture_gray",
+            "state": {
+                "lit": true
+            },
+            "color": "#gray",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_flat_fixture_light_gray",
+            "state": {
+                "lit": true
+            },
+            "color": "#light_gray",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_flat_fixture_cyan",
+            "state": {
+                "lit": true
+            },
+            "color": "#cyan",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_flat_fixture_purple",
+            "state": {
+                "lit": true
+            },
+            "color": "#purple",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_flat_fixture_blue",
+            "state": {
+                "lit": true
+            },
+            "color": "#blue",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_flat_fixture_brown",
+            "state": {
+                "lit": true
+            },
+            "color": "#brown",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_flat_fixture_green",
+            "state": {
+                "lit": true
+            },
+            "color": "#green",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_flat_fixture_red",
+            "state": {
+                "lit": true
+            },
+            "color": "#red",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_flat_fixture_black",
+            "state": {
+                "lit": true
+            },
+            "color": "#black",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_reinforced_clear_full_white",
+            "state": {
+                "lit": true
+            },
+            "color": "#white",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_reinforced_clear_full_orange",
+            "state": {
+                "lit": true
+            },
+            "color": "#orange",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_reinforced_clear_full_magenta",
+            "state": {
+                "lit": true
+            },
+            "color": "#magenta",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_reinforced_clear_full_light_blue",
+            "state": {
+                "lit": true
+            },
+            "color": "#light_blue",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_reinforced_clear_full_yellow",
+            "state": {
+                "lit": true
+            },
+            "color": "#yellow",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_reinforced_clear_full_lime",
+            "state": {
+                "lit": true
+            },
+            "color": "#lime",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_reinforced_clear_full_pink",
+            "state": {
+                "lit": true
+            },
+            "color": "#pink",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_reinforced_clear_full_gray",
+            "state": {
+                "lit": true
+            },
+            "color": "#gray",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_reinforced_clear_full_light_gray",
+            "state": {
+                "lit": true
+            },
+            "color": "#light_gray",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_reinforced_clear_full_cyan",
+            "state": {
+                "lit": true
+            },
+            "color": "#cyan",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_reinforced_clear_full_purple",
+            "state": {
+                "lit": true
+            },
+            "color": "#purple",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_reinforced_clear_full_blue",
+            "state": {
+                "lit": true
+            },
+            "color": "#blue",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_reinforced_clear_full_brown",
+            "state": {
+                "lit": true
+            },
+            "color": "#brown",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_reinforced_clear_full_green",
+            "state": {
+                "lit": true
+            },
+            "color": "#green",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_reinforced_clear_full_red",
+            "state": {
+                "lit": true
+            },
+            "color": "#red",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_reinforced_clear_full_black",
+            "state": {
+                "lit": true
+            },
+            "color": "#black",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_reinforced_small_fixture_white",
+            "state": {
+                "lit": true
+            },
+            "color": "#white",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_reinforced_small_fixture_orange",
+            "state": {
+                "lit": true
+            },
+            "color": "#orange",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_reinforced_small_fixture_magenta",
+            "state": {
+                "lit": true
+            },
+            "color": "#magenta",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_reinforced_small_fixture_light_blue",
+            "state": {
+                "lit": true
+            },
+            "color": "#light_blue",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_reinforced_small_fixture_yellow",
+            "state": {
+                "lit": true
+            },
+            "color": "#yellow",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_reinforced_small_fixture_lime",
+            "state": {
+                "lit": true
+            },
+            "color": "#lime",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_reinforced_small_fixture_pink",
+            "state": {
+                "lit": true
+            },
+            "color": "#pink",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_reinforced_small_fixture_gray",
+            "state": {
+                "lit": true
+            },
+            "color": "#gray",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_reinforced_small_fixture_light_gray",
+            "state": {
+                "lit": true
+            },
+            "color": "#light_gray",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_reinforced_small_fixture_cyan",
+            "state": {
+                "lit": true
+            },
+            "color": "#cyan",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_reinforced_small_fixture_purple",
+            "state": {
+                "lit": true
+            },
+            "color": "#purple",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_reinforced_small_fixture_blue",
+            "state": {
+                "lit": true
+            },
+            "color": "#blue",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_reinforced_small_fixture_brown",
+            "state": {
+                "lit": true
+            },
+            "color": "#brown",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_reinforced_small_fixture_green",
+            "state": {
+                "lit": true
+            },
+            "color": "#green",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_reinforced_small_fixture_red",
+            "state": {
+                "lit": true
+            },
+            "color": "#red",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_reinforced_small_fixture_black",
+            "state": {
+                "lit": true
+            },
+            "color": "#black",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_reinforced_medium_fixture_white",
+            "state": {
+                "lit": true
+            },
+            "color": "#white",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_reinforced_medium_fixture_orange",
+            "state": {
+                "lit": true
+            },
+            "color": "#orange",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_reinforced_medium_fixture_magenta",
+            "state": {
+                "lit": true
+            },
+            "color": "#magenta",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_reinforced_medium_fixture_light_blue",
+            "state": {
+                "lit": true
+            },
+            "color": "#light_blue",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_reinforced_medium_fixture_yellow",
+            "state": {
+                "lit": true
+            },
+            "color": "#yellow",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_reinforced_medium_fixture_lime",
+            "state": {
+                "lit": true
+            },
+            "color": "#lime",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_reinforced_medium_fixture_pink",
+            "state": {
+                "lit": true
+            },
+            "color": "#pink",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_reinforced_medium_fixture_gray",
+            "state": {
+                "lit": true
+            },
+            "color": "#gray",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_reinforced_medium_fixture_light_gray",
+            "state": {
+                "lit": true
+            },
+            "color": "#light_gray",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_reinforced_medium_fixture_cyan",
+            "state": {
+                "lit": true
+            },
+            "color": "#cyan",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_reinforced_medium_fixture_purple",
+            "state": {
+                "lit": true
+            },
+            "color": "#purple",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_reinforced_medium_fixture_blue",
+            "state": {
+                "lit": true
+            },
+            "color": "#blue",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_reinforced_medium_fixture_brown",
+            "state": {
+                "lit": true
+            },
+            "color": "#brown",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_reinforced_medium_fixture_green",
+            "state": {
+                "lit": true
+            },
+            "color": "#green",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_reinforced_medium_fixture_red",
+            "state": {
+                "lit": true
+            },
+            "color": "#red",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_reinforced_medium_fixture_black",
+            "state": {
+                "lit": true
+            },
+            "color": "#black",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_reinforced_large_fixture_white",
+            "state": {
+                "lit": true
+            },
+            "color": "#white",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_reinforced_large_fixture_orange",
+            "state": {
+                "lit": true
+            },
+            "color": "#orange",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_reinforced_large_fixture_magenta",
+            "state": {
+                "lit": true
+            },
+            "color": "#magenta",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_reinforced_large_fixture_light_blue",
+            "state": {
+                "lit": true
+            },
+            "color": "#light_blue",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_reinforced_large_fixture_yellow",
+            "state": {
+                "lit": true
+            },
+            "color": "#yellow",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_reinforced_large_fixture_lime",
+            "state": {
+                "lit": true
+            },
+            "color": "#lime",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_reinforced_large_fixture_pink",
+            "state": {
+                "lit": true
+            },
+            "color": "#pink",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_reinforced_large_fixture_gray",
+            "state": {
+                "lit": true
+            },
+            "color": "#gray",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_reinforced_large_fixture_light_gray",
+            "state": {
+                "lit": true
+            },
+            "color": "#light_gray",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_reinforced_large_fixture_cyan",
+            "state": {
+                "lit": true
+            },
+            "color": "#cyan",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_reinforced_large_fixture_purple",
+            "state": {
+                "lit": true
+            },
+            "color": "#purple",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_reinforced_large_fixture_blue",
+            "state": {
+                "lit": true
+            },
+            "color": "#blue",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_reinforced_large_fixture_brown",
+            "state": {
+                "lit": true
+            },
+            "color": "#brown",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_reinforced_large_fixture_green",
+            "state": {
+                "lit": true
+            },
+            "color": "#green",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_reinforced_large_fixture_red",
+            "state": {
+                "lit": true
+            },
+            "color": "#red",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_reinforced_large_fixture_black",
+            "state": {
+                "lit": true
+            },
+            "color": "#black",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_reinforced_flat_fixture_white",
+            "state": {
+                "lit": true
+            },
+            "color": "#white",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_reinforced_flat_fixture_orange",
+            "state": {
+                "lit": true
+            },
+            "color": "#orange",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_reinforced_flat_fixture_magenta",
+            "state": {
+                "lit": true
+            },
+            "color": "#magenta",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_reinforced_flat_fixture_light_blue",
+            "state": {
+                "lit": true
+            },
+            "color": "#light_blue",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_reinforced_flat_fixture_yellow",
+            "state": {
+                "lit": true
+            },
+            "color": "#yellow",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_reinforced_flat_fixture_lime",
+            "state": {
+                "lit": true
+            },
+            "color": "#lime",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_reinforced_flat_fixture_pink",
+            "state": {
+                "lit": true
+            },
+            "color": "#pink",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_reinforced_flat_fixture_gray",
+            "state": {
+                "lit": true
+            },
+            "color": "#gray",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_reinforced_flat_fixture_light_gray",
+            "state": {
+                "lit": true
+            },
+            "color": "#light_gray",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_reinforced_flat_fixture_cyan",
+            "state": {
+                "lit": true
+            },
+            "color": "#cyan",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_reinforced_flat_fixture_purple",
+            "state": {
+                "lit": true
+            },
+            "color": "#purple",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_reinforced_flat_fixture_blue",
+            "state": {
+                "lit": true
+            },
+            "color": "#blue",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_reinforced_flat_fixture_brown",
+            "state": {
+                "lit": true
+            },
+            "color": "#brown",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_reinforced_flat_fixture_green",
+            "state": {
+                "lit": true
+            },
+            "color": "#green",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_reinforced_flat_fixture_red",
+            "state": {
+                "lit": true
+            },
+            "color": "#red",
+            "radius": 3
+        },
+        {
+            "block": "led:shaded_reinforced_flat_fixture_black",
+            "state": {
+                "lit": true
+            },
+            "color": "#black",
+            "radius": 3
+        },
+        {
+            "block": "led:button_white",
+            "state": {
+                "powered": true
+            },
+            "color": "#white",
+            "radius": 3
+        },
+        {
+            "block": "led:button_orange",
+            "state": {
+                "powered": true
+            },
+            "color": "#orange",
+            "radius": 3
+        },
+        {
+            "block": "led:button_magenta",
+            "state": {
+                "powered": true
+            },
+            "color": "#magenta",
+            "radius": 3
+        },
+        {
+            "block": "led:button_light_blue",
+            "state": {
+                "powered": true
+            },
+            "color": "#light_blue",
+            "radius": 3
+        },
+        {
+            "block": "led:button_yellow",
+            "state": {
+                "powered": true
+            },
+            "color": "#yellow",
+            "radius": 3
+        },
+        {
+            "block": "led:button_lime",
+            "state": {
+                "powered": true
+            },
+            "color": "#lime",
+            "radius": 3
+        },
+        {
+            "block": "led:button_pink",
+            "state": {
+                "powered": true
+            },
+            "color": "#pink",
+            "radius": 3
+        },
+        {
+            "block": "led:button_gray",
+            "state": {
+                "powered": true
+            },
+            "color": "#gray",
+            "radius": 3
+        },
+        {
+            "block": "led:button_light_gray",
+            "state": {
+                "powered": true
+            },
+            "color": "#light_gray",
+            "radius": 3
+        },
+        {
+            "block": "led:button_cyan",
+            "state": {
+                "powered": true
+            },
+            "color": "#cyan",
+            "radius": 3
+        },
+        {
+            "block": "led:button_purple",
+            "state": {
+                "powered": true
+            },
+            "color": "#purple",
+            "radius": 3
+        },
+        {
+            "block": "led:button_blue",
+            "state": {
+                "powered": true
+            },
+            "color": "#blue",
+            "radius": 3
+        },
+        {
+            "block": "led:button_brown",
+            "state": {
+                "powered": true
+            },
+            "color": "#brown",
+            "radius": 3
+        },
+        {
+            "block": "led:button_green",
+            "state": {
+                "powered": true
+            },
+            "color": "#green",
+            "radius": 3
+        },
+        {
+            "block": "led:button_red",
+            "state": {
+                "powered": true
+            },
+            "color": "#red",
+            "radius": 3
+        },
+        {
+            "block": "led:button_black",
+            "state": {
+                "powered": true
+            },
+            "color": "#black",
+            "radius": 3
+        },
+        {
+            "block": "led:switch_white",
+            "state": {
+                "powered": true
+            },
+            "color": "#white",
+            "radius": 3
+        },
+        {
+            "block": "led:switch_orange",
+            "state": {
+                "powered": true
+            },
+            "color": "#orange",
+            "radius": 3
+        },
+        {
+            "block": "led:switch_magenta",
+            "state": {
+                "powered": true
+            },
+            "color": "#magenta",
+            "radius": 3
+        },
+        {
+            "block": "led:switch_light_blue",
+            "state": {
+                "powered": true
+            },
+            "color": "#light_blue",
+            "radius": 3
+        },
+        {
+            "block": "led:switch_yellow",
+            "state": {
+                "powered": true
+            },
+            "color": "#yellow",
+            "radius": 3
+        },
+        {
+            "block": "led:switch_lime",
+            "state": {
+                "powered": true
+            },
+            "color": "#lime",
+            "radius": 3
+        },
+        {
+            "block": "led:switch_pink",
+            "state": {
+                "powered": true
+            },
+            "color": "#pink",
+            "radius": 3
+        },
+        {
+            "block": "led:switch_gray",
+            "state": {
+                "powered": true
+            },
+            "color": "#gray",
+            "radius": 3
+        },
+        {
+            "block": "led:switch_light_gray",
+            "state": {
+                "powered": true
+            },
+            "color": "#light_gray",
+            "radius": 3
+        },
+        {
+            "block": "led:switch_cyan",
+            "state": {
+                "powered": true
+            },
+            "color": "#cyan",
+            "radius": 3
+        },
+        {
+            "block": "led:switch_purple",
+            "state": {
+                "powered": true
+            },
+            "color": "#purple",
+            "radius": 3
+        },
+        {
+            "block": "led:switch_blue",
+            "state": {
+                "powered": true
+            },
+            "color": "#blue",
+            "radius": 3
+        },
+        {
+            "block": "led:switch_brown",
+            "state": {
+                "powered": true
+            },
+            "color": "#brown",
+            "radius": 3
+        },
+        {
+            "block": "led:switch_green",
+            "state": {
+                "powered": true
+            },
+            "color": "#green",
+            "radius": 3
+        },
+        {
+            "block": "led:switch_red",
+            "state": {
+                "powered": true
+            },
+            "color": "#red",
+            "radius": 3
+        },
+        {
+            "block": "led:switch_black",
+            "state": {
+                "powered": true
+            },
+            "color": "#black",
+            "radius": 3
         }
     ]
 }

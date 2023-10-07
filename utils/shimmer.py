@@ -6,8 +6,12 @@ color_definitions = {}
 light_definitions = []
 bloom_definitions = []
 
-state_definition = {
+lit_state_definitions = {
 	"lit": True
+}
+
+powered_state_definitions = {
+	"powered": True
 }
 
 def add_color(name, rgb):
@@ -43,7 +47,7 @@ add_color("green", 3887386)
 add_color("red", 0xB51D18)
 add_color("black", 0)
 
-colors = {
+colors = [
 	"white",
 	"orange",
 	"magenta",
@@ -60,22 +64,27 @@ colors = {
 	"green",
 	"red",
 	"black"
-}
+]
 
-variants = {
+variants = [
 	("", 15),
 	("reinforced_", 14),
 	("shaded_", 3),
 	("shaded_reinforced_", 3)
-}
+]
 
-types = {
+types = [
 	("clear_full", 1),
 	("small_fixture", 0.7),
 	("medium_fixture", 0.8),
 	("large_fixture", 0.9),
 	("flat_fixture", 0.9)
-}
+]
+
+buttons = [
+	("button", 3),
+	("switch", 3),
+]
 
 for variant, light in variants:
 	for type, mult in types:
@@ -84,15 +93,31 @@ for variant, light in variants:
 
 			light_definitions.append({
 				"block": id,
-				"state": state_definition,
+				"state": lit_state_definitions,
 				"color": "#" + color,
 				"radius": light
 			})
 
 			bloom_definitions.append({
 				"block": id,
-				"state": state_definition
+				"state": lit_state_definitions
 			})
+
+for button, light in buttons:
+	for color in colors:
+		id = "led:" + button + "_" + color
+
+		light_definitions.append({
+			"block": id,
+			"state": powered_state_definitions,
+			"color": "#" + color,
+			"radius": light
+		})
+
+		bloom_definitions.append({
+			"block": id,
+			"state": powered_state_definitions
+		})
 
 print(json.dumps({
 	"ColorReference": color_definitions,
