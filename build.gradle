@@ -1,23 +1,5 @@
 plugins {
-    id 'fabric-loom' version '1.3-SNAPSHOT'
-    id 'maven-publish'
-}
-
-repositories {
-
-    // interference
-    maven {
-        allowInsecureProtocol = true
-        url 'http://darktree.net/maven'
-    }
-
-    maven {
-        name = 'TerraformersMC'
-        url = 'https://maven.terraformersmc.com/'
-    }
-
-    mavenLocal()
-
+	id 'fabric-loom' version '1.5-SNAPSHOT'
 }
 
 sourceCompatibility = JavaVersion.VERSION_17
@@ -27,32 +9,38 @@ archivesBaseName = project.archives_base_name
 version = project.mod_version
 group = project.maven_group
 
+loom {
+	runtimeOnlyLog4j = true
+}
+
 dependencies {
-    // to change the versions see the gradle.properties file
-    minecraft "com.mojang:minecraft:${project.minecraft_version}"
-    mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
-    modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+	minecraft "com.mojang:minecraft:${project.base_minecraft_version}"
+	mappings "net.fabricmc:yarn:${project.base_yarn_mappings}:v2"
 
-    // Fabric API
-    modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
-
-    // Interference API
-    modImplementation "net.darktree:interference:${project.interference_version}"
-    include "net.darktree:interference:${project.interference_version}"
-
-    // JMXL
-    modImplementation "net.darktree:JMXL:${project.jmxl_version}" transitive false
-    include "net.darktree:JMXL:${project.jmxl_version}"
+	include project(path: ":1.20.2", configuration: "namedElements")
 }
 
 processResources {
-    inputs.property "version", project.version
+	inputs.property "version", project.version
 
-    filesMatching("fabric.mod.json") {
-        expand "version": project.version
-    }
+	filesMatching("fabric.mod.json") {
+		expand (
+				"version": project.version,
+				"loader_version": project.loader_version
+		)
+	}
+}
+
+tasks.withType(JavaCompile).configureEach {
+	it.options.release = 17
+}
+
+java {
+	withSourcesJar()
 }
 
 jar {
-    from "LICENSE"
+	from("LICENSE") {
+		rename { "${it}_${project.archivesBaseName}"}
+	}
 }
