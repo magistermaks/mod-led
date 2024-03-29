@@ -18,6 +18,7 @@ dependencies {
 	mappings "net.fabricmc:yarn:${project.base_yarn_mappings}:v2"
 
 	include project(path: ":1.20.2", configuration: "namedElements")
+	include project(path: ":1.20.4", configuration: "namedElements")
 }
 
 processResources {
