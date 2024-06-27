@@ -67,7 +67,7 @@ public class RecipeHelper {
     }
 
     private static void inject(JsonObject recipe) {
-        Identifier id = new Identifier(recipe.getAsJsonObject("result").getAsJsonPrimitive("id").getAsString());
+        Identifier id = Identifier.of(recipe.getAsJsonObject("result").getAsJsonPrimitive("id").getAsString());
         RecipeInjector.register(id, recipe);
     }
 

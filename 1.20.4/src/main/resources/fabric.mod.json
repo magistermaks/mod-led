@@ -34,7 +34,8 @@
 		"fabric": "*",
 		"jmxl": ">=1.4",
 		"interference": "1.9.x",
-		"minecraft": ["1.20.3", "1.20.4"]
+		"minecraft": ["1.20.3", "1.20.4"],
+		"led-common": "*"
 	},
 
 	"authors": [
