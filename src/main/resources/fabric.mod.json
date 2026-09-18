@@ -1,6 +1,6 @@
 {
 	"schemaVersion": 1,
-	"id": "led-common",
+	"id": "led",
 	"version": "${version}",
 
 	"name": "Light Emitting Diode",
@@ -15,24 +15,25 @@
 	},
 
 	"environment": "*",
-	"entrypoints": {},
+	"entrypoints": {
+		"main": [
+			"net.darktree.led.LED"
+		],
+		"client": [
+			"net.darktree.led.LED"
+		],
+		"server": [
+			"net.darktree.led.LED"
+		]
+	},
 	"mixins": [],
 
 	"depends": {
 		"fabricloader": "*",
 		"fabric": "*",
-		"jmxl": "*",
-		"interference": "*",
-		"minecraft": ["1.20.2", "1.20.3", "1.20.4", "1.20.5", "1.20.6", "1.21"]
-	},
-
-	"custom": {
-		"modmenu": {
-			"badges": ["library"],
-			"parent": {
-				"id": "led"
-			}
-		}
+		"jmxl": ">=1.5",
+		"interference": "1.11.x",
+		"minecraft": ["1.21"]
 	},
 
 	"suggests": {
