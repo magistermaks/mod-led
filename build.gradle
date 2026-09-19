@@ -31,10 +31,6 @@ dependencies {
 	// Fabric API
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
-	// Interference API
-	modImplementation "maven.modrinth:interference:${project.interference_version}"
-	include "maven.modrinth:interference:${project.interference_version}"
-
 	// JMXL
 	modImplementation "maven.modrinth:JMXL:${project.jmxl_version}" transitive false
 	include "maven.modrinth:JMXL:${project.jmxl_version}" transitive false

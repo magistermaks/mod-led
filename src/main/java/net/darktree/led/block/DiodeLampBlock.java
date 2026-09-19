@@ -1,13 +1,14 @@
 package net.darktree.led.block;
 
-import net.darktree.interference.api.DropsItself;
 import net.darktree.led.util.DiodeVariant;
+import net.darktree.led.util.LootHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.ShapeContext;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.tooltip.TooltipType;
+import net.minecraft.loot.context.LootContextParameterSet;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
@@ -22,7 +23,7 @@ import net.minecraft.world.World;
 
 import java.util.List;
 
-public class DiodeLampBlock extends Block implements DropsItself {
+public class DiodeLampBlock extends Block {
 
     public static final BooleanProperty LIT = BooleanProperty.of("lit");
     private final DiodeVariant variant;
@@ -87,8 +88,13 @@ public class DiodeLampBlock extends Block implements DropsItself {
         }
     }
 
-    protected boolean hasPower(World world, BlockPos pos) {
+    private boolean hasPower(World world, BlockPos pos) {
         return world.isReceivingRedstonePower(pos);
+    }
+
+    @Override
+    protected List<ItemStack> getDroppedStacks(BlockState state, LootContextParameterSet.Builder builder) {
+        return LootHelper.dropSelf(this, super.getDroppedStacks(state, builder));
     }
 
 }

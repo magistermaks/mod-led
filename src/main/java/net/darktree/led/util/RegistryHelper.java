@@ -21,7 +21,7 @@ import java.util.function.Supplier;
 
 public class RegistryHelper {
 
-    private static final ArrayList<ClientDelegate> delegates = new ArrayList<>();
+    private static final List<ClientDelegate> DELEGATES = new ArrayList<>();
     public static final String ID = "led";
 
     public static final ItemGroup GROUP = FabricItemGroup.builder()
@@ -49,7 +49,7 @@ public class RegistryHelper {
 
             recipe.register(item, color);
 
-            delegates.add(delegate);
+            DELEGATES.add(delegate);
         }
     }
 
@@ -67,18 +67,18 @@ public class RegistryHelper {
 
     @Environment(EnvType.CLIENT)
     public static void applyDelegates() {
-        for (ClientDelegate delegate : delegates) {
+        for (ClientDelegate delegate : DELEGATES) {
             delegate.register();
         }
 
-        LED.LOG.info("[LED] Applied " + delegates.size() + " client delegates.");
-        delegates.clear();
+        LED.LOG.info("[LED] Applied " + DELEGATES.size() + " client delegates.");
+        DELEGATES.clear();
     }
 
     @Environment(EnvType.SERVER)
     public static void discardDelegates() {
-        LED.LOG.info("[LED] Discarded " + delegates.size() + " client delegates.");
-        delegates.clear();
+        LED.LOG.info("[LED] Discarded " + DELEGATES.size() + " client delegates.");
+        DELEGATES.clear();
     }
 
     public static void appendItemsToGroup() {

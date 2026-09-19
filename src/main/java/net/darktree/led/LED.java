@@ -1,6 +1,5 @@
 package net.darktree.led;
 
-import net.darktree.interference.MessageInjector;
 import net.darktree.led.block.DiodeButtonLampBlock;
 import net.darktree.led.block.DiodeLampBlock;
 import net.darktree.led.block.DiodeSwitchLampBlock;
@@ -11,6 +10,7 @@ import net.darktree.led.util.Util;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.DedicatedServerModInitializer;
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.loot.v2.LootTableEvents;
 import net.minecraft.item.Item;
 import net.minecraft.util.shape.VoxelShape;
 import org.slf4j.Logger;
@@ -72,12 +72,7 @@ public class LED implements ModInitializer, ClientModInitializer, DedicatedServe
 
         }
 
-        // add everything to one group
         RegistryHelper.appendItemsToGroup();
-
-        MessageInjector.inject("Q2hlY2sgb3V0IE11cmRlciBEcm9uZXMh");
-        MessageInjector.inject("Q2hlY2sgb3V0IFJlZCBCaXRzIQ==");
-        MessageInjector.inject("VGVuIGJpbGxpb24gcGVyY2VudCE=");
     }
 
     @Override

@@ -2,7 +2,6 @@ package net.darktree.led.util;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-import net.darktree.interference.RecipeInjector;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.registry.Registries;
