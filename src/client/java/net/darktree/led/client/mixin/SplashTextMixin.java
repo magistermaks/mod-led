@@ -1,4 +1,4 @@
-package net.darktree.led.mixin;
+package net.darktree.led.client.mixin;
 
 import net.minecraft.client.resource.SplashTextResourceSupplier;
 import net.minecraft.resource.ResourceManager;

@@ -6,6 +6,15 @@ version = project.mod_version
 group = project.maven_group
 
 loom {
+	splitEnvironmentSourceSets()
+
+	mods {
+		"led" {
+			sourceSet sourceSets.main
+			sourceSet sourceSets.client
+		}
+	}
+
 	runtimeOnlyLog4j = true
 }
 

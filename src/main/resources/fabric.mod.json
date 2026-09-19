@@ -20,15 +20,16 @@
 			"net.darktree.led.LED"
 		],
 		"client": [
-			"net.darktree.led.LED"
-		],
-		"server": [
-			"net.darktree.led.LED"
+			"net.darktree.led.client.LedClient"
 		]
 	},
 
 	"mixins": [
-		"led.mixins.json"
+		"led.mixins.json",
+		{
+			"config": "led.client.mixins.json",
+			"environment": "client"
+		}
 	],
 
 	"depends": {

@@ -1,5 +1,6 @@
 package net.darktree.led.util;
 
+import net.darktree.led.LED;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -45,7 +46,7 @@ public enum DiodeVariant {
     }
 
     private static String id(String name) {
-        return RegistryHelper.ID + ":" + name;
+        return LED.ID + ":" + name;
     }
 
     private String group(String name) {

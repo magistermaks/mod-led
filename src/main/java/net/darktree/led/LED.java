@@ -7,17 +7,15 @@ import net.darktree.led.block.DirectionalDiodeLampBlock;
 import net.darktree.led.util.DiodeVariant;
 import net.darktree.led.util.RegistryHelper;
 import net.darktree.led.util.Util;
-import net.fabricmc.api.ClientModInitializer;
-import net.fabricmc.api.DedicatedServerModInitializer;
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.loot.v2.LootTableEvents;
 import net.minecraft.item.Item;
 import net.minecraft.util.shape.VoxelShape;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class LED implements ModInitializer, ClientModInitializer, DedicatedServerModInitializer {
+public class LED implements ModInitializer {
 
+    public static final String ID = "led";
     public static final Logger LOG = LoggerFactory.getLogger("LED");
 
     public static final Item LED = new Item(RegistryHelper.ITEM_SETTINGS);
@@ -73,16 +71,6 @@ public class LED implements ModInitializer, ClientModInitializer, DedicatedServe
         }
 
         RegistryHelper.appendItemsToGroup();
-    }
-
-    @Override
-    public void onInitializeClient() {
-        RegistryHelper.applyDelegates();
-    }
-
-    @Override
-    public void onInitializeServer() {
-        RegistryHelper.discardDelegates();
     }
 
 }
