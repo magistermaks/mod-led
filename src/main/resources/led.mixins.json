@@ -4,7 +4,7 @@
 	"package": "net.darktree.led.mixin",
 	"compatibilityLevel": "JAVA_17",
 	"mixins": [
-		"RecipeManagerMixin"
+		"ServerRecipeManagerMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

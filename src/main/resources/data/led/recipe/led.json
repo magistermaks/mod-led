@@ -4,12 +4,8 @@
     "121"
   ],
   "key": {
-    "1": {
-      "item": "minecraft:iron_nugget"
-    },
-    "2": {
-      "item": "minecraft:quartz"
-    }
+    "1": "minecraft:iron_nugget",
+    "2": "minecraft:quartz"
   },
   "result": {
     "id": "led:led",

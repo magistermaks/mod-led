@@ -2,13 +2,14 @@ package net.darktree.led.block;
 
 import net.darktree.led.util.DiodeVariant;
 import net.darktree.led.util.LootHelper;
+import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.ShapeContext;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.tooltip.TooltipType;
-import net.minecraft.loot.context.LootContextParameterSet;
+import net.minecraft.loot.context.LootWorldContext;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
@@ -20,6 +21,8 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
+import net.minecraft.world.block.WireOrientation;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
@@ -28,9 +31,9 @@ public class DiodeLampBlock extends Block {
     public static final BooleanProperty LIT = BooleanProperty.of("lit");
     private final DiodeVariant variant;
 
-    public DiodeLampBlock(DiodeVariant variant) {
-        super(variant.settings()
-                .luminance((state) -> state.get(LIT) ? variant.getLightLevel() : 0)
+    public DiodeLampBlock(AbstractBlock.Settings settings, DiodeVariant variant) {
+        super(variant.applySettings(settings)
+                .luminance(state -> state.get(LIT) ? variant.getLightLevel() : 0)
                 .emissiveLighting((state, world, pos) -> state.get(LIT))
         );
 
@@ -67,7 +70,7 @@ public class DiodeLampBlock extends Block {
     }
 
     @Override
-    public void neighborUpdate(BlockState state, World world, BlockPos pos, Block block, BlockPos fromPos, boolean notify) {
+    protected void neighborUpdate(BlockState state, World world, BlockPos pos, Block sourceBlock, @Nullable WireOrientation wireOrientation, boolean notify) {
         if (!world.isClient) {
             boolean lit = state.get(LIT);
 
@@ -93,7 +96,7 @@ public class DiodeLampBlock extends Block {
     }
 
     @Override
-    protected List<ItemStack> getDroppedStacks(BlockState state, LootContextParameterSet.Builder builder) {
+    protected List<ItemStack> getDroppedStacks(BlockState state, LootWorldContext.Builder builder) {
         return LootHelper.dropSelf(this, super.getDroppedStacks(state, builder));
     }
 

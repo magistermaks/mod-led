@@ -6,7 +6,7 @@ import net.minecraft.util.Identifier;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Consumer;
+import java.util.function.BiConsumer;
 
 public class RecipeInjector {
 
@@ -16,8 +16,8 @@ public class RecipeInjector {
 		RECIPES.add(Pair.of(id, json));
 	}
 
-	public static void consume(Consumer<Pair<Identifier, JsonElement>> consumer) {
-		RECIPES.forEach(consumer);
+	public static void consume(BiConsumer<Identifier, JsonElement> consumer) {
+		RECIPES.forEach(pair -> consumer.accept(pair.getFirst(), pair.getSecond()));
 	}
 
 }
