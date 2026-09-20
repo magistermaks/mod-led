@@ -2,14 +2,12 @@ package net.darktree.led.util;
 
 import com.google.gson.JsonObject;
 
-public class KeyBuilder {
+public class KeySetBuilder {
 
     private final JsonObject json = new JsonObject();
 
-    public KeyBuilder addItem(char key, String item) {
-        JsonObject entry = new JsonObject();
-        entry.addProperty("item", item);
-        json.add(key + "", entry);
+    public KeySetBuilder addItem(char key, String item) {
+        json.addProperty(key + "", item);
         return this;
     }
 

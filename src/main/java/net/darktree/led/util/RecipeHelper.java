@@ -26,11 +26,10 @@ public class RecipeHelper {
         json.add("result", getRecipeResult(stack));
         addGroup(json, group);
 
-        JsonArray ingredients = new JsonArray();
+        JsonArray ingredients = new JsonArray(items.length);
+
         for (String item : items) {
-            JsonObject ingredient = new JsonObject();
-            ingredient.addProperty("item", item);
-            ingredients.add(ingredient);
+            ingredients.add(item);
         }
 
         json.add("ingredients", ingredients);
@@ -43,7 +42,7 @@ public class RecipeHelper {
         }
     }
 
-    private static JsonObject getRecipeResult( ItemStack stack ) {
+    private static JsonObject getRecipeResult(ItemStack stack) {
         JsonObject json = new JsonObject();
         json.addProperty("id", getIdentifier( stack.getItem() ));
         json.addProperty("count", stack.getCount());

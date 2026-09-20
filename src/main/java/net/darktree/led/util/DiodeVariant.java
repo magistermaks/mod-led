@@ -1,7 +1,7 @@
 package net.darktree.led.util;
 
 import net.darktree.led.LED;
-import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
+import net.minecraft.block.AbstractBlock;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.sound.BlockSoundGroup;
@@ -10,8 +10,8 @@ import net.minecraft.util.DyeColor;
 public enum DiodeVariant {
     NORMAL("", 15, null, false),
     REINFORCED("reinforced_", 14, "tooltip.led.reinforced", true),
-    SHADED("shaded_", 3, "tooltip.led.shaded", false),
-    SHADED_REINFORCED("shaded_reinforced_", 3, "tooltip.led.shaded_and_reinforced", true);
+    SHADED("shaded_", 0, "tooltip.led.shaded", false),
+    SHADED_REINFORCED("shaded_reinforced_", 0, "tooltip.led.shaded_and_reinforced", true);
 
     public interface RecipeDelegate {
         void register(Item item, DyeColor color);
@@ -29,8 +29,8 @@ public enum DiodeVariant {
         this.reinforced = reinforced;
     }
 
-    public FabricBlockSettings settings() {
-        return FabricBlockSettings.create().sounds(BlockSoundGroup.METAL).strength(reinforced ? 0.8f : 0.4f);
+    public AbstractBlock.Settings applySettings(AbstractBlock.Settings settings) {
+        return settings.sounds(BlockSoundGroup.METAL).strength(reinforced ? 0.8f : 0.4f);
     }
 
     public int getLightLevel() {
@@ -56,10 +56,13 @@ public enum DiodeVariant {
     public RecipeDelegate getRecipe(String pattern, String name) {
         return switch (this) {
             case NORMAL -> (item, color) -> {
-                KeyBuilder keys = new KeyBuilder()
+                KeySetBuilder keys = new KeySetBuilder()
                         .addItem('A', id("led"))
-                        .addItem('B', "minecraft:" + color.getName() + "_stained_glass_pane")
-                        .addItem('C', "minecraft:iron_nugget");
+                        .addItem('B', "minecraft:" + color.getName() + "_stained_glass_pane");
+
+                if (pattern.contains("C")) {
+                    keys.addItem('C', "minecraft:iron_nugget");
+                }
 
                 RecipeHelper.createShaped(new ItemStack(item), pattern, keys.get(), group(name));
             };

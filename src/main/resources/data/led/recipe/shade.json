@@ -1,9 +1,7 @@
 {
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
-    {
-      "item": "minecraft:soul_sand"
-    }
+    "minecraft:soul_sand"
   ],
   "result": {
     "id": "led:shade",

@@ -20,29 +20,20 @@ loom {
 
 repositories {
 	maven {
-		name = 'TerraformersMC'
-		url = 'https://maven.terraformersmc.com/'
-	}
-
-	// interference
-	maven {
 		url = "https://api.modrinth.com/maven"
 	}
-
-	mavenLocal()
 }
 
 dependencies {
 	minecraft "com.mojang:minecraft:${project.minecraft_version}"
 	mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
-	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
-	// Fabric API
+	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
 	// JMXL
-	modImplementation "maven.modrinth:JMXL:${project.jmxl_version}" transitive false
-	include "maven.modrinth:JMXL:${project.jmxl_version}" transitive false
+	modImplementation "maven.modrinth:DOG2Pboc:${project.jmxl_version}" transitive false
+	include "maven.modrinth:DOG2Pboc:${project.jmxl_version}" transitive false
 }
 
 processResources {

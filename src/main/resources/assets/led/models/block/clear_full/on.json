@@ -7,10 +7,12 @@
 		"particle": "led:block/particle"
 	},
     "jmxl": true,
+	"ambientocclusion": false,
 	"elements": [
 		{
 			"from": [0, 0, 0],
 			"to": [16, 16, 16],
+			"light_emission": 15,
 			"faces": {
 				"north": {"uv": [0, 0, 16, 16], "texture": "#0", "tintindex": 0, "cullface": "north"},
 				"east": {"uv": [0, 0, 16, 16], "texture": "#0", "tintindex": 0, "cullface": "east"},
@@ -24,6 +26,7 @@
 			"from": [-0.5, -0.5, -0.5],
 			"to": [16.5, 16.5, 16.5],
 			"jmxl_layer": "TRANSLUCENT",
+			"light_emission": 15,
 			"faces": {
 				"north": {"uv": [0, 0, 16, 16], "jmx_material": "#glow", "texture": "#1", "tintindex": 0 },
 				"east": {"uv": [0, 0, 16, 16], "jmx_material": "#glow", "texture": "#1", "tintindex": 0 },

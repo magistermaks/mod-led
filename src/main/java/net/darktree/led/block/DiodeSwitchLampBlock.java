@@ -1,5 +1,6 @@
 package net.darktree.led.block;
 
+import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.server.world.ServerWorld;
@@ -11,8 +12,8 @@ import net.minecraft.world.World;
 
 public class DiodeSwitchLampBlock extends DiodeButtonLampBlock {
 
-    public DiodeSwitchLampBlock() {
-        super();
+    public DiodeSwitchLampBlock(AbstractBlock.Settings settings) {
+        super(settings);
     }
 
     @Override

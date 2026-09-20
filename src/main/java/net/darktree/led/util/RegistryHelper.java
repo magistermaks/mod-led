@@ -5,6 +5,7 @@ import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
@@ -17,6 +18,7 @@ import net.minecraft.util.Identifier;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Function;
 import java.util.function.Supplier;
 
 public class RegistryHelper {
@@ -29,21 +31,36 @@ public class RegistryHelper {
             .build();
 
     public static final List<Item> items = new ArrayList<>();
-    public static final Item.Settings ITEM_SETTINGS = new Item.Settings();
 
     public static Identifier id(String name) {
         return Identifier.of(LED.ID, name);
     }
 
-    public static void registerForColors(String name, Supplier<Block> supplier, DiodeVariant.RecipeDelegate recipe) {
-        for (DyeColor color : DyeColor.values()) {
-            Block block = supplier.get();
-            Item item = new BlockItem(block, ITEM_SETTINGS);
+    public static Item.Settings createItemSettings(Identifier id) {
+        return new Item.Settings().registryKey(RegistryKey.of(RegistryKeys.ITEM, id));
+    }
 
-            String id = name + "_" + color.getName();
+    public static AbstractBlock.Settings createBlockSettings(Identifier id) {
+        return AbstractBlock.Settings.create().registryKey(RegistryKey.of(RegistryKeys.BLOCK, id));
+    }
+
+    public static Item registerSimpleItem(String name) {
+        Item item = new Item(createItemSettings(id(name)));
+        RegistryHelper.registerItem(id(name), item);
+        return item;
+    }
+
+    public static void registerForColors(String name, Function<AbstractBlock.Settings, Block> supplier, DiodeVariant.RecipeDelegate recipe) {
+        for (DyeColor color : DyeColor.values()) {
+            Identifier id = id(name + "_" + color.getName());
+
+            Block block = supplier.apply(createBlockSettings(id));
+            Item item = new BlockItem(block, createItemSettings(id).useBlockPrefixedTranslationKey());
+
             ClientDelegate delegate = new ClientDelegate(color, block, item);
 
-            registerItem(id, item, true);
+            addToGroup(item);
+            registerItem(id, item);
             registerBlock(id, block);
 
             recipe.register(item, color);
@@ -51,16 +68,16 @@ public class RegistryHelper {
         }
     }
 
-    public static void registerItem(String name, Item item, boolean addToGroup) {
-        if (addToGroup) {
-            items.add(item);
-        }
-
-        Registry.register(Registries.ITEM, id(name), item);
+    public static void registerItem(Identifier id, Item item) {
+        Registry.register(Registries.ITEM, id, item);
     }
 
-    public static void registerBlock(String name, Block block) {
-        Registry.register(Registries.BLOCK, id(name), block);
+    public static void addToGroup(Item item) {
+        items.add(item);
+    }
+
+    public static void registerBlock(Identifier id, Block block) {
+        Registry.register(Registries.BLOCK, id, block);
     }
 
     public static List<ClientDelegate> getClientDelegates() {

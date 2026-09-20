@@ -7,6 +7,7 @@
 		"particle": "led:block/particle"
 	},
     "jmxl": true,
+	"ambientocclusion": false,
 	"elements": [
 		{
 			"from": [3, 0, 3],
@@ -24,6 +25,7 @@
 		{
 			"from": [4, 1, 4],
 			"to": [12, 6, 12],
+			"light_emission": 15,
 			"rotation": {"angle": 0, "axis": "y", "origin": [12, 9, 12]},
 			"faces": {
 				"north": {"uv": [0, 0, 8, 5], "texture": "#2", "tintindex": 0},
@@ -39,6 +41,7 @@
 			"to": [12.5, 6.5, 12.5],
 			"rotation": {"angle": 0, "axis": "y", "origin": [12, 9, 12]},
 			"jmxl_layer": "TRANSLUCENT",
+			"light_emission": 15,
 			"faces": {
 				"north": {"uv": [0, 0, 8, 5], "texture": "#3", "tintindex": 0},
 				"east": {"uv": [0, 0, 8, 5], "texture": "#3", "tintindex": 0},

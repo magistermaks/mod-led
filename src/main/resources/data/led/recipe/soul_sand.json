@@ -5,9 +5,7 @@
     "11"
   ],
   "key": {
-    "1": {
-      "item": "led:shade"
-    }
+    "1": "led:shade"
   },
   "result": {
     "id": "minecraft:soul_sand"
