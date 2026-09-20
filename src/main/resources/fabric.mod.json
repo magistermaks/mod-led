@@ -21,6 +21,9 @@
 		],
 		"client": [
 			"net.darktree.led.client.LedClient"
+		],
+		"fabric-datagen": [
+			"net.darktree.led.client.LedDatagen"
 		]
 	},
 

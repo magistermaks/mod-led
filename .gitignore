@@ -10,3 +10,4 @@ RedBits.iml
 build/
 run/
 versions/*.jar
+src/main/generated
