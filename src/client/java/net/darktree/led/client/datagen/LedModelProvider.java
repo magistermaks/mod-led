@@ -10,7 +10,6 @@ import net.minecraft.client.data.ItemModelGenerator;
 import net.minecraft.client.data.ItemModels;
 import net.minecraft.client.data.Models;
 import net.minecraft.client.render.item.tint.ConstantTintSource;
-import net.minecraft.util.Identifier;
 
 public class LedModelProvider extends FabricModelProvider {
 

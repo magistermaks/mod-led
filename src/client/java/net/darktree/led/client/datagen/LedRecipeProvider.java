@@ -1,27 +1,25 @@
 package net.darktree.led.client.datagen;
 
 import com.mojang.serialization.JsonOps;
+import net.darktree.led.LED;
 import net.darktree.led.util.ClientDelegate;
 import net.darktree.led.util.RegistryHelper;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.advancement.Advancement;
+import net.minecraft.advancement.AdvancementEntry;
 import net.minecraft.advancement.AdvancementRequirements;
 import net.minecraft.advancement.AdvancementRewards;
-import net.minecraft.advancement.criterion.RecipeUnlockedCriterion;
-import net.minecraft.data.recipe.CraftingRecipeJsonBuilder;
 import net.minecraft.data.recipe.RecipeExporter;
 import net.minecraft.data.recipe.RecipeGenerator;
-import net.minecraft.item.Item;
-import net.minecraft.predicate.item.ItemPredicate;
+import net.minecraft.item.Items;
 import net.minecraft.recipe.Recipe;
-import net.minecraft.recipe.ShapelessRecipe;
-import net.minecraft.recipe.book.RecipeBookCategory;
-import net.minecraft.registry.*;
+import net.minecraft.recipe.book.RecipeCategory;
+import net.minecraft.registry.RegistryKey;
+import net.minecraft.registry.RegistryKeys;
+import net.minecraft.registry.RegistryWrapper;
 
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import java.util.Iterator;
 import java.util.concurrent.CompletableFuture;
 
 public class LedRecipeProvider extends FabricRecipeProvider {
@@ -49,30 +47,53 @@ public class LedRecipeProvider extends FabricRecipeProvider {
 		@Override
 		public void generate() {
 
-			for (ClientDelegate delegate : RegistryHelper.getClientDelegates()) {
+			Advancement.Builder advancement = exporter.getAdvancementBuilder()
+					.criterion("has_led", conditionsFromItem(LED.LED))
+					.criteriaMerger(AdvancementRequirements.CriterionMerger.OR);
+
+			AdvancementRewards.Builder rewards = new AdvancementRewards.Builder();
+
+			Iterator<ClientDelegate> it = RegistryHelper.getClientDelegates().iterator();
+			while (it.hasNext()) {
+				ClientDelegate delegate = it.next();
+
 				RegistryKey<Recipe<?>> key = RegistryKey.of(RegistryKeys.RECIPE, delegate.id);
+				Recipe<?> recipe = Recipe.CODEC.parse(registries.getOps(JsonOps.INSTANCE), delegate.recipe).getOrThrow();
 
-				try {
-					Recipe<?> recipe = Recipe.CODEC.parse(registries.getOps(JsonOps.INSTANCE), delegate.recipe).getOrThrow();
-					List<Item> preconditions = List.of();
+				rewards.addRecipe(key);
+				AdvancementEntry entry = null;
 
-					Advancement.Builder builder = exporter.getAdvancementBuilder()
-							.criterion("has_the_recipe", RecipeUnlockedCriterion.create(key))
-							.rewards(AdvancementRewards.Builder.recipe(key))
-							.criteriaMerger(AdvancementRequirements.CriterionMerger.OR);
-
-					for (Item item : preconditions) {
-						builder.criterion(hasItem(item), conditionsFromItem(item));
-					}
-
-					String category = Registries.RECIPE_BOOK_CATEGORY.getEntry(recipe.getRecipeBookCategory()).getKey().orElseThrow().getValue().getPath();
-					exporter.accept(key, recipe, builder.build(key.getValue().withPrefixedPath("recipes/" + category + "/")));
-				} catch (Exception e) {
-					throw e;
+				// force the combined advancement down the games throat with the last recipe
+				if (!it.hasNext()) {
+					advancement.rewards(rewards);
+					entry = advancement.build(RegistryHelper.id("recipes/misc/lamps"));
 				}
+
+				exporter.accept(key, recipe, entry);
 			}
 
+			createShaped(RecipeCategory.MISC, LED.LED, 2)
+					.pattern(" 0 ")
+					.pattern("323")
+					.pattern("1 1")
+					.input('0', Items.GLOWSTONE_DUST)
+					.input('1', Items.IRON_NUGGET)
+					.input('2', Items.QUARTZ)
+					.input('3', Items.REDSTONE)
+					.criterion("has_quartz", conditionsFromItem(Items.QUARTZ))
+					.offerTo(exporter);
 
+			createShapeless(RecipeCategory.MISC, LED.SHADE, 4)
+					.input(Items.SOUL_SAND)
+					.criterion(hasItem(Items.SOUL_SAND), this.conditionsFromItem(Items.SOUL_SAND))
+					.offerTo(exporter);
+
+			createShaped(RecipeCategory.MISC, Items.SOUL_SAND, 1)
+					.pattern("##")
+					.pattern("##")
+					.input('#', LED.SHADE)
+					.criterion(hasItem(LED.SHADE), this.conditionsFromItem(LED.SHADE))
+					.offerTo(this.exporter, RegistryHelper.id("soul_sand_from_shade").toString());
 
 		}
 
