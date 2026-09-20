@@ -8,10 +8,12 @@
         "particle": "led:block/particle"
 	},
     "jmxl": true,
+	"ambientocclusion": false,
 	"elements": [
 		{
 			"from": [0, 0, 0],
 			"to": [16, 1, 16],
+			"light_emission": 15,
 			"faces": {
 				"north": {"uv": [0, 0, 16, 1], "texture": "#1"},
 				"east": {"uv": [0, 0, 16, 1], "texture": "#1"},
@@ -24,6 +26,7 @@
 		{
 			"from": [1, 1, 1],
 			"to": [15, 3, 15],
+			"light_emission": 15,
 			"faces": {
 				"north": {"uv": [1, 14, 15, 16], "texture": "#2", "tintindex": 0},
 				"east": {"uv": [1, 14, 15, 16], "texture": "#2", "tintindex": 0},

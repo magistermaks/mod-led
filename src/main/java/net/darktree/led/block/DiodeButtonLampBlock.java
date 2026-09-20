@@ -15,7 +15,7 @@ public class DiodeButtonLampBlock extends ButtonBlock {
 
     public DiodeButtonLampBlock(AbstractBlock.Settings settings) {
         super(BlockSetType.STONE, 20, DiodeVariant.NORMAL.applySettings(settings)
-                .luminance(state -> state.get(POWERED) ? 3 : 0)
+                .luminance(state -> 0)
                 .emissiveLighting((state, world, pos) -> state.get(POWERED))
         );
     }

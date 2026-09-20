@@ -10,8 +10,8 @@ import net.minecraft.util.DyeColor;
 public enum DiodeVariant {
     NORMAL("", 15, null, false),
     REINFORCED("reinforced_", 14, "tooltip.led.reinforced", true),
-    SHADED("shaded_", 3, "tooltip.led.shaded", false),
-    SHADED_REINFORCED("shaded_reinforced_", 3, "tooltip.led.shaded_and_reinforced", true);
+    SHADED("shaded_", 0, "tooltip.led.shaded", false),
+    SHADED_REINFORCED("shaded_reinforced_", 0, "tooltip.led.shaded_and_reinforced", true);
 
     public interface RecipeDelegate {
         void register(Item item, DyeColor color);
