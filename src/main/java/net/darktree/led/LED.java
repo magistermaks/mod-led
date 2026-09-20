@@ -40,7 +40,7 @@ public class LED implements ModInitializer {
             // full indicator lamp
             RegistryHelper.registerForColors(variant.getName("clear_full"), cfg -> new DiodeLampBlock(
                     cfg, variant),
-                    variant.getRecipe("BBB,BAB,BCB", "clear_full")
+                    variant.getRecipe("BBB,BAB,BBB", "clear_full")
             );
 
             // small indicator lamp

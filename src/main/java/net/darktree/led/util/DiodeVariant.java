@@ -58,8 +58,11 @@ public enum DiodeVariant {
             case NORMAL -> (item, color) -> {
                 KeySetBuilder keys = new KeySetBuilder()
                         .addItem('A', id("led"))
-                        .addItem('B', "minecraft:" + color.getName() + "_stained_glass_pane")
-                        .addItem('C', "minecraft:iron_nugget");
+                        .addItem('B', "minecraft:" + color.getName() + "_stained_glass_pane");
+
+                if (pattern.contains("C")) {
+                    keys.addItem('C', "minecraft:iron_nugget");
+                }
 
                 RecipeHelper.createShaped(new ItemStack(item), pattern, keys.get(), group(name));
             };
