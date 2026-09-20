@@ -1,7 +1,6 @@
 package net.darktree.led.block;
 
 import net.darktree.led.util.DiodeVariant;
-import net.darktree.led.util.LootHelper;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -9,7 +8,6 @@ import net.minecraft.block.ShapeContext;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.tooltip.TooltipType;
-import net.minecraft.loot.context.LootWorldContext;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
@@ -93,11 +91,6 @@ public class DiodeLampBlock extends Block {
 
     private boolean hasPower(World world, BlockPos pos) {
         return world.isReceivingRedstonePower(pos);
-    }
-
-    @Override
-    protected List<ItemStack> getDroppedStacks(BlockState state, LootWorldContext.Builder builder) {
-        return LootHelper.dropSelf(this, super.getDroppedStacks(state, builder));
     }
 
 }
