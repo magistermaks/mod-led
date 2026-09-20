@@ -9,7 +9,7 @@ import net.minecraft.util.Identifier;
 
 public class RecipeHelper {
 
-    public static void createShaped(ItemStack stack, String pattern, JsonObject keys, String group) {
+    public static JsonObject createShaped(ItemStack stack, String pattern, JsonObject keys, String group) {
         JsonObject json = new JsonObject();
         json.addProperty("type", "minecraft:crafting_shaped");
         json.add("result", getRecipeResult(stack));
@@ -17,10 +17,10 @@ public class RecipeHelper {
         json.add("key", keys);
         addGroup(json, group);
 
-        inject(json);
+        return json;
     }
 
-    public static void createShapeless(ItemStack stack, String group, String... items) {
+    public static JsonObject createShapeless(ItemStack stack, String group, String... items) {
         JsonObject json = new JsonObject();
         json.addProperty("type", "minecraft:crafting_shapeless");
         json.add("result", getRecipeResult(stack));
@@ -33,7 +33,7 @@ public class RecipeHelper {
         }
 
         json.add("ingredients", ingredients);
-        inject(json);
+        return json;
     }
 
     private static void addGroup(JsonObject json, String group) {

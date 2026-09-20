@@ -1,5 +1,6 @@
 package net.darktree.led.util;
 
+import com.google.gson.JsonElement;
 import net.darktree.led.LED;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.item.Item;
@@ -14,7 +15,7 @@ public enum DiodeVariant {
     SHADED_REINFORCED("shaded_reinforced_", 0, "tooltip.led.shaded_and_reinforced", true);
 
     public interface RecipeDelegate {
-        void register(Item item, DyeColor color);
+        JsonElement get(Item item, DyeColor color);
     }
 
     final String prefix;
@@ -64,7 +65,7 @@ public enum DiodeVariant {
                     keys.addItem('C', "minecraft:iron_nugget");
                 }
 
-                RecipeHelper.createShaped(new ItemStack(item), pattern, keys.get(), group(name));
+                return RecipeHelper.createShaped(new ItemStack(item), pattern, keys.get(), group(name));
             };
 
             case REINFORCED -> (item, color) -> RecipeHelper.createShapeless(

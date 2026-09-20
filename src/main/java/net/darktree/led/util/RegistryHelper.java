@@ -57,14 +57,11 @@ public class RegistryHelper {
             Block block = supplier.apply(createBlockSettings(id));
             Item item = new BlockItem(block, createItemSettings(id).useBlockPrefixedTranslationKey());
 
-            ClientDelegate delegate = new ClientDelegate(color, block, item, id);
-
             addToGroup(item);
             registerItem(id, item);
             registerBlock(id, block);
 
-            recipe.register(item, color);
-            DELEGATES.add(delegate);
+            DELEGATES.add(new ClientDelegate(color, block, item, id, recipe.get(item, color)));
         }
     }
 
