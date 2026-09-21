@@ -1,6 +1,7 @@
 package net.darktree.led.block;
 
 import net.darktree.led.util.DiodeVariant;
+import net.darktree.led.util.TooltippedBlock;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -22,9 +23,9 @@ import net.minecraft.world.World;
 import net.minecraft.world.block.WireOrientation;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.List;
+import java.util.function.Consumer;
 
-public class DiodeLampBlock extends Block {
+public class DiodeLampBlock extends Block implements TooltippedBlock {
 
     public static final BooleanProperty LIT = BooleanProperty.of("lit");
     private final DiodeVariant variant;
@@ -39,14 +40,14 @@ public class DiodeLampBlock extends Block {
         setDefaultState(getDefaultState().with(LIT, false));
     }
 
-//    @Override
-//    public void appendTooltip(ItemStack stack, Item.TooltipContext context, List<Text> tooltip, TooltipType options) {
-//        final String text = variant.getTooltip();
-//
-//        if (text != null) {
-//            tooltip.add(Text.translatable(text).formatted(Formatting.GRAY));
-//        }
-//    }
+    @Override
+    public void appendTooltip(ItemStack stack, Item.TooltipContext context, Consumer<Text> consumer, TooltipType options) {
+        final String text = variant.getTooltip();
+
+        if (text != null) {
+            consumer.accept(Text.translatable(text).formatted(Formatting.GRAY));
+        }
+    }
 
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {

@@ -28,6 +28,7 @@
 	},
 
 	"mixins": [
+		"led.mixins.json",
 		{
 			"config": "led.client.mixins.json",
 			"environment": "client"
