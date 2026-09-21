@@ -107,6 +107,16 @@ public enum LedVariant {
                         Ingredient.ofItem(Items.IRON_BARS),
                         Ingredient.ofItem(NORMAL.getItem(fixture, color))
                 )), Registries.ITEM.getId(item));
+
+                consumer.accept(new ShapelessRecipe(group, category, new ItemStack(item), List.of(
+                        Ingredient.ofItem(LED.SHADE),
+                        Ingredient.ofItem(REINFORCED.getItem(fixture, color))
+                )), Registries.ITEM.getId(item).withSuffixedPath("_from_reinforced"));
+
+                consumer.accept(new ShapelessRecipe(group, category, new ItemStack(item), List.of(
+                        Ingredient.ofItem(Items.IRON_BARS),
+                        Ingredient.ofItem(SHADED.getItem(fixture, color))
+                )), Registries.ITEM.getId(item).withSuffixedPath("_from_shaded"));
             };
         };
     }
