@@ -50,7 +50,7 @@ public class RegistryHelper {
         return item;
     }
 
-    public static void registerForColors(String name, Function<AbstractBlock.Settings, Block> supplier, DiodeVariant.RecipeDelegate recipe) {
+    public static void registerForColors(String name, Function<AbstractBlock.Settings, Block> supplier, DiodeVariant.RecipeFactory factory) {
         for (DyeColor color : DyeColor.values()) {
             Identifier id = id(name + "_" + color.getName());
 
@@ -61,7 +61,7 @@ public class RegistryHelper {
             registerItem(id, item);
             registerBlock(id, block);
 
-            DELEGATES.add(new ClientDelegate(color, block, item, id, recipe.get(item, color)));
+            DELEGATES.add(new ClientDelegate(color, block, item, id, factory));
         }
     }
 

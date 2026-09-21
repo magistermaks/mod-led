@@ -1,12 +1,20 @@
 package net.darktree.led.util;
 
-import com.google.gson.JsonElement;
 import net.darktree.led.LED;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
+import net.minecraft.recipe.*;
+import net.minecraft.recipe.book.CraftingRecipeCategory;
+import net.minecraft.registry.Registries;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.DyeColor;
+import net.minecraft.util.Identifier;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public enum DiodeVariant {
     NORMAL("", 15, null, false),
@@ -14,8 +22,8 @@ public enum DiodeVariant {
     SHADED("shaded_", 0, "tooltip.led.shaded", false),
     SHADED_REINFORCED("shaded_reinforced_", 0, "tooltip.led.shaded_and_reinforced", true);
 
-    public interface RecipeDelegate {
-        JsonElement get(Item item, DyeColor color);
+    public interface RecipeFactory {
+        Recipe<?> get(Item item, DyeColor color);
     }
 
     final String prefix;
@@ -46,57 +54,72 @@ public enum DiodeVariant {
         return prefix + name;
     }
 
-    private static String id(String name) {
-        return LED.ID + ":" + name;
-    }
-
-    private String group(String name) {
+    private String getGroup(String name) {
         return "led_" + prefix + name;
     }
 
-    public RecipeDelegate getRecipe(String pattern, String name) {
+    private static Item getStainedGlassPane(DyeColor color) {
+        return Registries.ITEM.get(Identifier.of("minecraft:" + color.getName() + "_stained_glass_pane"));
+    }
+
+    private static Item getColoredItem(String name, DyeColor color) {
+        return Registries.ITEM.get(RegistryHelper.id(name + "_" + color.getName()));
+    }
+
+    public RecipeFactory getRecipeFactory(String pattern, String component) {
+        final String[] parts = pattern.split(",");
+        final CraftingRecipeCategory category = LED.CATEGORY;
+
         return switch (this) {
             case NORMAL -> (item, color) -> {
-                KeySetBuilder keys = new KeySetBuilder()
-                        .addItem('A', id("led"))
-                        .addItem('B', "minecraft:" + color.getName() + "_stained_glass_pane");
+                Map<Character, Ingredient> ingredients = new HashMap<>();
 
-                if (pattern.contains("C")) {
-                    keys.addItem('C', "minecraft:iron_nugget");
-                }
+                if (pattern.contains("A")) ingredients.put('A', Ingredient.ofItem(LED.LED));
+                if (pattern.contains("C")) ingredients.put('C', Ingredient.ofItem(Items.IRON_NUGGET));
+                if (pattern.contains("B")) ingredients.put('B', Ingredient.ofItem(getStainedGlassPane(color)));
 
-                return RecipeHelper.createShaped(new ItemStack(item), pattern, keys.get(), group(name));
+                return new ShapedRecipe(getGroup(component), category, RawShapedRecipe.create(ingredients, parts), new ItemStack(item));
             };
 
-            case REINFORCED -> (item, color) -> RecipeHelper.createShapeless(
-                    new ItemStack(item), group(name),
-                    "minecraft:iron_bars", id(name + "_" + color.getName())
-            );
+            case REINFORCED -> (item, color) -> {
+                return new ShapelessRecipe(getGroup(component), category, new ItemStack(item), List.of(
+                        Ingredient.ofItem(Items.IRON_BARS),
+                        Ingredient.ofItem(getColoredItem(component, color))
+                ));
+            };
 
-            case SHADED -> (item, color) -> RecipeHelper.createShapeless(
-                    new ItemStack(item), group(name),
-                    id("shade"), id(name + "_" + color.getName())
-            );
+            case SHADED -> (item, color) -> {
+                return new ShapelessRecipe(getGroup(component), category, new ItemStack(item), List.of(
+                        Ingredient.ofItem(LED.SHADE),
+                        Ingredient.ofItem(getColoredItem(component, color))
+                ));
+            };
 
-            case SHADED_REINFORCED -> (item, color) -> RecipeHelper.createShapeless(
-                    new ItemStack(item), group(name),
-                    id("shade"), "minecraft:iron_bars", id(name + "_" + color.getName())
-            );
+            case SHADED_REINFORCED -> (item, color) -> {
+                return new ShapelessRecipe(getGroup(component), category, new ItemStack(item), List.of(
+                        Ingredient.ofItem(LED.SHADE),
+                        Ingredient.ofItem(Items.IRON_BARS),
+                        Ingredient.ofItem(getColoredItem(component, color))
+                ));
+            };
         };
     }
 
-    public static RecipeDelegate getButtonRecipe(boolean button) {
-        if (button) {
-            return (item, color) -> RecipeHelper.createShapeless(
-                    new ItemStack(item, 4), "led_button",
-                    id("clear_full_" + color.getName())
-            );
-        } else {
-            return (item, color) -> RecipeHelper.createShapeless(
-                    new ItemStack(item), "led_switch",
-                    "minecraft:lever", id("button_" + color.getName())
-            );
-        }
+    public static RecipeFactory getButtonRecipeFactory() {
+        return (item, color) -> {
+            return new ShapelessRecipe("led_button", LED.CATEGORY, new ItemStack(item, 4), List.of(
+                    Ingredient.ofItem(getColoredItem("clear_full", color))
+            ));
+        };
+    }
+
+    public static RecipeFactory getSwitchRecipeFactory() {
+        return (item, color) -> {
+            return new ShapelessRecipe("led_switch", LED.CATEGORY, new ItemStack(item), List.of(
+                    Ingredient.ofItem(getColoredItem("button", color)),
+                    Ingredient.ofItem(Items.LEVER)
+            ));
+        };
     }
 
 

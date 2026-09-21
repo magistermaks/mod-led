@@ -1,8 +1,10 @@
 package net.darktree.led.util;
 
-import com.google.gson.JsonElement;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
+import net.minecraft.recipe.Recipe;
+import net.minecraft.registry.RegistryKey;
+import net.minecraft.registry.RegistryKeys;
 import net.minecraft.util.DyeColor;
 import net.minecraft.util.Identifier;
 
@@ -12,14 +14,14 @@ public class ClientDelegate {
     public final Block block;
     public final Item item;
     public final DyeColor color;
-    public final JsonElement recipe;
+    public final DiodeVariant.RecipeFactory factory;
 
-    public ClientDelegate(DyeColor color, Block block, Item item, Identifier id, JsonElement recipe) {
+    public ClientDelegate(DyeColor color, Block block, Item item, Identifier id, DiodeVariant.RecipeFactory factory) {
         this.color = color;
         this.block = block;
         this.item = item;
         this.id = id;
-        this.recipe = recipe;
+        this.factory = factory;
     }
 
     public int getTint() {
@@ -28,6 +30,14 @@ public class ClientDelegate {
 
     public Identifier getItemModelPath() {
         return RegistryHelper.id("item/" + id.getPath());
+    }
+
+    public RegistryKey<Recipe<?>> getRecipeKey() {
+        return RegistryKey.of(RegistryKeys.RECIPE, id);
+    }
+
+    public Recipe<?> getRecipe() {
+        return factory.get(item, color);
     }
 
 }

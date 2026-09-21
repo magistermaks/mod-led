@@ -1,6 +1,5 @@
 package net.darktree.led.client.datagen;
 
-import com.mojang.serialization.JsonOps;
 import net.darktree.led.LED;
 import net.darktree.led.util.ClientDelegate;
 import net.darktree.led.util.RegistryHelper;
@@ -16,7 +15,6 @@ import net.minecraft.item.Items;
 import net.minecraft.recipe.Recipe;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.RegistryKey;
-import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
 
 import java.util.Iterator;
@@ -57,9 +55,7 @@ public class LedRecipeProvider extends FabricRecipeProvider {
 			while (it.hasNext()) {
 				ClientDelegate delegate = it.next();
 
-				RegistryKey<Recipe<?>> key = RegistryKey.of(RegistryKeys.RECIPE, delegate.id);
-				Recipe<?> recipe = Recipe.CODEC.parse(registries.getOps(JsonOps.INSTANCE), delegate.recipe).getOrThrow();
-
+				RegistryKey<Recipe<?>> key = delegate.getRecipeKey();
 				rewards.addRecipe(key);
 				AdvancementEntry entry = null;
 
@@ -69,7 +65,7 @@ public class LedRecipeProvider extends FabricRecipeProvider {
 					entry = advancement.build(RegistryHelper.id("recipes/misc/lamps"));
 				}
 
-				exporter.accept(key, recipe, entry);
+				exporter.accept(key, delegate.getRecipe(), entry);
 			}
 
 			createShaped(RecipeCategory.MISC, LED.LED, 2)
