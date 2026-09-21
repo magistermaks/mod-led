@@ -1,13 +1,14 @@
 package net.darktree.led.util;
 
 import net.darktree.led.LED;
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
-import net.minecraft.item.*;
+import net.minecraft.item.BlockItem;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemGroup;
+import net.minecraft.item.ItemStack;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
@@ -19,7 +20,6 @@ import net.minecraft.util.Identifier;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Function;
-import java.util.function.Supplier;
 
 public class RegistryHelper {
 
@@ -50,21 +50,18 @@ public class RegistryHelper {
         return item;
     }
 
-    public static void registerForColors(String name, Function<AbstractBlock.Settings, Block> supplier, DiodeVariant.RecipeDelegate recipe) {
+    public static void registerForColors(String name, Function<AbstractBlock.Settings, Block> supplier, DiodeVariant.RecipeFactory factory) {
         for (DyeColor color : DyeColor.values()) {
             Identifier id = id(name + "_" + color.getName());
 
             Block block = supplier.apply(createBlockSettings(id));
             Item item = new BlockItem(block, createItemSettings(id).useBlockPrefixedTranslationKey());
 
-            ClientDelegate delegate = new ClientDelegate(color, block, item);
-
             addToGroup(item);
             registerItem(id, item);
             registerBlock(id, block);
 
-            recipe.register(item, color);
-            DELEGATES.add(delegate);
+            DELEGATES.add(new ClientDelegate(color, block, item, id, factory));
         }
     }
 

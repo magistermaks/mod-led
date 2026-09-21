@@ -12,7 +12,6 @@ public class LedClient implements ClientModInitializer {
 
 	private void applyDelegate(ClientDelegate delegate) {
 		ColorProviderRegistry.BLOCK.register((state, world, pos, index) -> delegate.getTint(), delegate.block);
-		ColorProviderRegistry.ITEM.register((stack, index) -> delegate.getTint(), delegate.item);
 	}
 
 	@Override
