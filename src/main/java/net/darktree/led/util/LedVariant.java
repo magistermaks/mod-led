@@ -67,7 +67,7 @@ public enum LedVariant {
         return Registries.ITEM.get(Identifier.of("minecraft:" + color.getId() + "_stained_glass_pane"));
     }
 
-    private Item getColoredItem(LedFixture fixture, DyeColor color) {
+    private Item getItem(LedFixture fixture, DyeColor color) {
         return RegistryHelper.FIXTURES.getBlock(fixture, this, color).asItem();
     }
 
@@ -90,14 +90,14 @@ public enum LedVariant {
             case REINFORCED -> (consumer, item, color) -> {
                 consumer.accept(new ShapelessRecipe(group, category, new ItemStack(item), List.of(
                         Ingredient.ofItem(Items.IRON_BARS),
-                        Ingredient.ofItem(getColoredItem(fixture, color))
+                        Ingredient.ofItem(NORMAL.getItem(fixture, color))
                 )), Registries.ITEM.getId(item));
             };
 
             case SHADED -> (consumer, item, color) -> {
                 consumer.accept(new ShapelessRecipe(group, category, new ItemStack(item), List.of(
                         Ingredient.ofItem(LED.SHADE),
-                        Ingredient.ofItem(getColoredItem(fixture, color))
+                        Ingredient.ofItem(NORMAL.getItem(fixture, color))
                 )), Registries.ITEM.getId(item));
             };
 
@@ -105,7 +105,7 @@ public enum LedVariant {
                 consumer.accept(new ShapelessRecipe(group, category, new ItemStack(item), List.of(
                         Ingredient.ofItem(LED.SHADE),
                         Ingredient.ofItem(Items.IRON_BARS),
-                        Ingredient.ofItem(getColoredItem(fixture, color))
+                        Ingredient.ofItem(NORMAL.getItem(fixture, color))
                 )), Registries.ITEM.getId(item));
             };
         };
