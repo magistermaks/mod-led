@@ -31,10 +31,7 @@ public class DiodeLampBlock extends Block implements TooltippedBlock {
     private final DiodeVariant variant;
 
     public DiodeLampBlock(AbstractBlock.Settings settings, DiodeVariant variant) {
-        super(variant.applySettings(settings)
-                .luminance(state -> state.get(LIT) ? variant.getLightLevel() : 0)
-                .emissiveLighting((state, world, pos) -> state.get(LIT))
-        );
+        super(variant.applySettings(settings).luminance(state -> state.get(LIT) ? variant.getLightLevel() : 0));
 
         this.variant = variant;
         setDefaultState(getDefaultState().with(LIT, false));

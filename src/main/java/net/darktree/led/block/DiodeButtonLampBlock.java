@@ -8,10 +8,7 @@ import net.minecraft.block.ButtonBlock;
 public class DiodeButtonLampBlock extends ButtonBlock {
 
     public DiodeButtonLampBlock(AbstractBlock.Settings settings) {
-        super(BlockSetType.STONE, 20, DiodeVariant.NORMAL.applySettings(settings)
-                .luminance(state -> 0)
-                .emissiveLighting((state, world, pos) -> state.get(POWERED))
-        );
+        super(BlockSetType.STONE, 20, DiodeVariant.NORMAL.applySettings(settings));
     }
 
 }
