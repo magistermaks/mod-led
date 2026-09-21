@@ -1,5 +1,5 @@
 plugins {
-	id 'fabric-loom' version '1.10-SNAPSHOT'
+	id 'fabric-loom' version "${loom_version}"
 }
 
 version = project.mod_version
@@ -54,15 +54,8 @@ processResources {
 }
 
 java {
-	withSourcesJar()
-
 	toolchain {
 		languageVersion.set(JavaLanguageVersion.of(21))
 	}
 }
 
-jar {
-	from("LICENSE") {
-		rename { "${it}_${project.archivesBaseName}"}
-	}
-}
