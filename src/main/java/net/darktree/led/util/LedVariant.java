@@ -85,14 +85,14 @@ public enum LedVariant {
             case REINFORCED -> (item, color) -> {
                 return new ShapelessRecipe(group, category, new ItemStack(item), List.of(
                         Ingredient.ofItem(Items.IRON_BARS),
-                        Ingredient.ofItem(getColoredItem(fixture, color))
+                        Ingredient.ofItem(NORMAL.getColoredItem(fixture, color))
                 ));
             };
 
             case SHADED -> (item, color) -> {
                 return new ShapelessRecipe(group, category, new ItemStack(item), List.of(
                         Ingredient.ofItem(LED.SHADE),
-                        Ingredient.ofItem(getColoredItem(fixture, color))
+                        Ingredient.ofItem(NORMAL.getColoredItem(fixture, color))
                 ));
             };
 
@@ -100,7 +100,7 @@ public enum LedVariant {
                 return new ShapelessRecipe(group, category, new ItemStack(item), List.of(
                         Ingredient.ofItem(LED.SHADE),
                         Ingredient.ofItem(Items.IRON_BARS),
-                        Ingredient.ofItem(getColoredItem(fixture, color))
+                        Ingredient.ofItem(NORMAL.getColoredItem(fixture, color))
                 ));
             };
         };
