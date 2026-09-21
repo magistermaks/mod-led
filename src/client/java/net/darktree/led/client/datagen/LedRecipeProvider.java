@@ -17,7 +17,9 @@ import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryWrapper;
 
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 public class LedRecipeProvider extends FabricRecipeProvider {
@@ -42,21 +44,19 @@ public class LedRecipeProvider extends FabricRecipeProvider {
 			super(registries, exporter);
 		}
 
-		@Override
-		public void generate() {
+		private void generateFixtureRecipes(List<ClientDelegate.RecipeInfo> recipes) {
 
 			Advancement.Builder advancement = exporter.getAdvancementBuilder()
 					.criterion("has_led", conditionsFromItem(LED.LED))
 					.criteriaMerger(AdvancementRequirements.CriterionMerger.OR);
 
 			AdvancementRewards.Builder rewards = new AdvancementRewards.Builder();
+			Iterator<ClientDelegate.RecipeInfo> it = recipes.iterator();
 
-			Iterator<ClientDelegate> it = RegistryHelper.getClientDelegates().iterator();
 			while (it.hasNext()) {
-				ClientDelegate delegate = it.next();
+				ClientDelegate.RecipeInfo info = it.next();
 
-				RegistryKey<Recipe<?>> key = delegate.getRecipeKey();
-				rewards.addRecipe(key);
+				rewards.addRecipe(info.key());
 				AdvancementEntry entry = null;
 
 				// force the combined advancement down the games throat with the last recipe
@@ -65,8 +65,17 @@ public class LedRecipeProvider extends FabricRecipeProvider {
 					entry = advancement.build(RegistryHelper.id("recipes/misc/lamps"));
 				}
 
-				exporter.accept(key, delegate.getRecipe(), entry);
+				exporter.accept(info.key(), info.recipe(), entry);
 			}
+
+		}
+
+		@Override
+		public void generate() {
+
+			List<ClientDelegate.RecipeInfo> recipes = new ArrayList<>();
+			RegistryHelper.getClientDelegates().forEach(delegate -> delegate.addRecipes(recipes));
+			generateFixtureRecipes(recipes);
 
 			createShaped(RecipeCategory.MISC, LED.LED, 2)
 					.pattern(" 0 ")
