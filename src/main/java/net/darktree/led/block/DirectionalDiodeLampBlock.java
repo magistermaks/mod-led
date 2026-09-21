@@ -56,7 +56,7 @@ public class DirectionalDiodeLampBlock extends DiodeLampBlock {
 
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        return shapes[state.get(FACING).getId()];
+        return shapes[state.get(FACING).getIndex()];
     }
 
     private boolean isDirectionValid(Direction direction, WorldAccess world, BlockPos pos) {

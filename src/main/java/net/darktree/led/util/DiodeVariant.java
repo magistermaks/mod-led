@@ -59,11 +59,11 @@ public enum DiodeVariant {
     }
 
     private static Item getStainedGlassPane(DyeColor color) {
-        return Registries.ITEM.get(Identifier.of("minecraft:" + color.getName() + "_stained_glass_pane"));
+        return Registries.ITEM.get(Identifier.of("minecraft:" + color.getId() + "_stained_glass_pane"));
     }
 
     private static Item getColoredItem(String name, DyeColor color) {
-        return Registries.ITEM.get(RegistryHelper.id(name + "_" + color.getName()));
+        return Registries.ITEM.get(RegistryHelper.id(name + "_" + color.getId()));
     }
 
     public RecipeFactory getRecipeFactory(String pattern, String component) {

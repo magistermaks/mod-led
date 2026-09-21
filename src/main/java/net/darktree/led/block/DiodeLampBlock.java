@@ -39,14 +39,14 @@ public class DiodeLampBlock extends Block {
         setDefaultState(getDefaultState().with(LIT, false));
     }
 
-    @Override
-    public void appendTooltip(ItemStack stack, Item.TooltipContext context, List<Text> tooltip, TooltipType options) {
-        final String text = variant.getTooltip();
-
-        if (text != null) {
-            tooltip.add(Text.translatable(text).formatted(Formatting.GRAY));
-        }
-    }
+//    @Override
+//    public void appendTooltip(ItemStack stack, Item.TooltipContext context, List<Text> tooltip, TooltipType options) {
+//        final String text = variant.getTooltip();
+//
+//        if (text != null) {
+//            tooltip.add(Text.translatable(text).formatted(Formatting.GRAY));
+//        }
+//    }
 
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {

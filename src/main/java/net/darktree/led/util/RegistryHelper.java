@@ -52,7 +52,7 @@ public class RegistryHelper {
 
     public static void registerForColors(String name, Function<AbstractBlock.Settings, Block> supplier, DiodeVariant.RecipeFactory factory) {
         for (DyeColor color : DyeColor.values()) {
-            Identifier id = id(name + "_" + color.getName());
+            Identifier id = id(name + "_" + color.getId());
 
             Block block = supplier.apply(createBlockSettings(id));
             Item item = new BlockItem(block, createItemSettings(id).useBlockPrefixedTranslationKey());
