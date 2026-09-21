@@ -7,7 +7,10 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.*;
 import net.minecraft.recipe.book.CraftingRecipeCategory;
+import net.minecraft.recipe.input.RecipeInput;
 import net.minecraft.registry.Registries;
+import net.minecraft.registry.RegistryKey;
+import net.minecraft.registry.RegistryKeys;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.DyeColor;
 import net.minecraft.util.Identifier;
@@ -15,6 +18,8 @@ import net.minecraft.util.Identifier;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.function.BiConsumer;
+import java.util.function.Consumer;
 
 public enum LedVariant {
     NORMAL("", 15, null, false),
@@ -23,7 +28,7 @@ public enum LedVariant {
     SHADED_REINFORCED("shaded_reinforced_", 0, "tooltip.led.shaded_and_reinforced", true);
 
     public interface RecipeFactory {
-        Recipe<?> get(Item item, DyeColor color);
+        void apply(BiConsumer<Recipe<?>, Identifier> consumer, Item item, DyeColor color);
     }
 
     final String prefix;
@@ -72,54 +77,54 @@ public enum LedVariant {
         final String group = getRecipeGroup(fixture);
 
         return switch (this) {
-            case NORMAL -> (item, color) -> {
+            case NORMAL -> (consumer, item, color) -> {
                 Map<Character, Ingredient> ingredients = new HashMap<>();
 
                 if (pattern.contains("A")) ingredients.put('A', Ingredient.ofItem(LED.LED));
                 if (pattern.contains("C")) ingredients.put('C', Ingredient.ofItem(Items.IRON_NUGGET));
                 if (pattern.contains("B")) ingredients.put('B', Ingredient.ofItem(getStainedGlassPane(color)));
 
-                return new ShapedRecipe(group, category, RawShapedRecipe.create(ingredients, parts), new ItemStack(item));
+                consumer.accept(new ShapedRecipe(group, category, RawShapedRecipe.create(ingredients, parts), new ItemStack(item)), Registries.ITEM.getId(item));
             };
 
-            case REINFORCED -> (item, color) -> {
-                return new ShapelessRecipe(group, category, new ItemStack(item), List.of(
+            case REINFORCED -> (consumer, item, color) -> {
+                consumer.accept(new ShapelessRecipe(group, category, new ItemStack(item), List.of(
                         Ingredient.ofItem(Items.IRON_BARS),
                         Ingredient.ofItem(getColoredItem(fixture, color))
-                ));
+                )), Registries.ITEM.getId(item));
             };
 
-            case SHADED -> (item, color) -> {
-                return new ShapelessRecipe(group, category, new ItemStack(item), List.of(
+            case SHADED -> (consumer, item, color) -> {
+                consumer.accept(new ShapelessRecipe(group, category, new ItemStack(item), List.of(
                         Ingredient.ofItem(LED.SHADE),
                         Ingredient.ofItem(getColoredItem(fixture, color))
-                ));
+                )), Registries.ITEM.getId(item));
             };
 
-            case SHADED_REINFORCED -> (item, color) -> {
-                return new ShapelessRecipe(group, category, new ItemStack(item), List.of(
+            case SHADED_REINFORCED -> (consumer, item, color) -> {
+                consumer.accept(new ShapelessRecipe(group, category, new ItemStack(item), List.of(
                         Ingredient.ofItem(LED.SHADE),
                         Ingredient.ofItem(Items.IRON_BARS),
                         Ingredient.ofItem(getColoredItem(fixture, color))
-                ));
+                )), Registries.ITEM.getId(item));
             };
         };
     }
 
     public static RecipeFactory getButtonRecipeFactory() {
-        return (item, color) -> {
-            return new ShapelessRecipe("led_button", LED.CATEGORY, new ItemStack(item, 4), List.of(
+        return (consumer, item, color) -> {
+            consumer.accept(new ShapelessRecipe("led_button", LED.CATEGORY, new ItemStack(item, 4), List.of(
                     Ingredient.ofItem(RegistryHelper.FIXTURES.getBlock(LedFixture.FULL, LedVariant.NORMAL, color).asItem())
-            ));
+            )), Registries.ITEM.getId(item));
         };
     }
 
     public static RecipeFactory getSwitchRecipeFactory() {
-        return (item, color) -> {
-            return new ShapelessRecipe("led_switch", LED.CATEGORY, new ItemStack(item), List.of(
+        return (consumer, item, color) -> {
+            consumer.accept(new ShapelessRecipe("led_switch", LED.CATEGORY, new ItemStack(item), List.of(
                     Ingredient.ofItem(RegistryHelper.FIXTURES.getBlock(LedFixture.BUTTON, LedVariant.NORMAL, color).asItem()),
                     Ingredient.ofItem(Items.LEVER)
-            ));
+            )), Registries.ITEM.getId(item));
         };
     }
 

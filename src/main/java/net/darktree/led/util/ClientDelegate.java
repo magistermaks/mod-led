@@ -3,10 +3,13 @@ package net.darktree.led.util;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.recipe.Recipe;
+import net.minecraft.recipe.input.RecipeInput;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.util.DyeColor;
 import net.minecraft.util.Identifier;
+
+import java.util.List;
 
 public class ClientDelegate {
 
@@ -24,6 +27,8 @@ public class ClientDelegate {
         this.factory = factory;
     }
 
+    public record RecipeInfo (Recipe<?> recipe, RegistryKey<Recipe<?>> key) {}
+
     public int getTint() {
         return color.getFireworkColor();
     }
@@ -36,8 +41,8 @@ public class ClientDelegate {
         return RegistryKey.of(RegistryKeys.RECIPE, id);
     }
 
-    public Recipe<?> getRecipe() {
-        return factory.get(item, color);
+    public void addRecipes(List<RecipeInfo> recipes) {
+        factory.apply((recipe, id) -> recipes.add(new RecipeInfo(recipe, RegistryKey.of(RegistryKeys.RECIPE, id))), item, color);
     }
 
 }
