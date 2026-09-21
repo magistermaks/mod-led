@@ -15,10 +15,14 @@ public class ClientDelegate {
     public final Block block;
     public final Item item;
     public final DyeColor color;
+    public final LedFixture fixture;
+    public final LedVariant variant;
     public final LedVariant.RecipeFactory factory;
 
-    public ClientDelegate(DyeColor color, Block block, Item item, Identifier id, LedVariant.RecipeFactory factory) {
+    public ClientDelegate(DyeColor color, LedFixture fixture, LedVariant variant, Block block, Item item, Identifier id, LedVariant.RecipeFactory factory) {
         this.color = color;
+        this.fixture = fixture;
+        this.variant = variant;
         this.block = block;
         this.item = item;
         this.id = id;
@@ -35,8 +39,8 @@ public class ClientDelegate {
         return RegistryHelper.id("item/" + id.getPath());
     }
 
-    public ResourceKey<Recipe<?>> getRecipeKey() {
-        return ResourceKey.create(Registries.RECIPE, id);
+    public ResourceKey<Block> getBlockKey() {
+        return ResourceKey.create(Registries.BLOCK, id);
     }
 
     public void addRecipes(List<RecipeInfo> recipes) {

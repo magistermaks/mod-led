@@ -19,13 +19,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.function.BiConsumer;
-import java.util.function.Consumer;
 
 public enum LedVariant {
-    NORMAL("", 15, null, false),
-    REINFORCED("reinforced_", 14, "tooltip.led.reinforced", true),
-    SHADED("shaded_", 0, "tooltip.led.shaded", false),
-    SHADED_REINFORCED("shaded_reinforced_", 0, "tooltip.led.shaded_and_reinforced", true);
+    NORMAL("", 15, null, false, false),
+    REINFORCED("reinforced_", 14, "tooltip.led.reinforced", true, false),
+    SHADED("shaded_", 0, "tooltip.led.shaded", false, true),
+    SHADED_REINFORCED("shaded_reinforced_", 0, "tooltip.led.shaded_and_reinforced", true, true);
 
     public interface RecipeFactory {
         void apply(BiConsumer<Recipe<?>, Identifier> consumer, Item item, DyeColor color);
@@ -35,16 +34,38 @@ public enum LedVariant {
     final int light;
     final String tooltip;
     final boolean reinforced;
+    final boolean shaded;
 
-    LedVariant(String prefix, int light, String tooltip, boolean reinforced) {
+    LedVariant(String prefix, int light, String tooltip, boolean reinforced, boolean shaded) {
         this.prefix = prefix;
         this.light = light;
         this.tooltip = tooltip;
         this.reinforced = reinforced;
+        this.shaded = shaded;
+    }
+
+    public static LedVariant byTrait(boolean reinforced, boolean shaded) {
+        return values()[(reinforced ? 1 : 0) + (shaded ? 2 : 0)];
+    }
+
+    public boolean isReinforced() {
+        return reinforced;
+    }
+
+    public boolean isShaded() {
+        return shaded;
+    }
+
+    public LedVariant withShaded(boolean shaded) {
+        return byTrait(this.reinforced, shaded);
+    }
+
+    public LedVariant withReinforced(boolean reinforced) {
+        return byTrait(reinforced, this.shaded);
     }
 
     public BlockBehaviour.Properties applySettings(BlockBehaviour.Properties settings) {
-        return settings.sound(SoundType.METAL).strength(reinforced ? 0.8f : 0.4f);
+        return settings.sound(SoundType.METAL).strength(reinforced ? 0.8f : 0.3f);
     }
 
     public int getLightLevel() {
@@ -67,7 +88,7 @@ public enum LedVariant {
         return BuiltInRegistries.ITEM.getValue(Identifier.parse("minecraft:" + color.getName() + "_stained_glass_pane"));
     }
 
-    private Item getItem(LedFixture fixture, DyeColor color) {
+    public Item getItem(LedFixture fixture, DyeColor color) {
         return RegistryHelper.FIXTURES.getBlock(fixture, this, color).asItem();
     }
 

@@ -65,7 +65,7 @@ public class RegistryHelper {
             registerBlock(id, block);
 
             FIXTURES.setBlock(fixture, variant, color, block);
-            DELEGATES.add(new ClientDelegate(color, block, item, id, factory));
+            DELEGATES.add(new ClientDelegate(color, fixture, variant, block, item, id, factory));
         }
     }
 

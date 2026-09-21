@@ -6,6 +6,8 @@ import net.darktree.led.block.DiodeSwitchLampBlock;
 import net.darktree.led.block.DirectionalDiodeLampBlock;
 import net.darktree.led.util.*;
 import net.fabricmc.api.ModInitializer;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.crafting.CraftingBookCategory;
 import net.minecraft.world.level.block.Block;
@@ -17,6 +19,8 @@ import org.slf4j.LoggerFactory;
 import java.util.function.BiFunction;
 
 public class LED implements ModInitializer {
+
+    public static final TagKey<Block> LAMPS = TagKey.create(Registries.BLOCK, RegistryHelper.id("lamps"));
 
     public static final String ID = "led";
     public static final Logger LOG = LoggerFactory.getLogger("LED");

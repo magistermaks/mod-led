@@ -10,6 +10,7 @@ import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.ItemModelGenerators;
 import net.minecraft.client.data.models.model.ItemModelUtils;
 import net.minecraft.client.data.models.model.ModelTemplates;
+import org.jspecify.annotations.NonNull;
 
 public class LedModelProvider extends FabricModelProvider {
 
@@ -18,7 +19,7 @@ public class LedModelProvider extends FabricModelProvider {
 	}
 
 	@Override
-	public void generateBlockStateModels(BlockModelGenerators generator) {
+	public void generateBlockStateModels(@NonNull BlockModelGenerators generator) {
 
 	}
 

@@ -1,5 +1,6 @@
 package net.darktree.led.client;
 
+import net.darktree.led.client.datagen.LedBlockTagProvider;
 import net.darktree.led.client.datagen.LedLootProvider;
 import net.darktree.led.client.datagen.LedModelProvider;
 import net.darktree.led.client.datagen.LedRecipeProvider;
@@ -15,6 +16,7 @@ public class LedDatagen implements DataGeneratorEntrypoint {
 		pack.addProvider(LedModelProvider::new);
 		pack.addProvider(LedLootProvider::new);
 		pack.addProvider(LedRecipeProvider::new);
+		pack.addProvider(LedBlockTagProvider::new);
 	}
 
 }
