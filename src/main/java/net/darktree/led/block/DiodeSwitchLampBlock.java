@@ -26,8 +26,8 @@ public class DiodeSwitchLampBlock extends DiodeButtonLampBlock {
         boolean power = state.get(POWERED);
         world.setBlockState( pos, state.cycle(POWERED) );
         playClickSound(player, world, pos, !power);
-        world.updateNeighborsAlways(pos, this);
-        world.updateNeighborsAlways(pos.offset(getDirection(state).getOpposite()), this);
+        world.updateNeighborsAlways(pos, this, null);
+        world.updateNeighborsAlways(pos.offset(getDirection(state).getOpposite()), this, null);
 
         return ActionResult.SUCCESS;
     }

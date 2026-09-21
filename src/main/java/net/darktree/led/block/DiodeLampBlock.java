@@ -1,6 +1,7 @@
 package net.darktree.led.block;
 
-import net.darktree.led.util.DiodeVariant;
+import net.darktree.led.util.LedVariant;
+import net.darktree.led.util.TooltippedBlock;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -22,29 +23,26 @@ import net.minecraft.world.World;
 import net.minecraft.world.block.WireOrientation;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.List;
+import java.util.function.Consumer;
 
-public class DiodeLampBlock extends Block {
+public class DiodeLampBlock extends Block implements TooltippedBlock {
 
     public static final BooleanProperty LIT = BooleanProperty.of("lit");
-    private final DiodeVariant variant;
+    private final LedVariant variant;
 
-    public DiodeLampBlock(AbstractBlock.Settings settings, DiodeVariant variant) {
-        super(variant.applySettings(settings)
-                .luminance(state -> state.get(LIT) ? variant.getLightLevel() : 0)
-                .emissiveLighting((state, world, pos) -> state.get(LIT))
-        );
+    public DiodeLampBlock(AbstractBlock.Settings settings, LedVariant variant) {
+        super(variant.applySettings(settings).luminance(state -> state.get(LIT) ? variant.getLightLevel() : 0));
 
         this.variant = variant;
         setDefaultState(getDefaultState().with(LIT, false));
     }
 
     @Override
-    public void appendTooltip(ItemStack stack, Item.TooltipContext context, List<Text> tooltip, TooltipType options) {
+    public void appendTooltip(ItemStack stack, Item.TooltipContext context, Consumer<Text> consumer, TooltipType options) {
         final String text = variant.getTooltip();
 
         if (text != null) {
-            tooltip.add(Text.translatable(text).formatted(Formatting.GRAY));
+            consumer.accept(Text.translatable(text).formatted(Formatting.GRAY));
         }
     }
 

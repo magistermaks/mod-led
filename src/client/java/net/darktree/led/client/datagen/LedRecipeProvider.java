@@ -81,15 +81,9 @@ public class LedRecipeProvider extends FabricRecipeProvider {
 
 			createShapeless(RecipeCategory.MISC, LED.SHADE, 4)
 					.input(Items.SOUL_SAND)
+					.input(Items.INK_SAC)
 					.criterion(hasItem(Items.SOUL_SAND), this.conditionsFromItem(Items.SOUL_SAND))
 					.offerTo(exporter);
-
-			createShaped(RecipeCategory.MISC, Items.SOUL_SAND, 1)
-					.pattern("##")
-					.pattern("##")
-					.input('#', LED.SHADE)
-					.criterion(hasItem(LED.SHADE), this.conditionsFromItem(LED.SHADE))
-					.offerTo(this.exporter, RegistryHelper.id("soul_sand_from_shade").toString());
 
 		}
 

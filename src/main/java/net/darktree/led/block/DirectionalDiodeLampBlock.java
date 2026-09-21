@@ -1,6 +1,6 @@
 package net.darktree.led.block;
 
-import net.darktree.led.util.DiodeVariant;
+import net.darktree.led.util.LedVariant;
 import net.minecraft.block.*;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.state.StateManager;
@@ -20,7 +20,7 @@ public class DirectionalDiodeLampBlock extends DiodeLampBlock {
     protected static final EnumProperty<Direction> FACING = Properties.FACING;
     private final VoxelShape[] shapes;
 
-    public DirectionalDiodeLampBlock(AbstractBlock.Settings settings, DiodeVariant variant, VoxelShape[] shapes) {
+    public DirectionalDiodeLampBlock(AbstractBlock.Settings settings, LedVariant variant, VoxelShape[] shapes) {
         super(settings, variant);
         this.shapes = shapes;
         setDefaultState( getDefaultState().with(FACING, Direction.NORTH) );
@@ -56,7 +56,7 @@ public class DirectionalDiodeLampBlock extends DiodeLampBlock {
 
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        return shapes[state.get(FACING).getId()];
+        return shapes[state.get(FACING).getIndex()];
     }
 
     private boolean isDirectionValid(Direction direction, WorldAccess world, BlockPos pos) {
