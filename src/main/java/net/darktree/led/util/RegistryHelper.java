@@ -19,12 +19,14 @@ import net.minecraft.util.Identifier;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.BiFunction;
 import java.util.function.Function;
 
 public class RegistryHelper {
 
     private static final List<ClientDelegate> DELEGATES = new ArrayList<>();
 
+    public static final LedBlockSet FIXTURES = new LedBlockSet();
     public static final ItemGroup GROUP = FabricItemGroup.builder()
             .displayName(Text.translatable("itemGroup.led.group"))
             .icon(() -> new ItemStack(LED.BULB))
@@ -50,19 +52,26 @@ public class RegistryHelper {
         return item;
     }
 
-    public static void registerForColors(String name, Function<AbstractBlock.Settings, Block> supplier, DiodeVariant.RecipeFactory factory) {
-        for (DyeColor color : DyeColor.values()) {
-            Identifier id = id(name + "_" + color.getId());
+    public static void registerFixture(LedFixture fixture, LedVariant variant, Function<AbstractBlock.Settings, Block> supplier, LedVariant.RecipeFactory factory) {
+        final String name = variant.getName(fixture.getId());
 
-            Block block = supplier.apply(createBlockSettings(id));
-            Item item = new BlockItem(block, createItemSettings(id).useBlockPrefixedTranslationKey());
+        for (DyeColor color : DyeColor.values()) {
+            final Identifier id = id(name + "_" + color.getId());
+
+            final Block block = supplier.apply(createBlockSettings(id));
+            final Item item = new BlockItem(block, createItemSettings(id).useBlockPrefixedTranslationKey());
 
             addToGroup(item);
             registerItem(id, item);
             registerBlock(id, block);
 
+            FIXTURES.setBlock(fixture, variant, color, block);
             DELEGATES.add(new ClientDelegate(color, block, item, id, factory));
         }
+    }
+
+    public static void registerFixture(LedFixture fixture, LedVariant variant, Function<AbstractBlock.Settings, Block> supplier) {
+        registerFixture(fixture, variant, supplier, variant.getRecipeFactory(fixture.getPattern(), fixture));
     }
 
     public static void registerItem(Identifier id, Item item) {

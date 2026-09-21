@@ -1,6 +1,6 @@
 package net.darktree.led.block;
 
-import net.darktree.led.util.DiodeVariant;
+import net.darktree.led.util.LedVariant;
 import net.darktree.led.util.TooltippedBlock;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
@@ -28,9 +28,9 @@ import java.util.function.Consumer;
 public class DiodeLampBlock extends Block implements TooltippedBlock {
 
     public static final BooleanProperty LIT = BooleanProperty.of("lit");
-    private final DiodeVariant variant;
+    private final LedVariant variant;
 
-    public DiodeLampBlock(AbstractBlock.Settings settings, DiodeVariant variant) {
+    public DiodeLampBlock(AbstractBlock.Settings settings, LedVariant variant) {
         super(variant.applySettings(settings).luminance(state -> state.get(LIT) ? variant.getLightLevel() : 0));
 
         this.variant = variant;

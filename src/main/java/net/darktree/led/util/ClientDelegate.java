@@ -14,9 +14,9 @@ public class ClientDelegate {
     public final Block block;
     public final Item item;
     public final DyeColor color;
-    public final DiodeVariant.RecipeFactory factory;
+    public final LedVariant.RecipeFactory factory;
 
-    public ClientDelegate(DyeColor color, Block block, Item item, Identifier id, DiodeVariant.RecipeFactory factory) {
+    public ClientDelegate(DyeColor color, Block block, Item item, Identifier id, LedVariant.RecipeFactory factory) {
         this.color = color;
         this.block = block;
         this.item = item;

@@ -24,7 +24,7 @@ public class Util {
         return VoxelShapes.combine(a, b, BooleanBiFunction.OR);
     }
 
-    public static VoxelShape[] getVariants(int a, int b, int c, int d, int e, int f) {
+    public static VoxelShape[] getFacings(int a, int b, int c, int d, int e, int f) {
         return new VoxelShape[] {
                 box(a, b, c, d, e, f),
                 box(a, 16 - b, c, d, 16 - e, f),
@@ -35,7 +35,7 @@ public class Util {
         };
     }
 
-    public static VoxelShape[] combineVariants(VoxelShape[] a, VoxelShape[] b) {
+    public static VoxelShape[] combineFacings(VoxelShape[] a, VoxelShape[] b) {
         VoxelShape[] shapes = new VoxelShape[6];
 
         for (int i = 0; i < 6; i ++) {

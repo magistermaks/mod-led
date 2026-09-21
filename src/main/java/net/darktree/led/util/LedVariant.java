@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public enum DiodeVariant {
+public enum LedVariant {
     NORMAL("", 15, null, false),
     REINFORCED("reinforced_", 14, "tooltip.led.reinforced", true),
     SHADED("shaded_", 0, "tooltip.led.shaded", false),
@@ -31,7 +31,7 @@ public enum DiodeVariant {
     final String tooltip;
     final boolean reinforced;
 
-    DiodeVariant(String prefix, int light, String tooltip, boolean reinforced) {
+    LedVariant(String prefix, int light, String tooltip, boolean reinforced) {
         this.prefix = prefix;
         this.light = light;
         this.tooltip = tooltip;
@@ -54,21 +54,22 @@ public enum DiodeVariant {
         return prefix + name;
     }
 
-    private String getGroup(String name) {
-        return "led_" + prefix + name;
+    private String getRecipeGroup(LedFixture fixture) {
+        return "led_" + prefix + fixture.getId();
     }
 
     private static Item getStainedGlassPane(DyeColor color) {
         return Registries.ITEM.get(Identifier.of("minecraft:" + color.getId() + "_stained_glass_pane"));
     }
 
-    private static Item getColoredItem(String name, DyeColor color) {
-        return Registries.ITEM.get(RegistryHelper.id(name + "_" + color.getId()));
+    private Item getColoredItem(LedFixture fixture, DyeColor color) {
+        return RegistryHelper.FIXTURES.getBlock(fixture, this, color).asItem();
     }
 
-    public RecipeFactory getRecipeFactory(String pattern, String component) {
+    public RecipeFactory getRecipeFactory(String pattern, LedFixture fixture) {
         final String[] parts = pattern.split(",");
         final CraftingRecipeCategory category = LED.CATEGORY;
+        final String group = getRecipeGroup(fixture);
 
         return switch (this) {
             case NORMAL -> (item, color) -> {
@@ -78,28 +79,28 @@ public enum DiodeVariant {
                 if (pattern.contains("C")) ingredients.put('C', Ingredient.ofItem(Items.IRON_NUGGET));
                 if (pattern.contains("B")) ingredients.put('B', Ingredient.ofItem(getStainedGlassPane(color)));
 
-                return new ShapedRecipe(getGroup(component), category, RawShapedRecipe.create(ingredients, parts), new ItemStack(item));
+                return new ShapedRecipe(group, category, RawShapedRecipe.create(ingredients, parts), new ItemStack(item));
             };
 
             case REINFORCED -> (item, color) -> {
-                return new ShapelessRecipe(getGroup(component), category, new ItemStack(item), List.of(
+                return new ShapelessRecipe(group, category, new ItemStack(item), List.of(
                         Ingredient.ofItem(Items.IRON_BARS),
-                        Ingredient.ofItem(getColoredItem(component, color))
+                        Ingredient.ofItem(getColoredItem(fixture, color))
                 ));
             };
 
             case SHADED -> (item, color) -> {
-                return new ShapelessRecipe(getGroup(component), category, new ItemStack(item), List.of(
+                return new ShapelessRecipe(group, category, new ItemStack(item), List.of(
                         Ingredient.ofItem(LED.SHADE),
-                        Ingredient.ofItem(getColoredItem(component, color))
+                        Ingredient.ofItem(getColoredItem(fixture, color))
                 ));
             };
 
             case SHADED_REINFORCED -> (item, color) -> {
-                return new ShapelessRecipe(getGroup(component), category, new ItemStack(item), List.of(
+                return new ShapelessRecipe(group, category, new ItemStack(item), List.of(
                         Ingredient.ofItem(LED.SHADE),
                         Ingredient.ofItem(Items.IRON_BARS),
-                        Ingredient.ofItem(getColoredItem(component, color))
+                        Ingredient.ofItem(getColoredItem(fixture, color))
                 ));
             };
         };
@@ -108,7 +109,7 @@ public enum DiodeVariant {
     public static RecipeFactory getButtonRecipeFactory() {
         return (item, color) -> {
             return new ShapelessRecipe("led_button", LED.CATEGORY, new ItemStack(item, 4), List.of(
-                    Ingredient.ofItem(getColoredItem("clear_full", color))
+                    Ingredient.ofItem(RegistryHelper.FIXTURES.getBlock(LedFixture.FULL, LedVariant.NORMAL, color).asItem())
             ));
         };
     }
@@ -116,7 +117,7 @@ public enum DiodeVariant {
     public static RecipeFactory getSwitchRecipeFactory() {
         return (item, color) -> {
             return new ShapelessRecipe("led_switch", LED.CATEGORY, new ItemStack(item), List.of(
-                    Ingredient.ofItem(getColoredItem("button", color)),
+                    Ingredient.ofItem(RegistryHelper.FIXTURES.getBlock(LedFixture.BUTTON, LedVariant.NORMAL, color).asItem()),
                     Ingredient.ofItem(Items.LEVER)
             ));
         };
