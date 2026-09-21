@@ -1,15 +1,13 @@
 package net.darktree.led.util;
 
-import net.minecraft.block.Block;
-import net.minecraft.item.Item;
-import net.minecraft.recipe.Recipe;
-import net.minecraft.recipe.input.RecipeInput;
-import net.minecraft.registry.RegistryKey;
-import net.minecraft.registry.RegistryKeys;
-import net.minecraft.util.DyeColor;
-import net.minecraft.util.Identifier;
-
 import java.util.List;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.Identifier;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.item.DyeColor;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.crafting.Recipe;
+import net.minecraft.world.level.block.Block;
 
 public class ClientDelegate {
 
@@ -27,7 +25,7 @@ public class ClientDelegate {
         this.factory = factory;
     }
 
-    public record RecipeInfo (Recipe<?> recipe, RegistryKey<Recipe<?>> key) {}
+    public record RecipeInfo (Recipe<?> recipe, ResourceKey<Recipe<?>> key) {}
 
     public int getTint() {
         return color.getFireworkColor();
@@ -37,12 +35,12 @@ public class ClientDelegate {
         return RegistryHelper.id("item/" + id.getPath());
     }
 
-    public RegistryKey<Recipe<?>> getRecipeKey() {
-        return RegistryKey.of(RegistryKeys.RECIPE, id);
+    public ResourceKey<Recipe<?>> getRecipeKey() {
+        return ResourceKey.create(Registries.RECIPE, id);
     }
 
     public void addRecipes(List<RecipeInfo> recipes) {
-        factory.apply((recipe, id) -> recipes.add(new RecipeInfo(recipe, RegistryKey.of(RegistryKeys.RECIPE, id))), item, color);
+        factory.apply((recipe, id) -> recipes.add(new RecipeInfo(recipe, ResourceKey.create(Registries.RECIPE, id))), item, color);
     }
 
 }

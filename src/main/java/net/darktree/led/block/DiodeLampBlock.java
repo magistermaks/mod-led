@@ -2,93 +2,93 @@ package net.darktree.led.block;
 
 import net.darktree.led.util.LedVariant;
 import net.darktree.led.util.TooltippedBlock;
-import net.minecraft.block.AbstractBlock;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.ShapeContext;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.tooltip.TooltipType;
-import net.minecraft.server.world.ServerWorld;
-import net.minecraft.state.StateManager;
-import net.minecraft.state.property.BooleanProperty;
-import net.minecraft.text.Text;
-import net.minecraft.util.Formatting;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.random.Random;
-import net.minecraft.util.shape.VoxelShape;
-import net.minecraft.util.shape.VoxelShapes;
-import net.minecraft.world.BlockView;
-import net.minecraft.world.World;
-import net.minecraft.world.block.WireOrientation;
+import net.minecraft.ChatFormatting;
+import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
+import net.minecraft.world.level.redstone.Orientation;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.Shapes;
+import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.function.Consumer;
 
 public class DiodeLampBlock extends Block implements TooltippedBlock {
 
-    public static final BooleanProperty LIT = BooleanProperty.of("lit");
+    public static final BooleanProperty LIT = BooleanProperty.create("lit");
     private final LedVariant variant;
 
-    public DiodeLampBlock(AbstractBlock.Settings settings, LedVariant variant) {
-        super(variant.applySettings(settings).luminance(state -> state.get(LIT) ? variant.getLightLevel() : 0));
+    public DiodeLampBlock(BlockBehaviour.Properties settings, LedVariant variant) {
+        super(variant.applySettings(settings).lightLevel(state -> state.getValue(LIT) ? variant.getLightLevel() : 0));
 
         this.variant = variant;
-        setDefaultState(getDefaultState().with(LIT, false));
+        registerDefaultState(defaultBlockState().setValue(LIT, false));
     }
 
     @Override
-    public void appendTooltip(ItemStack stack, Item.TooltipContext context, Consumer<Text> consumer, TooltipType options) {
+    public void appendTooltip(ItemStack stack, Item.TooltipContext context, Consumer<Component> consumer, TooltipFlag options) {
         final String text = variant.getTooltip();
 
         if (text != null) {
-            consumer.accept(Text.translatable(text).formatted(Formatting.GRAY));
+            consumer.accept(Component.translatable(text).withStyle(ChatFormatting.GRAY));
         }
     }
 
     @Override
-    public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        return VoxelShapes.fullCube();
+    public VoxelShape getShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context) {
+        return Shapes.block();
     }
 
     @Override
-    public void onBlockAdded(BlockState state, World world, BlockPos pos, BlockState oldState, boolean notify) {
+    public void onPlace(BlockState state, Level world, BlockPos pos, BlockState oldState, boolean notify) {
         boolean power = hasPower(world, pos);
 
         if (power) {
-            world.setBlockState(pos, state.with(LIT, true));
+            world.setBlockAndUpdate(pos, state.setValue(LIT, true));
         }
     }
 
     @Override
-    protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         builder.add(LIT);
     }
 
     @Override
-    protected void neighborUpdate(BlockState state, World world, BlockPos pos, Block sourceBlock, @Nullable WireOrientation wireOrientation, boolean notify) {
-        if (!world.isClient()) {
-            boolean lit = state.get(LIT);
+    protected void neighborChanged(BlockState state, Level world, BlockPos pos, Block sourceBlock, @Nullable Orientation wireOrientation, boolean notify) {
+        if (!world.isClientSide()) {
+            boolean lit = state.getValue(LIT);
 
             if (lit != hasPower(world, pos)) {
                 if (lit) {
-                    world.scheduleBlockTick(pos, this, 4);
+                    world.scheduleTick(pos, this, 4);
                 } else {
-                    world.setBlockState(pos, state.cycle(LIT), 2);
+                    world.setBlock(pos, state.cycle(LIT), 2);
                 }
             }
         }
     }
 
     @Override
-    public void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
-        if (state.get(LIT) && !hasPower(world, pos)) {
-            world.setBlockState(pos, state.cycle(LIT), 2);
+    public void tick(BlockState state, ServerLevel world, BlockPos pos, RandomSource random) {
+        if (state.getValue(LIT) && !hasPower(world, pos)) {
+            world.setBlock(pos, state.cycle(LIT), 2);
         }
     }
 
-    private boolean hasPower(World world, BlockPos pos) {
-        return world.isReceivingRedstonePower(pos);
+    private boolean hasPower(Level world, BlockPos pos) {
+        return world.hasNeighborSignal(pos);
     }
 
 }

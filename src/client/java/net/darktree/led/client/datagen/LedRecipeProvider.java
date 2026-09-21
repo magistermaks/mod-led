@@ -5,18 +5,15 @@ import net.darktree.led.util.ClientDelegate;
 import net.darktree.led.util.RegistryHelper;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
-import net.minecraft.advancement.Advancement;
-import net.minecraft.advancement.AdvancementEntry;
-import net.minecraft.advancement.AdvancementRequirements;
-import net.minecraft.advancement.AdvancementRewards;
-import net.minecraft.data.recipe.RecipeExporter;
-import net.minecraft.data.recipe.RecipeGenerator;
-import net.minecraft.item.Items;
-import net.minecraft.recipe.Recipe;
-import net.minecraft.recipe.book.RecipeCategory;
-import net.minecraft.registry.RegistryKey;
-import net.minecraft.registry.RegistryWrapper;
-
+import net.minecraft.advancements.Advancement;
+import net.minecraft.advancements.AdvancementHolder;
+import net.minecraft.advancements.AdvancementRequirements;
+import net.minecraft.advancements.AdvancementRewards;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.data.recipes.RecipeCategory;
+import net.minecraft.data.recipes.RecipeOutput;
+import net.minecraft.data.recipes.RecipeProvider;
+import net.minecraft.world.item.Items;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -24,12 +21,12 @@ import java.util.concurrent.CompletableFuture;
 
 public class LedRecipeProvider extends FabricRecipeProvider {
 
-	public LedRecipeProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
+	public LedRecipeProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
 		super(output, registriesFuture);
 	}
 
 	@Override
-	protected RecipeGenerator getRecipeGenerator(RegistryWrapper.WrapperLookup registries, RecipeExporter exporter) {
+	protected RecipeProvider createRecipeProvider(HolderLookup.Provider registries, RecipeOutput exporter) {
 		return new Generator(registries, exporter);
 	}
 
@@ -38,17 +35,17 @@ public class LedRecipeProvider extends FabricRecipeProvider {
 		return "LedRecipeProvider";
 	}
 
-	public static class Generator extends RecipeGenerator {
+	public static class Generator extends RecipeProvider {
 
-		protected Generator(RegistryWrapper.WrapperLookup registries, RecipeExporter exporter) {
+		protected Generator(HolderLookup.Provider registries, RecipeOutput exporter) {
 			super(registries, exporter);
 		}
 
 		private void generateFixtureRecipes(List<ClientDelegate.RecipeInfo> recipes) {
 
-			Advancement.Builder advancement = exporter.getAdvancementBuilder()
-					.criterion("has_led", conditionsFromItem(LED.LED))
-					.criteriaMerger(AdvancementRequirements.CriterionMerger.OR);
+			Advancement.Builder advancement = output.advancement()
+					.addCriterion("has_led", has(LED.LED))
+					.requirements(AdvancementRequirements.Strategy.OR);
 
 			AdvancementRewards.Builder rewards = new AdvancementRewards.Builder();
 			Iterator<ClientDelegate.RecipeInfo> it = recipes.iterator();
@@ -57,7 +54,7 @@ public class LedRecipeProvider extends FabricRecipeProvider {
 				ClientDelegate.RecipeInfo info = it.next();
 
 				rewards.addRecipe(info.key());
-				AdvancementEntry entry = null;
+				AdvancementHolder entry = null;
 
 				// force the combined advancement down the games throat with the last recipe
 				if (!it.hasNext()) {
@@ -65,34 +62,34 @@ public class LedRecipeProvider extends FabricRecipeProvider {
 					entry = advancement.build(RegistryHelper.id("recipes/misc/lamps"));
 				}
 
-				exporter.accept(info.key(), info.recipe(), entry);
+				output.accept(info.key(), info.recipe(), entry);
 			}
 
 		}
 
 		@Override
-		public void generate() {
+		public void buildRecipes() {
 
 			List<ClientDelegate.RecipeInfo> recipes = new ArrayList<>();
 			RegistryHelper.getClientDelegates().forEach(delegate -> delegate.addRecipes(recipes));
 			generateFixtureRecipes(recipes);
 
-			createShaped(RecipeCategory.MISC, LED.LED, 2)
+			shaped(RecipeCategory.MISC, LED.LED, 2)
 					.pattern(" 0 ")
 					.pattern("323")
 					.pattern("1 1")
-					.input('0', Items.GLOWSTONE_DUST)
-					.input('1', Items.IRON_NUGGET)
-					.input('2', Items.QUARTZ)
-					.input('3', Items.REDSTONE)
-					.criterion("has_quartz", conditionsFromItem(Items.QUARTZ))
-					.offerTo(exporter);
+					.define('0', Items.GLOWSTONE_DUST)
+					.define('1', Items.IRON_NUGGET)
+					.define('2', Items.QUARTZ)
+					.define('3', Items.REDSTONE)
+					.unlockedBy("has_quartz", has(Items.QUARTZ))
+					.save(output);
 
-			createShapeless(RecipeCategory.MISC, LED.SHADE, 4)
-					.input(Items.SOUL_SAND)
-					.input(Items.INK_SAC)
-					.criterion(hasItem(Items.SOUL_SAND), this.conditionsFromItem(Items.SOUL_SAND))
-					.offerTo(exporter);
+			shapeless(RecipeCategory.MISC, LED.SHADE, 4)
+					.requires(Items.SOUL_SAND)
+					.requires(Items.INK_SAC)
+					.unlockedBy(getHasName(Items.SOUL_SAND), this.has(Items.SOUL_SAND))
+					.save(output);
 
 		}
 

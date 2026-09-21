@@ -1,35 +1,35 @@
 package net.darktree.led.block;
 
-import net.minecraft.block.AbstractBlock;
-import net.minecraft.block.BlockState;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.server.world.ServerWorld;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.hit.BlockHitResult;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.random.Random;
-import net.minecraft.world.World;
+import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.BlockHitResult;
 
 public class DiodeSwitchLampBlock extends DiodeButtonLampBlock {
 
-    public DiodeSwitchLampBlock(AbstractBlock.Settings settings) {
+    public DiodeSwitchLampBlock(BlockBehaviour.Properties settings) {
         super(settings);
     }
 
     @Override
-    public void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
+    public void tick(BlockState state, ServerLevel world, BlockPos pos, RandomSource random) {
         // do nothing
     }
 
     @Override
-    protected ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
-        boolean power = state.get(POWERED);
-        world.setBlockState( pos, state.cycle(POWERED) );
-        playClickSound(player, world, pos, !power);
-        world.updateNeighborsAlways(pos, this, null);
-        world.updateNeighborsAlways(pos.offset(getDirection(state).getOpposite()), this, null);
+    protected InteractionResult useWithoutItem(BlockState state, Level world, BlockPos pos, Player player, BlockHitResult hit) {
+        boolean power = state.getValue(POWERED);
+        world.setBlockAndUpdate( pos, state.cycle(POWERED) );
+        playSound(player, world, pos, !power);
+        world.updateNeighborsAt(pos, this, null);
+        world.updateNeighborsAt(pos.relative(getConnectedDirection(state).getOpposite()), this, null);
 
-        return ActionResult.SUCCESS;
+        return InteractionResult.SUCCESS;
     }
 
 }
