@@ -2,8 +2,8 @@ package net.darktree.led.client.datagen;
 
 import net.darktree.led.util.ClientDelegate;
 import net.darktree.led.util.RegistryHelper;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
-import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
+import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootSubProvider;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
@@ -15,9 +15,9 @@ import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 
 import java.util.concurrent.CompletableFuture;
 
-public class LedLootProvider extends FabricBlockLootTableProvider {
+public class LedLootProvider extends FabricBlockLootSubProvider {
 
-	public LedLootProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> lookup) {
+	public LedLootProvider(FabricPackOutput output, CompletableFuture<HolderLookup.Provider> lookup) {
 		super(output, lookup);
 	}
 
