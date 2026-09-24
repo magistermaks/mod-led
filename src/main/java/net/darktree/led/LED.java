@@ -6,11 +6,13 @@ import net.darktree.led.block.DiodeSwitchLampBlock;
 import net.darktree.led.block.DirectionalDiodeLampBlock;
 import net.darktree.led.util.*;
 import net.fabricmc.api.ModInitializer;
-import net.minecraft.block.AbstractBlock;
-import net.minecraft.block.Block;
-import net.minecraft.item.Item;
-import net.minecraft.recipe.book.CraftingRecipeCategory;
-import net.minecraft.util.shape.VoxelShape;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.crafting.CraftingBookCategory;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.phys.shapes.VoxelShape;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -18,15 +20,17 @@ import java.util.function.BiFunction;
 
 public class LED implements ModInitializer {
 
+    public static final TagKey<Block> LAMPS = TagKey.create(Registries.BLOCK, RegistryHelper.id("lamps"));
+
     public static final String ID = "led";
     public static final Logger LOG = LoggerFactory.getLogger("LED");
-    public static final CraftingRecipeCategory CATEGORY = CraftingRecipeCategory.MISC;
+    public static final CraftingBookCategory CATEGORY = CraftingBookCategory.MISC;
 
     public static final Item LED = RegistryHelper.registerSimpleItem("led");
     public static final Item BULB = RegistryHelper.registerSimpleItem("bulb");
     public static final Item SHADE = RegistryHelper.registerSimpleItem("shade");
 
-    private static void registerFixture(LedFixture fixture, BiFunction<AbstractBlock.Settings, LedVariant, Block> supplier) {
+    private static void registerFixture(LedFixture fixture, BiFunction<BlockBehaviour.Properties, LedVariant, Block> supplier) {
         for (LedVariant variant : LedVariant.values()) {
             RegistryHelper.registerFixture(fixture, variant, cfg -> supplier.apply(cfg, variant));
         }

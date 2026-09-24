@@ -5,11 +5,12 @@ import net.darktree.led.util.ClientDelegate;
 import net.darktree.led.util.RegistryHelper;
 import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
-import net.minecraft.client.data.BlockStateModelGenerator;
-import net.minecraft.client.data.ItemModelGenerator;
-import net.minecraft.client.data.ItemModels;
-import net.minecraft.client.data.Models;
-import net.minecraft.client.render.item.tint.ConstantTintSource;
+import net.minecraft.client.color.item.Constant;
+import net.minecraft.client.data.models.BlockModelGenerators;
+import net.minecraft.client.data.models.ItemModelGenerators;
+import net.minecraft.client.data.models.model.ItemModelUtils;
+import net.minecraft.client.data.models.model.ModelTemplates;
+import org.jspecify.annotations.NonNull;
 
 public class LedModelProvider extends FabricModelProvider {
 
@@ -18,18 +19,18 @@ public class LedModelProvider extends FabricModelProvider {
 	}
 
 	@Override
-	public void generateBlockStateModels(BlockStateModelGenerator generator) {
+	public void generateBlockStateModels(@NonNull BlockModelGenerators generator) {
 
 	}
 
 	@Override
-	public void generateItemModels(ItemModelGenerator generator) {
-		generator.register(LED.BULB, Models.GENERATED);
-		generator.register(LED.LED, Models.GENERATED);
-		generator.register(LED.SHADE, Models.GENERATED);
+	public void generateItemModels(ItemModelGenerators generator) {
+		generator.generateFlatItem(LED.BULB, ModelTemplates.FLAT_ITEM);
+		generator.generateFlatItem(LED.LED, ModelTemplates.FLAT_ITEM);
+		generator.generateFlatItem(LED.SHADE, ModelTemplates.FLAT_ITEM);
 
 		for (ClientDelegate delegate : RegistryHelper.getClientDelegates()) {
-			generator.output.accept(delegate.item, ItemModels.tinted(delegate.getItemModelPath(), new ConstantTintSource(delegate.getTint())));
+			generator.itemModelOutput.accept(delegate.item, ItemModelUtils.tintedModel(delegate.getItemModelPath(), new Constant(delegate.getTint())));
 		}
 	}
 

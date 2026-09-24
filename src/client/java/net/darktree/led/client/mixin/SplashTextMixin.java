@@ -1,33 +1,33 @@
 package net.darktree.led.client.mixin;
 
-import net.minecraft.client.resource.SplashTextResourceSupplier;
-import net.minecraft.resource.ResourceManager;
-import net.minecraft.util.profiler.Profiler;
-import org.spongepowered.asm.mixin.Final;
+import com.llamalad7.mixinextras.injector.wrapmethod.WrapMethod;
+import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+import java.util.ArrayList;
 import java.util.Base64;
 import java.util.List;
 import java.util.function.Consumer;
+import net.minecraft.client.resources.SplashManager;
+import net.minecraft.network.chat.Component;
+import net.minecraft.server.packs.resources.ResourceManager;
+import net.minecraft.util.profiling.ProfilerFiller;
 
-@Mixin(SplashTextResourceSupplier.class)
+@Mixin(SplashManager.class)
 public class SplashTextMixin {
 
 	@Shadow
-	@Final
-	private List<String> splashTexts;
+	private static Component literalSplash(String text) {
+		throw new UnsupportedOperationException();
+	}
 
-	@Inject(
-			method = "apply(Ljava/util/List;Lnet/minecraft/resource/ResourceManager;Lnet/minecraft/util/profiler/Profiler;)V",
-			at = @At("TAIL")
-	)
-	protected void apply(List<String> list, ResourceManager resourceManager, Profiler profiler, CallbackInfo ci) {
+	@WrapMethod(method = "prepare(Lnet/minecraft/server/packs/resources/ResourceManager;Lnet/minecraft/util/profiling/ProfilerFiller;)Ljava/util/List;")
+	protected List<Component> prepare(ResourceManager resourceManager, ProfilerFiller profiler, Operation<List<Component>> original) {
+		List<Component> injected = new ArrayList<>(original.call(resourceManager, profiler));
+
 		Consumer<String> inject = encoded -> {
-			splashTexts.add(new String(Base64.getDecoder().decode(encoded)));
+			injected.add(literalSplash(new String(Base64.getDecoder().decode(encoded))));
 		};
 
 		// nothing to see here
@@ -37,6 +37,8 @@ public class SplashTextMixin {
 		inject.accept("VHJ5IHdpdGggUmVkIEJpdHMh");
 		inject.accept("QWxzbyB0cnkgRmFjdG9yaW8h");
 		inject.accept("QWxzbyB0cnkgTGl0dGxlQmlnUGxhbmV0IQ==");
+
+		return List.copyOf(injected);
 	}
 
 }

@@ -1,66 +1,70 @@
 package net.darktree.led.block;
 
 import net.darktree.led.util.LedVariant;
-import net.minecraft.block.*;
-import net.minecraft.item.ItemPlacementContext;
-import net.minecraft.state.StateManager;
-import net.minecraft.state.property.EnumProperty;
-import net.minecraft.state.property.Properties;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
-import net.minecraft.util.math.random.Random;
-import net.minecraft.util.shape.VoxelShape;
-import net.minecraft.world.BlockView;
-import net.minecraft.world.WorldAccess;
-import net.minecraft.world.WorldView;
-import net.minecraft.world.tick.ScheduledTickView;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.ScheduledTickAccess;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.EnumProperty;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class DirectionalDiodeLampBlock extends DiodeLampBlock {
 
-    protected static final EnumProperty<Direction> FACING = Properties.FACING;
+    protected static final EnumProperty<Direction> FACING = BlockStateProperties.FACING;
     private final VoxelShape[] shapes;
 
-    public DirectionalDiodeLampBlock(AbstractBlock.Settings settings, LedVariant variant, VoxelShape[] shapes) {
+    public DirectionalDiodeLampBlock(BlockBehaviour.Properties settings, LedVariant variant, VoxelShape[] shapes) {
         super(settings, variant);
         this.shapes = shapes;
-        setDefaultState( getDefaultState().with(FACING, Direction.NORTH) );
+        registerDefaultState( defaultBlockState().setValue(FACING, Direction.NORTH) );
     }
 
     @Override
-    protected BlockState getStateForNeighborUpdate(BlockState state, WorldView world, ScheduledTickView tickView, BlockPos pos, Direction direction, BlockPos neighborPos, BlockState neighborState, Random random) {
-        Direction facing = state.get(FACING);
-        if (facing != direction || isDirectionValid(facing, (WorldAccess) world, pos)) {
+    protected BlockState updateShape(BlockState state, LevelReader world, ScheduledTickAccess tickView, BlockPos pos, Direction direction, BlockPos neighborPos, BlockState neighborState, RandomSource random) {
+        Direction facing = state.getValue(FACING);
+        if (facing != direction || isDirectionValid(facing, (LevelAccessor) world, pos)) {
             return state;
         }
 
-        return Blocks.AIR.getDefaultState();
+        return Blocks.AIR.defaultBlockState();
     }
 
     @Override
-    public BlockState getPlacementState(ItemPlacementContext ctx) {
-        Direction direction = ctx.getPlacementDirections()[0];
-        WorldAccess worldAccess = ctx.getWorld();
+    public BlockState getStateForPlacement(BlockPlaceContext ctx) {
+        Direction direction = ctx.getNearestLookingDirections()[0];
+        LevelAccessor worldAccess = ctx.getLevel();
 
-        if (isDirectionValid(direction, worldAccess, ctx.getBlockPos())) {
-            return getDefaultState().with(FACING, direction);
+        if (isDirectionValid(direction, worldAccess, ctx.getClickedPos())) {
+            return defaultBlockState().setValue(FACING, direction);
         }
 
         return null;
     }
 
     @Override
-    protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        super.appendProperties(builder);
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
+        super.createBlockStateDefinition(builder);
         builder.add(FACING);
     }
 
     @Override
-    public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        return shapes[state.get(FACING).getIndex()];
+    public VoxelShape getShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context) {
+        return shapes[state.getValue(FACING).get3DDataValue()];
     }
 
-    private boolean isDirectionValid(Direction direction, WorldAccess world, BlockPos pos) {
-        return world.getBlockState(pos.offset(direction)).isSideSolidFullSquare( world, pos, direction.getOpposite() );
+    private boolean isDirectionValid(Direction direction, LevelAccessor world, BlockPos pos) {
+        return world.getBlockState(pos.relative(direction)).isFaceSturdy( world, pos, direction.getOpposite() );
     }
 
 }

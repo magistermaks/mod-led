@@ -1,8 +1,8 @@
 package net.darktree.led.util;
 
-import net.minecraft.util.function.BooleanBiFunction;
-import net.minecraft.util.shape.VoxelShape;
-import net.minecraft.util.shape.VoxelShapes;
+import net.minecraft.world.phys.shapes.BooleanOp;
+import net.minecraft.world.phys.shapes.Shapes;
+import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class Util {
 
@@ -10,7 +10,7 @@ public class Util {
 
         // make sure that the x1, y1, z1 given to VoxelShapes.cuboid are
         // smaller than x2, y2, z2, required my minecraft >=1.17
-        return VoxelShapes.cuboid(
+        return Shapes.box(
                 Math.min(x1, x2) / 16d,
                 Math.min(y1, y2) / 16d,
                 Math.min(z1, z2) / 16d,
@@ -21,7 +21,7 @@ public class Util {
     }
 
     public static VoxelShape combine(VoxelShape a, VoxelShape b) {
-        return VoxelShapes.combine(a, b, BooleanBiFunction.OR);
+        return Shapes.joinUnoptimized(a, b, BooleanOp.OR);
     }
 
     public static VoxelShape[] getFacings(int a, int b, int c, int d, int e, int f) {

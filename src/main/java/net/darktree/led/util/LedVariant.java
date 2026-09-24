@@ -1,31 +1,30 @@
 package net.darktree.led.util;
 
 import net.darktree.led.LED;
-import net.minecraft.block.AbstractBlock;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
-import net.minecraft.recipe.*;
-import net.minecraft.recipe.book.CraftingRecipeCategory;
-import net.minecraft.recipe.input.RecipeInput;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.RegistryKey;
-import net.minecraft.registry.RegistryKeys;
-import net.minecraft.sound.BlockSoundGroup;
-import net.minecraft.util.DyeColor;
-import net.minecraft.util.Identifier;
-
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.Identifier;
+import net.minecraft.world.item.DyeColor;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.CraftingBookCategory;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.item.crafting.Recipe;
+import net.minecraft.world.item.crafting.ShapedRecipe;
+import net.minecraft.world.item.crafting.ShapedRecipePattern;
+import net.minecraft.world.item.crafting.ShapelessRecipe;
+import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.function.BiConsumer;
-import java.util.function.Consumer;
 
 public enum LedVariant {
-    NORMAL("", 15, null, false),
-    REINFORCED("reinforced_", 14, "tooltip.led.reinforced", true),
-    SHADED("shaded_", 0, "tooltip.led.shaded", false),
-    SHADED_REINFORCED("shaded_reinforced_", 0, "tooltip.led.shaded_and_reinforced", true);
+    NORMAL("", 15, null, false, false),
+    REINFORCED("reinforced_", 14, "tooltip.led.reinforced", true, false),
+    SHADED("shaded_", 0, "tooltip.led.shaded", false, true),
+    SHADED_REINFORCED("shaded_reinforced_", 0, "tooltip.led.shaded_and_reinforced", true, true);
 
     public interface RecipeFactory {
         void apply(BiConsumer<Recipe<?>, Identifier> consumer, Item item, DyeColor color);
@@ -35,16 +34,38 @@ public enum LedVariant {
     final int light;
     final String tooltip;
     final boolean reinforced;
+    final boolean shaded;
 
-    LedVariant(String prefix, int light, String tooltip, boolean reinforced) {
+    LedVariant(String prefix, int light, String tooltip, boolean reinforced, boolean shaded) {
         this.prefix = prefix;
         this.light = light;
         this.tooltip = tooltip;
         this.reinforced = reinforced;
+        this.shaded = shaded;
     }
 
-    public AbstractBlock.Settings applySettings(AbstractBlock.Settings settings) {
-        return settings.sounds(BlockSoundGroup.METAL).strength(reinforced ? 0.8f : 0.4f);
+    public static LedVariant byTrait(boolean reinforced, boolean shaded) {
+        return values()[(reinforced ? 1 : 0) + (shaded ? 2 : 0)];
+    }
+
+    public boolean isReinforced() {
+        return reinforced;
+    }
+
+    public boolean isShaded() {
+        return shaded;
+    }
+
+    public LedVariant withShaded(boolean shaded) {
+        return byTrait(this.reinforced, shaded);
+    }
+
+    public LedVariant withReinforced(boolean reinforced) {
+        return byTrait(reinforced, this.shaded);
+    }
+
+    public BlockBehaviour.Properties applySettings(BlockBehaviour.Properties settings) {
+        return settings.sound(SoundType.METAL).strength(reinforced ? 0.8f : 0.3f);
     }
 
     public int getLightLevel() {
@@ -64,59 +85,59 @@ public enum LedVariant {
     }
 
     private static Item getStainedGlassPane(DyeColor color) {
-        return Registries.ITEM.get(Identifier.of("minecraft:" + color.getId() + "_stained_glass_pane"));
+        return BuiltInRegistries.ITEM.getValue(Identifier.parse("minecraft:" + color.getName() + "_stained_glass_pane"));
     }
 
-    private Item getItem(LedFixture fixture, DyeColor color) {
+    public Item getItem(LedFixture fixture, DyeColor color) {
         return RegistryHelper.FIXTURES.getBlock(fixture, this, color).asItem();
     }
 
     public RecipeFactory getRecipeFactory(String pattern, LedFixture fixture) {
         final String[] parts = pattern.split(",");
-        final CraftingRecipeCategory category = LED.CATEGORY;
+        final CraftingBookCategory category = LED.CATEGORY;
         final String group = getRecipeGroup(fixture);
 
         return switch (this) {
             case NORMAL -> (consumer, item, color) -> {
                 Map<Character, Ingredient> ingredients = new HashMap<>();
 
-                if (pattern.contains("A")) ingredients.put('A', Ingredient.ofItem(LED.LED));
-                if (pattern.contains("C")) ingredients.put('C', Ingredient.ofItem(Items.IRON_NUGGET));
-                if (pattern.contains("B")) ingredients.put('B', Ingredient.ofItem(getStainedGlassPane(color)));
+                if (pattern.contains("A")) ingredients.put('A', Ingredient.of(LED.LED));
+                if (pattern.contains("C")) ingredients.put('C', Ingredient.of(Items.IRON_NUGGET));
+                if (pattern.contains("B")) ingredients.put('B', Ingredient.of(getStainedGlassPane(color)));
 
-                consumer.accept(new ShapedRecipe(group, category, RawShapedRecipe.create(ingredients, parts), new ItemStack(item)), Registries.ITEM.getId(item));
+                consumer.accept(new ShapedRecipe(group, category, ShapedRecipePattern.of(ingredients, parts), new ItemStack(item)), BuiltInRegistries.ITEM.getKey(item));
             };
 
             case REINFORCED -> (consumer, item, color) -> {
                 consumer.accept(new ShapelessRecipe(group, category, new ItemStack(item), List.of(
-                        Ingredient.ofItem(Items.IRON_BARS),
-                        Ingredient.ofItem(NORMAL.getItem(fixture, color))
-                )), Registries.ITEM.getId(item));
+                        Ingredient.of(Items.IRON_BARS),
+                        Ingredient.of(NORMAL.getItem(fixture, color))
+                )), BuiltInRegistries.ITEM.getKey(item));
             };
 
             case SHADED -> (consumer, item, color) -> {
                 consumer.accept(new ShapelessRecipe(group, category, new ItemStack(item), List.of(
-                        Ingredient.ofItem(LED.SHADE),
-                        Ingredient.ofItem(NORMAL.getItem(fixture, color))
-                )), Registries.ITEM.getId(item));
+                        Ingredient.of(LED.SHADE),
+                        Ingredient.of(NORMAL.getItem(fixture, color))
+                )), BuiltInRegistries.ITEM.getKey(item));
             };
 
             case SHADED_REINFORCED -> (consumer, item, color) -> {
                 consumer.accept(new ShapelessRecipe(group, category, new ItemStack(item), List.of(
-                        Ingredient.ofItem(LED.SHADE),
-                        Ingredient.ofItem(Items.IRON_BARS),
-                        Ingredient.ofItem(NORMAL.getItem(fixture, color))
-                )), Registries.ITEM.getId(item));
+                        Ingredient.of(LED.SHADE),
+                        Ingredient.of(Items.IRON_BARS),
+                        Ingredient.of(NORMAL.getItem(fixture, color))
+                )), BuiltInRegistries.ITEM.getKey(item));
 
                 consumer.accept(new ShapelessRecipe(group, category, new ItemStack(item), List.of(
-                        Ingredient.ofItem(LED.SHADE),
-                        Ingredient.ofItem(REINFORCED.getItem(fixture, color))
-                )), Registries.ITEM.getId(item).withSuffixedPath("_from_reinforced"));
+                        Ingredient.of(LED.SHADE),
+                        Ingredient.of(REINFORCED.getItem(fixture, color))
+                )), BuiltInRegistries.ITEM.getKey(item).withSuffix("_from_reinforced"));
 
                 consumer.accept(new ShapelessRecipe(group, category, new ItemStack(item), List.of(
-                        Ingredient.ofItem(Items.IRON_BARS),
-                        Ingredient.ofItem(SHADED.getItem(fixture, color))
-                )), Registries.ITEM.getId(item).withSuffixedPath("_from_shaded"));
+                        Ingredient.of(Items.IRON_BARS),
+                        Ingredient.of(SHADED.getItem(fixture, color))
+                )), BuiltInRegistries.ITEM.getKey(item).withSuffix("_from_shaded"));
             };
         };
     }
@@ -124,17 +145,17 @@ public enum LedVariant {
     public static RecipeFactory getButtonRecipeFactory() {
         return (consumer, item, color) -> {
             consumer.accept(new ShapelessRecipe("led_button", LED.CATEGORY, new ItemStack(item, 4), List.of(
-                    Ingredient.ofItem(RegistryHelper.FIXTURES.getBlock(LedFixture.FULL, LedVariant.NORMAL, color).asItem())
-            )), Registries.ITEM.getId(item));
+                    Ingredient.of(RegistryHelper.FIXTURES.getBlock(LedFixture.FULL, LedVariant.NORMAL, color).asItem())
+            )), BuiltInRegistries.ITEM.getKey(item));
         };
     }
 
     public static RecipeFactory getSwitchRecipeFactory() {
         return (consumer, item, color) -> {
             consumer.accept(new ShapelessRecipe("led_switch", LED.CATEGORY, new ItemStack(item), List.of(
-                    Ingredient.ofItem(RegistryHelper.FIXTURES.getBlock(LedFixture.BUTTON, LedVariant.NORMAL, color).asItem()),
-                    Ingredient.ofItem(Items.LEVER)
-            )), Registries.ITEM.getId(item));
+                    Ingredient.of(RegistryHelper.FIXTURES.getBlock(LedFixture.BUTTON, LedVariant.NORMAL, color).asItem()),
+                    Ingredient.of(Items.LEVER)
+            )), BuiltInRegistries.ITEM.getKey(item));
         };
     }
 
