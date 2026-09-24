@@ -7,7 +7,6 @@
 		"3": "led:block/glow",
         "particle": "led:block/particle"
 	},
-    "jmxl": true,
 	"ambientocclusion": false,
 	"elements": [
 		{
@@ -39,7 +38,6 @@
 			"from": [0.5, 1, 0.5],
 			"to": [15.5, 3.5, 15.5],
 			"rotation": {"angle": 0, "axis": "y", "origin": [8, 9, 8]},
-			"jmxl_layer": "TRANSLUCENT",
 			"light_emission": 15,
 			"faces": {
 				"north": {"uv": [0, 0, 15, 2.5], "texture": "#3", "tintindex": 0},
