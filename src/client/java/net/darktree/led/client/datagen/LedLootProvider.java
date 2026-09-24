@@ -11,7 +11,7 @@ import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.predicates.ExplosionCondition;
-import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
+import net.minecraft.world.level.storage.loot.providers.number.ints.ContextIntProviders;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -33,9 +33,18 @@ public class LedLootProvider extends FabricBlockLootSubProvider {
 			Item unpacked = delegate.variant.withReinforced(false).getItem(delegate.fixture, delegate.color);
 
 			add(delegate.block, LootTable.lootTable()
-					.withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F)).add(LootItem.lootTableItem(delegate.block)).when(hasSilkTouch()).when(ExplosionCondition.survivesExplosion()))
-					.withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F)).add(LootItem.lootTableItem(unpacked)).when(hasSilkTouch().invert()).when(ExplosionCondition.survivesExplosion()))
-					.withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F)).add(LootItem.lootTableItem(Items.IRON_BARS)).when(hasSilkTouch().invert()).when(ExplosionCondition.survivesExplosion()))
+					.withPool(LootPool.lootPool().setRolls(ContextIntProviders.exactly(1))
+							.add(LootItem.lootTableItem(delegate.block))
+							.when(hasSilkTouch())
+							.when(ExplosionCondition.survivesExplosion()))
+					.withPool(LootPool.lootPool().setRolls(ContextIntProviders.exactly(1))
+							.add(LootItem.lootTableItem(unpacked))
+							.when(doesNotHaveSilkTouch())
+							.when(ExplosionCondition.survivesExplosion()))
+					.withPool(LootPool.lootPool().setRolls(ContextIntProviders.exactly(1))
+							.add(LootItem.lootTableItem(Items.IRON_BARS))
+							.when(doesNotHaveSilkTouch())
+							.when(ExplosionCondition.survivesExplosion()))
 			);
 
 		}

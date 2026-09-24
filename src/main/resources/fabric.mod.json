@@ -36,9 +36,9 @@
 	],
 
 	"depends": {
-		"fabricloader": ">=0.17.3",
+		"fabricloader": ">=0.18.4",
 		"fabric-api": "*",
-		"minecraft": [">=26.1 <=26.2"]
+		"minecraft": ["26.3"]
 	},
 
 	"suggests": {

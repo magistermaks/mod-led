@@ -6,18 +6,17 @@ import net.darktree.led.util.RegistryHelper;
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.advancements.Advancement;
-import net.minecraft.advancements.AdvancementHolder;
 import net.minecraft.advancements.AdvancementRequirements;
 import net.minecraft.advancements.AdvancementRewards;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.recipes.RecipeCategory;
-import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
+import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.Recipe;
 import org.jspecify.annotations.NonNull;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
@@ -28,8 +27,8 @@ public class LedRecipeProvider extends FabricRecipeProvider {
 	}
 
 	@Override
-	protected @NonNull RecipeProvider createRecipeProvider(HolderLookup.@NonNull Provider registries, @NonNull RecipeOutput exporter) {
-		return new Generator(registries, exporter);
+	protected @NonNull RecipeProvider createRecipeProvider(HolderLookup.@NonNull Provider registries, @NonNull BootstrapContext<Recipe<?>> recipes, @NonNull BootstrapContext<Advancement> advancements) {
+		return new Generator(recipes, advancements);
 	}
 
 	@Override
@@ -39,8 +38,8 @@ public class LedRecipeProvider extends FabricRecipeProvider {
 
 	public static class Generator extends RecipeProvider {
 
-		protected Generator(HolderLookup.Provider registries, RecipeOutput exporter) {
-			super(registries, exporter);
+		protected Generator(BootstrapContext<Recipe<?>> recipes, BootstrapContext<Advancement> advancements) {
+			super(recipes, advancements);
 		}
 
 		private void generateFixtureRecipes(List<ClientDelegate.RecipeInfo> recipes) {
@@ -50,22 +49,14 @@ public class LedRecipeProvider extends FabricRecipeProvider {
 					.requirements(AdvancementRequirements.Strategy.OR);
 
 			AdvancementRewards.Builder rewards = new AdvancementRewards.Builder();
-			Iterator<ClientDelegate.RecipeInfo> it = recipes.iterator();
 
-			while (it.hasNext()) {
-				ClientDelegate.RecipeInfo info = it.next();
-
+			for (ClientDelegate.RecipeInfo info : recipes) {
 				rewards.addRecipe(info.key());
-				AdvancementHolder entry = null;
-
-				// force the combined advancement down the games throat with the last recipe
-				if (!it.hasNext()) {
-					advancement.rewards(rewards);
-					entry = advancement.build(RegistryHelper.id("recipes/misc/lamps"));
-				}
-
-				output.accept(info.key(), info.recipe(), entry);
+				output.accept(info.key(), info.recipe(), null);
 			}
+
+			advancement.rewards(rewards);
+			advancement.build(RegistryHelper.id("recipes/misc/lamps")).register(advancementOutput);
 
 		}
 
