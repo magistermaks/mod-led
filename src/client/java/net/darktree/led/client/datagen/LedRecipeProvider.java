@@ -3,7 +3,7 @@ package net.darktree.led.client.datagen;
 import net.darktree.led.LED;
 import net.darktree.led.util.ClientDelegate;
 import net.darktree.led.util.RegistryHelper;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementHolder;
@@ -14,6 +14,8 @@ import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.world.item.Items;
+import org.jspecify.annotations.NonNull;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -21,17 +23,17 @@ import java.util.concurrent.CompletableFuture;
 
 public class LedRecipeProvider extends FabricRecipeProvider {
 
-	public LedRecipeProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
-		super(output, registriesFuture);
+	public LedRecipeProvider(FabricPackOutput output, CompletableFuture<HolderLookup.Provider> registries) {
+		super(output, registries);
 	}
 
 	@Override
-	protected RecipeProvider createRecipeProvider(HolderLookup.Provider registries, RecipeOutput exporter) {
+	protected @NonNull RecipeProvider createRecipeProvider(HolderLookup.@NonNull Provider registries, @NonNull RecipeOutput exporter) {
 		return new Generator(registries, exporter);
 	}
 
 	@Override
-	public String getName() {
+	public @NonNull String getName() {
 		return "LedRecipeProvider";
 	}
 

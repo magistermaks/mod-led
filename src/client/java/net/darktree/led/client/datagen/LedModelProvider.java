@@ -4,7 +4,7 @@ import net.darktree.led.LED;
 import net.darktree.led.util.ClientDelegate;
 import net.darktree.led.util.RegistryHelper;
 import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.minecraft.client.color.item.Constant;
 import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.ItemModelGenerators;
@@ -14,7 +14,7 @@ import org.jspecify.annotations.NonNull;
 
 public class LedModelProvider extends FabricModelProvider {
 
-	public LedModelProvider(FabricDataOutput output) {
+	public LedModelProvider(FabricPackOutput output) {
 		super(output);
 	}
 

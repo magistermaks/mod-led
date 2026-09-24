@@ -2,25 +2,22 @@ package net.darktree.led.client.datagen;
 
 import net.darktree.led.LED;
 import net.darktree.led.util.RegistryHelper;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
-import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
+import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagsProvider;
 import net.minecraft.core.HolderLookup;
-import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.Identifier;
-import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.BlockTags;
-import org.jspecify.annotations.Nullable;
+import org.jspecify.annotations.NonNull;
 
 import java.util.concurrent.CompletableFuture;
 
-public class LedBlockTagProvider extends FabricTagProvider.BlockTagProvider {
+public class LedBlockTagProvider extends FabricTagsProvider.BlockTagsProvider {
 
-	public LedBlockTagProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registries) {
+	public LedBlockTagProvider(FabricPackOutput output, CompletableFuture<HolderLookup.Provider> registries) {
 		super(output, registries);
 	}
 
 	@Override
-	protected void addTags(HolderLookup.Provider lookup) {
+	protected void addTags(HolderLookup.@NonNull Provider lookup) {
 
 		var lamps = builder(LED.LAMPS);
 

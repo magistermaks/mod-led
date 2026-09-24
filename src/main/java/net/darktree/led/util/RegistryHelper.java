@@ -1,19 +1,15 @@
 package net.darktree.led.util;
 
 import net.darktree.led.LED;
-import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
-import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
+import net.fabricmc.fabric.api.creativetab.v1.FabricCreativeModeTab;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.DyeColor;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import java.util.ArrayList;
@@ -26,7 +22,7 @@ public class RegistryHelper {
     private static final List<ClientDelegate> DELEGATES = new ArrayList<>();
 
     public static final LedBlockSet FIXTURES = new LedBlockSet();
-    public static final CreativeModeTab GROUP = FabricItemGroup.builder()
+    public static final CreativeModeTab GROUP = FabricCreativeModeTab.builder()
             .title(Component.translatable("itemGroup.led.group"))
             .icon(() -> new ItemStack(LED.BULB))
             .build();
@@ -95,7 +91,7 @@ public class RegistryHelper {
         Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, group, GROUP);
         ResourceKey<CreativeModeTab> key = ResourceKey.create(Registries.CREATIVE_MODE_TAB, group);
 
-        ItemGroupEvents.modifyEntriesEvent(key).register(listener -> {
+        CreativeModeTabEvents.modifyOutputEvent(key).register(listener -> {
             items.forEach(listener::accept);
         });
     }

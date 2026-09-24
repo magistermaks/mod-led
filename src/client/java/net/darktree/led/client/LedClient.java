@@ -4,14 +4,14 @@ import net.darktree.led.LED;
 import net.darktree.led.util.ClientDelegate;
 import net.darktree.led.util.RegistryHelper;
 import net.fabricmc.api.ClientModInitializer;
-import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
+import net.fabricmc.fabric.api.client.rendering.v1.BlockColorRegistry;
 
 import java.util.List;
 
 public class LedClient implements ClientModInitializer {
 
 	private void applyDelegate(ClientDelegate delegate) {
-		ColorProviderRegistry.BLOCK.register((state, world, pos, index) -> delegate.getTint(), delegate.block);
+		BlockColorRegistry.register(List.of(state -> delegate.getTint()), delegate.block);
 	}
 
 	@Override

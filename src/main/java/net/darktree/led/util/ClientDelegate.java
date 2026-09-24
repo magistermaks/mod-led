@@ -4,6 +4,7 @@ import java.util.List;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.util.ARGB;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.crafting.Recipe;
@@ -32,7 +33,7 @@ public class ClientDelegate {
     public record RecipeInfo (Recipe<?> recipe, ResourceKey<Recipe<?>> key) {}
 
     public int getTint() {
-        return color.getFireworkColor();
+        return ARGB.opaque(color.getFireworkColor());
     }
 
     public Identifier getItemModelPath() {
