@@ -14,6 +14,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.AttachFace;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.phys.shapes.CollisionContext;
@@ -46,15 +47,14 @@ public class DirectionalDiodeLampBlock extends DiodeLampBlock {
     }
 
     @Override
-    public @Nullable BlockState getStateForPlacement(BlockPlaceContext ctx) {
-        Direction direction = ctx.getNearestLookingDirections()[0];
-        LevelAccessor worldAccess = ctx.getLevel();
-
-        if (isDirectionValid(direction, worldAccess, ctx.getClickedPos())) {
-            return defaultBlockState().setValue(FACING, direction);
+    public @Nullable BlockState getStateForPlacement(BlockPlaceContext context) {
+        for (Direction direction : context.getNearestLookingDirections()) {
+            if (isDirectionValid(direction, context.getLevel(), context.getClickedPos())) {
+                return defaultBlockState().setValue(FACING, direction);
+            }
         }
 
-        return super.getStateForPlacement(ctx);
+        return null;
     }
 
     @Override
