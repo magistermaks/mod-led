@@ -1,6 +1,6 @@
 package net.darktree.led.block;
 
-import net.darktree.led.util.LedVariant;
+import net.darktree.led.util.LedType;
 import net.darktree.led.util.TooltippedBlock;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
@@ -28,18 +28,22 @@ import java.util.function.Consumer;
 public class DiodeLampBlock extends Block implements TooltippedBlock {
 
     public static final BooleanProperty LIT = BooleanProperty.create("lit");
-    private final LedVariant variant;
+    public final LedType type;
 
-    public DiodeLampBlock(BlockBehaviour.Properties settings, LedVariant variant) {
-        super(variant.applySettings(settings).lightLevel(state -> state.getValue(LIT) ? variant.getLightLevel() : 0));
+    public DiodeLampBlock(BlockBehaviour.Properties settings, LedType type) {
+        super(type.variant.applySettings(settings).lightLevel(state -> state.getValue(LIT) ? type.variant.getLightLevel() : 0));
 
-        this.variant = variant;
+        this.type = type;
         registerDefaultState(defaultBlockState().setValue(LIT, false));
+    }
+
+    public BlockState applyState(BlockState from, BlockState to) {
+        return to.setValue(LIT, from.getValue(LIT));
     }
 
     @Override
     public void appendTooltip(ItemStack stack, Item.TooltipContext context, Consumer<Component> consumer, TooltipFlag options) {
-        final String text = variant.getTooltip();
+        final String text = type.variant.getTooltip();
 
         if (text != null) {
             consumer.accept(Component.translatable(text).withStyle(ChatFormatting.GRAY));
@@ -66,7 +70,7 @@ public class DiodeLampBlock extends Block implements TooltippedBlock {
     }
 
     @Override
-    protected void neighborChanged(BlockState state, Level world, BlockPos pos, Block sourceBlock, @Nullable Orientation wireOrientation, boolean notify) {
+    protected void neighborChanged(BlockState state, Level world, BlockPos pos, Block sourceBlock, @Nullable Orientation orientation, boolean notify) {
         if (!world.isClientSide()) {
             boolean lit = state.getValue(LIT);
 

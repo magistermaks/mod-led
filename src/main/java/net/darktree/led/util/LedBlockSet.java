@@ -1,10 +1,11 @@
 package net.darktree.led.util;
 
-import java.util.IdentityHashMap;
-import java.util.Map;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+
+import java.util.IdentityHashMap;
+import java.util.Map;
 
 public class LedBlockSet {
 

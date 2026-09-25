@@ -1,6 +1,6 @@
 package net.darktree.led.client.datagen;
 
-import net.darktree.led.util.ClientDelegate;
+import net.darktree.led.util.LedDelegate;
 import net.darktree.led.util.RegistryHelper;
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootSubProvider;
@@ -15,15 +15,15 @@ import net.minecraft.world.level.storage.loot.providers.number.ints.ContextIntPr
 
 import java.util.concurrent.CompletableFuture;
 
-public class LedLootProvider extends FabricBlockLootSubProvider {
+public class LedBlockLootProvider extends FabricBlockLootSubProvider {
 
-	public LedLootProvider(FabricPackOutput output, CompletableFuture<HolderLookup.Provider> lookup) {
+	public LedBlockLootProvider(FabricPackOutput output, CompletableFuture<HolderLookup.Provider> lookup) {
 		super(output, lookup);
 	}
 
 	@Override
 	public void generate() {
-		for (ClientDelegate delegate : RegistryHelper.getClientDelegates()) {
+		for (LedDelegate delegate : RegistryHelper.getClientDelegates()) {
 
 			if (!delegate.variant.isReinforced()) {
 				dropSelf(delegate.block);

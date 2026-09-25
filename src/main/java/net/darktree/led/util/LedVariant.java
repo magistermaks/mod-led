@@ -3,10 +3,16 @@ package net.darktree.led.util;
 import net.darktree.led.LED;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.Identifier;
-import net.minecraft.world.item.*;
-import net.minecraft.world.item.crafting.*;
+import net.minecraft.world.item.DyeColor;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.CraftingBookCategory;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.item.crafting.Recipe;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -80,8 +86,12 @@ public enum LedVariant {
         return BuiltInRegistries.ITEM.getValue(Identifier.parse("minecraft:" + color.getName() + "_stained_glass_pane"));
     }
 
+    public Block getBlock(LedFixture fixture, DyeColor color) {
+        return RegistryHelper.FIXTURES.getBlock(fixture, this, color);
+    }
+
     public Item getItem(LedFixture fixture, DyeColor color) {
-        return RegistryHelper.FIXTURES.getBlock(fixture, this, color).asItem();
+        return getBlock(fixture, color).asItem();
     }
 
     public RecipeFactory getRecipeFactory(String pattern, LedFixture fixture) {

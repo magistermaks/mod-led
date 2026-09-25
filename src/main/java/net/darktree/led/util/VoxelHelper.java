@@ -4,7 +4,7 @@ import net.minecraft.world.phys.shapes.BooleanOp;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-public class Util {
+public class VoxelHelper {
 
     public static VoxelShape box(int x1, int y1, int z1, int x2, int y2, int z2) {
 

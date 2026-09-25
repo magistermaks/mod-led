@@ -12,6 +12,7 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.BiFunction;
@@ -19,7 +20,7 @@ import java.util.function.Function;
 
 public class RegistryHelper {
 
-    private static final List<ClientDelegate> DELEGATES = new ArrayList<>();
+    private static final List<LedDelegate> DELEGATES = new ArrayList<>();
 
     public static final LedBlockSet FIXTURES = new LedBlockSet();
     public static final CreativeModeTab GROUP = FabricCreativeModeTab.builder()
@@ -41,19 +42,20 @@ public class RegistryHelper {
         return BlockBehaviour.Properties.of().setId(ResourceKey.create(Registries.BLOCK, id));
     }
 
-    public static Item registerSimpleItem(String name) {
-        Item item = new Item(createItemSettings(id(name)));
+    public static Item registerItem(String name, Function<Item.Properties, Item> function) {
+        Item item = function.apply(createItemSettings(id(name)));
         RegistryHelper.registerItem(id(name), item);
         return item;
     }
 
-    public static void registerFixture(LedFixture fixture, LedVariant variant, Function<BlockBehaviour.Properties, Block> supplier, LedVariant.RecipeFactory factory) {
+    public static void registerFixture(LedFixture fixture, LedVariant variant, BiFunction<BlockBehaviour.Properties, LedType, Block> supplier, LedVariant.RecipeFactory factory) {
         final String name = variant.getName(fixture.getId());
 
         for (DyeColor color : DyeColor.values()) {
             final Identifier id = id(name + "_" + color.getName());
 
-            final Block block = supplier.apply(createBlockSettings(id));
+            final LedType type = new LedType(fixture, variant, color);
+            final Block block = supplier.apply(createBlockSettings(id), type);
             final Item item = new BlockItem(block, createItemSettings(id).useBlockDescriptionPrefix());
 
             addToGroup(item);
@@ -61,11 +63,11 @@ public class RegistryHelper {
             registerBlock(id, block);
 
             FIXTURES.setBlock(fixture, variant, color, block);
-            DELEGATES.add(new ClientDelegate(color, fixture, variant, block, item, id, factory));
+            DELEGATES.add(new LedDelegate(type, block, item, id, factory));
         }
     }
 
-    public static void registerFixture(LedFixture fixture, LedVariant variant, Function<BlockBehaviour.Properties, Block> supplier) {
+    public static void registerFixture(LedFixture fixture, LedVariant variant, BiFunction<BlockBehaviour.Properties, LedType, Block> supplier) {
         registerFixture(fixture, variant, supplier, variant.getRecipeFactory(fixture.getPattern(), fixture));
     }
 
@@ -81,7 +83,7 @@ public class RegistryHelper {
         Registry.register(BuiltInRegistries.BLOCK, id, block);
     }
 
-    public static List<ClientDelegate> getClientDelegates() {
+    public static List<LedDelegate> getClientDelegates() {
         return DELEGATES;
     }
 

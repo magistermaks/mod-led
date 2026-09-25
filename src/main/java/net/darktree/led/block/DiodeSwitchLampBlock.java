@@ -1,5 +1,6 @@
 package net.darktree.led.block;
 
+import net.darktree.led.util.LedType;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
@@ -12,8 +13,8 @@ import net.minecraft.world.phys.BlockHitResult;
 
 public class DiodeSwitchLampBlock extends DiodeButtonLampBlock {
 
-    public DiodeSwitchLampBlock(BlockBehaviour.Properties settings) {
-        super(settings);
+    public DiodeSwitchLampBlock(BlockBehaviour.Properties settings, LedType type) {
+        super(settings, type);
     }
 
     @Override

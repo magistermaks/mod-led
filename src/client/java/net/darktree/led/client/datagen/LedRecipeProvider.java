@@ -1,7 +1,7 @@
 package net.darktree.led.client.datagen;
 
 import net.darktree.led.LED;
-import net.darktree.led.util.ClientDelegate;
+import net.darktree.led.util.LedDelegate;
 import net.darktree.led.util.RegistryHelper;
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
@@ -14,7 +14,6 @@ import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Recipe;
-import org.jspecify.annotations.NonNull;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,12 +26,12 @@ public class LedRecipeProvider extends FabricRecipeProvider {
 	}
 
 	@Override
-	protected @NonNull RecipeProvider createRecipeProvider(HolderLookup.@NonNull Provider registries, @NonNull BootstrapContext<Recipe<?>> recipes, @NonNull BootstrapContext<Advancement> advancements) {
+	protected RecipeProvider createRecipeProvider(HolderLookup.Provider registries, BootstrapContext<Recipe<?>> recipes, BootstrapContext<Advancement> advancements) {
 		return new Generator(recipes, advancements);
 	}
 
 	@Override
-	public @NonNull String getName() {
+	public String getName() {
 		return "LedRecipeProvider";
 	}
 
@@ -42,7 +41,7 @@ public class LedRecipeProvider extends FabricRecipeProvider {
 			super(recipes, advancements);
 		}
 
-		private void generateFixtureRecipes(List<ClientDelegate.RecipeInfo> recipes) {
+		private void generateFixtureRecipes(List<LedDelegate.RecipeInfo> recipes) {
 
 			Advancement.Builder advancement = output.advancement()
 					.addCriterion("has_led", has(LED.LED))
@@ -50,7 +49,7 @@ public class LedRecipeProvider extends FabricRecipeProvider {
 
 			AdvancementRewards.Builder rewards = new AdvancementRewards.Builder();
 
-			for (ClientDelegate.RecipeInfo info : recipes) {
+			for (LedDelegate.RecipeInfo info : recipes) {
 				rewards.addRecipe(info.key());
 				output.accept(info.key(), info.recipe(), null);
 			}
@@ -63,7 +62,7 @@ public class LedRecipeProvider extends FabricRecipeProvider {
 		@Override
 		public void buildRecipes() {
 
-			List<ClientDelegate.RecipeInfo> recipes = new ArrayList<>();
+			List<LedDelegate.RecipeInfo> recipes = new ArrayList<>();
 			RegistryHelper.getClientDelegates().forEach(delegate -> delegate.addRecipes(recipes));
 			generateFixtureRecipes(recipes);
 

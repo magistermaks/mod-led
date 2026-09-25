@@ -1,6 +1,6 @@
 package net.darktree.led.block;
 
-import net.darktree.led.util.LedVariant;
+import net.darktree.led.util.LedType;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.util.RandomSource;
@@ -18,16 +18,21 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import org.jspecify.annotations.Nullable;
 
 public class DirectionalDiodeLampBlock extends DiodeLampBlock {
 
     protected static final EnumProperty<Direction> FACING = BlockStateProperties.FACING;
     private final VoxelShape[] shapes;
 
-    public DirectionalDiodeLampBlock(BlockBehaviour.Properties settings, LedVariant variant, VoxelShape[] shapes) {
-        super(settings, variant);
+    public DirectionalDiodeLampBlock(BlockBehaviour.Properties settings, LedType type, VoxelShape[] shapes) {
+        super(settings, type);
         this.shapes = shapes;
         registerDefaultState( defaultBlockState().setValue(FACING, Direction.NORTH) );
+    }
+
+    public BlockState applyState(BlockState from, BlockState to) {
+        return super.applyState(from, to).setValue(FACING, from.getValue(FACING));
     }
 
     @Override
@@ -41,7 +46,7 @@ public class DirectionalDiodeLampBlock extends DiodeLampBlock {
     }
 
     @Override
-    public BlockState getStateForPlacement(BlockPlaceContext ctx) {
+    public @Nullable BlockState getStateForPlacement(BlockPlaceContext ctx) {
         Direction direction = ctx.getNearestLookingDirections()[0];
         LevelAccessor worldAccess = ctx.getLevel();
 
@@ -49,7 +54,7 @@ public class DirectionalDiodeLampBlock extends DiodeLampBlock {
             return defaultBlockState().setValue(FACING, direction);
         }
 
-        return null;
+        return super.getStateForPlacement(ctx);
     }
 
     @Override
